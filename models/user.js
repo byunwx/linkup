@@ -21,8 +21,8 @@ module.exports = function(sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
   User.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
+    // Associating user with link
+    // When an user is deleted, also delete any associated link
     User.hasMany(models.Link, {
       onDelete: "cascade"
     });
