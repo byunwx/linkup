@@ -9,18 +9,18 @@ $(document).ready(function() {
   const numbersValidate = "1234567890";
   const stringValidate = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
-  emailCheck.on("blur", ()=>{
+  $("#email-check").on("blur", ()=>{
     if (emailInput.val().trim() != emailCheck.val().trim()) {
       $("#alert").text("NOT MATCHING PASSWORD");
-      emailCheck.style.backgorund="red";
+      document.getElementById("email-check").style.background="red";
     }
-  })
-  passwordCheck.on("blur", ()=>{
+  });
+  $("#password-check").on("blur", ()=>{
     if (passwordInput.val().trim() != passwordCheck.val().trim()) {
       $("#alert").text("NOT MATCHING PASSWORD");
-      passwordCheck.style.backgorund="red";
+      document.getElementById("password-check").style.background="red";
     }
-  })
+  });
   birthday.on("blur", ()=>{
     console.log(birthday.val());
   })
@@ -59,7 +59,7 @@ $(document).ready(function() {
     });
 
     function signUpUser(email, password, birthday) {
-      $.post("/api/signup", {
+      $.post("/api/user/signup", {
         email: email,
         password: password,
         birthday: birthday
