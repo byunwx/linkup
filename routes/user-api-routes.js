@@ -40,8 +40,29 @@ module.exports = (app) => {
             res.json(data
               //   we can insert any other information we would like to parse out from the User objec
             )// will be edited to not display user password
-        })
 
-      }
-  })
+        })
+    }});
+    app.get("/logout", function (req, res) {
+        req.logout();
+        res.redirect("/");
+    })
+    app.get("/api/user/data", function (req, res) {
+        //   console.log(req.user)
+        if (!req.user) {
+            res.json({})
+        } else {
+            db.User.findOne({
+                include: [db.Link],
+                where: {
+                    id: req.user.id
+                }
+            }).then(function (data) {
+                res.json(data
+                    //   we can insert any other information we would like to parse out from the User objec
+                ) // will be edited to not display user password
+            })
+
+        }
+    })
 }

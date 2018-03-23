@@ -11,15 +11,25 @@ $(document).ready(function() {
   const stringValidate = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
   $("#email-check").on("blur", function(){
-    if (emailInput.val().trim() != emailCheck.val().trim()) {
-      $("#alert").text("NOT MATCHING PASSWORD");
+    if (emailInput.val().trim() != emailCheck.val().trim() || emailInput.val().trim()==" " ) {
+      $("#alert").html("<p>NOT MATCHING PASSWORD</p>");
       document.getElementById("email-check").style.background="red";
+    }else{
+      document.getElementById("email-check").style.background="lightgreen";
     }
   });
   $("#password-check").on("blur", function(){
     if (passwordInput.val().trim() != passwordCheck.val().trim()) {
       $("#alert").text("NOT MATCHING PASSWORD");
       document.getElementById("password-check").style.background="red";
+    } else if (passwordInput.val().trim().length < 6) {
+      $("#alert").text("YOUR PASSWORD NEED TO BE AT LEAST 6 CHARACTORS");
+      document.getElementById("password-check").style.background="red";
+    } else if (numbersValidate.indexOf(passwordInput.val().trim()) < 0 && stringValidate.indexOf(passwordInput.val().trim()) < 0) {
+      $("#alert").text("YOUR PASSWORD NEED AT LEAST ONE NUMBER AND ONE CHARACTOR");
+      document.getElementById("password-check").style.background="red";
+    } else{
+      document.getElementById("password-check").style.background="lightgreen";
     }
   });
   birthday.on("blur", function(){

@@ -21,7 +21,7 @@ module.exports  = (app)=>{
         .then((data)=>{
             res.json(data) // will be edited to not display user password
 
-        })
+            })
     })
     // find all the information for a specific link
     app.get("/api/link/:id",(req,res)=>{
