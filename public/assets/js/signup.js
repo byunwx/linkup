@@ -6,12 +6,16 @@ $(document).ready(function() {
   const numbersValidate= "1234567890";
   const stringValidate="qwertyuiopasdfghjklzxcvbnm";
 
-if (passwordInput.val().trim().length>6) {
-
+if (passwordInput.val().trim().length<6) {
+  $("#alert").text("YOUR PASSWORD NEED TO BE AT LEAST 6 CHARACTORS");
+} else if (numbersValidate.indexOf(passwordInput.val().trim())<0 && stringValidate.indexOf(passwordInput.val().trim())<0) {
+  $("#alert").text("YOUR PASSWORD NEED AT LEAST ONE NUMBER AND ONE CHARACTOR");
+} else{
+  submitFinal();
 }
 
 function submitFinal(){
-  signUpForm.on("submit", function(event) {
+  signUpForm.on("submit", event=> {
     event.preventDefault();
     const userData = {
       email: emailInput.val().trim(),
@@ -19,9 +23,6 @@ function submitFinal(){
     };
 
     if (!userData.email || !userData.password) {
-      $("#alert").text("EMAIL OR PASSWORD DOES NOT MATCH");
-      emailInput.val("");
-      passwordInput.val("");
       return;
 
     }
@@ -34,7 +35,7 @@ function submitFinal(){
     $.post("/api/signup", {
       email: email,
       password: password
-    }).then(function(data) {
+    }).then(data=> {
       window.location.replace(data);
     }).catch(handleLoginErr);
   }
