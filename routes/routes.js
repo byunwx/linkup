@@ -1,4 +1,5 @@
 const path = require("path");
+const db = require("../models");
 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -20,6 +21,10 @@ app.get("/user/:userid", (req,res)=>{
     if (!req.user){
         res.redirect("/");
     }
-    let placeholder;
-    res.render("user", placeholder)
+    db.User.findOne({
+            include: [db.Link],
+            where: {id:req.params.id}
+    }).then((data)=>{
+        res.render("user", data)
+    })
 })

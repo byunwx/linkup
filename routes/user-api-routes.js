@@ -4,8 +4,7 @@ const passport = require("../config/passport");
 module.exports = (app) => {
     // Handles login functionality
   app.post("/api/user/login", passport.authenticate("local"), (req,res)=>{
-    // res here will route us to the logged in member page
-    res.json()
+    res.json("/home")
   });
 
   app.post("/api/user/signup", (req, res)=>{
@@ -15,7 +14,7 @@ module.exports = (app) => {
           email: req.body.email,
           password: req.body.password
       }).then(()=>{
-          res.redirect(307, "/api/login")
+          res.redirect(307, "/api/user/login")
       }).catch((err)=>{
           console.log(err)
           res.json (err)
