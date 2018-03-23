@@ -2,6 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var session = require("express-session");
+var path = require('path');
 // middleware
 //Session data is not saved in the cookie itself, just the session ID. Session data is stored server-side.
 var passport = require("./config/passport");
@@ -16,6 +17,11 @@ app.use(express.static("public"));
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true })); //session middleware init
 app.use(passport.initialize());
 app.use(passport.session());
+
+var exphbs = require("express-handlebars");
+//handlebars init
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 require("./routes/routes.js")(app);
 require("./routes/api-routes.js")(app);
