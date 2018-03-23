@@ -1,0 +1,30 @@
+{
+  "name": "linkstagram",
+  "version": "1.0.0",
+  "description": "## html pages * login, upload, result, profile, landing",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byunwx/linkstagram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byunwx/linkstagram/issues"
+  },
+  "homepage": "https://github.com/byunwx/linkstagram#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mysql2": "^1.5.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.37.4"
+  }
+}
