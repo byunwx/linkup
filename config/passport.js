@@ -1,24 +1,22 @@
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
-var db = require("../models");
+const db = require("../models");
 
-passport.use(new LocalStrategy(
-  {
+passport.use(new LocalStrategy({
     usernameField: "email"
   },
-  function(email, password, done) {
+  (email, password, done) => {
     db.User.findOne({
       where: {
         email: email
       }
-    }).then(function(dbUser) {
+    }).then((dbUser) => {
       if (!dbUser) {
         return done(null, false, {
           message: "Incorrect email."
         });
-      }
-      else if (!dbUser.validPassword(password)) {
+      } else if (!dbUser.validPassword(password)) {
         return done(null, false, {
           message: "Incorrect password."
         });
@@ -28,11 +26,11 @@ passport.use(new LocalStrategy(
   }
 ));
 
-passport.serializeUser(function(user, cb) {
+passport.serializeUser((user, cb) => {
   cb(null, user);
 });
 
-passport.deserializeUser(function(obj, cb) {
+passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 

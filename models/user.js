@@ -1,6 +1,6 @@
-var bcrypt = require("bcrypt-nodejs");
-module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
+const bcrypt = require("bcrypt-nodejs");
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define("User", {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,13 +14,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-  User.prototype.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
-  };
-  User.hook("beforeCreate", function(user) {
+  User.prototype.validPassword = password => bcrypt.compareSync(password, this.password);
+  User.hook("beforeCreate", (user) => {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
-  User.associate = function(models) {
+  User.associate = models => {
     // Associating user with link
     // When an user is deleted, also delete any associated link
     User.hasMany(models.Link, {
