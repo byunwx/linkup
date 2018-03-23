@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    birthday: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
     }
   });
   User.prototype.validPassword = password => bcrypt.compareSync(password, this.password);
@@ -22,10 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     // Associating user with link
     // When an user is deleted, also delete any associated link
     User.hasMany(models.Link, {
-      onDelete: "cascade"
+      onDelete: "SET NULL"
     });
   };
   return User;
 };
-
-// need to make birthday column

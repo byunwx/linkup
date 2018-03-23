@@ -12,26 +12,26 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       len: [1]
     },
-    discription: {
+    description: {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    totalclickedcount: {
+    totalClicks: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 0
     },
-    dailyclickcount: {
+    dailyClicks: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 0
     },
-    majorsite: {
+    top500: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
     },
-    share: {
+    shared: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
@@ -39,11 +39,9 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Link.associate = models => {
-    // We're saying that a link should belong to an user
-    // A link can't be created without an user due to the foreign key constraint
     Link.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };
