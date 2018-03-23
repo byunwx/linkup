@@ -14,7 +14,7 @@ module.exports  = function(app){
     // find all links in database
     app.get("/api/link/data", function(req,res){
         db.Link.findAll({
-            where:{include:db.User}
+            where:{include:[db.User]}
         })
         .then(function(data){
             res.json(data) // will be edited to not display user password
