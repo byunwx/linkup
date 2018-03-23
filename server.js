@@ -31,7 +31,8 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 require("./routes/routes.js")(app);
-require("./routes/api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
+require("./routes/link-api-routes.js")(app);
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
