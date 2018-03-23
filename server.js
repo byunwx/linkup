@@ -6,13 +6,8 @@ const path = require('path');
 //Session data is not saved in the cookie itself, just the session ID. Session data is stored server-side.
 const passport = require("./config/passport");
 //Passport uses the concept of strategies to authenticate requests.
-<<<<<<< HEAD
-var PORT = process.env.PORT || 3000;
-var db = require("./models");
-=======
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
->>>>>>> 799fcbe053ab5a44e5a3eae7666935db5d8b05d9
 
 const app = express();
 app.use(bodyParser.urlencoded({
@@ -36,16 +31,10 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 require("./routes/routes.js")(app);
-<<<<<<< HEAD
-require("./routes/user-api-routes.js")(app);
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-=======
 require("./routes/api-routes.js")(app);
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
->>>>>>> 799fcbe053ab5a44e5a3eae7666935db5d8b05d9
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 });
