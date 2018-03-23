@@ -1,33 +1,40 @@
-
-var express = require("express");
-var bodyParser = require("body-parser");
-var session = require("express-session");
-var path = require('path');
+const express = require("express");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const path = require('path');
 // middleware
 //Session data is not saved in the cookie itself, just the session ID. Session data is stored server-side.
-var passport = require("./config/passport");
+const passport = require("./config/passport");
 //Passport uses the concept of strategies to authenticate requests.
-var PORT = process.env.PORT || 8080;
-var db = require("./models");
+const PORT = process.env.PORT || 8080;
+const db = require("./models");
 
-var app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+const app = express();
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true })); //session middleware init
+app.use(session({
+  secret: "keyboard cat",
+  resave: true,
+  saveUninitialized: true
+})); //session middleware init
 app.use(passport.initialize());
 app.use(passport.session());
 
-var exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 //handlebars init
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({
+  defaultLayout: "main"
+}));
 app.set("view engine", "handlebars");
 
 require("./routes/routes.js")(app);
 require("./routes/api-routes.js")(app);
 
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync().then(() => {
+  app.listen(PORT, () => {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 });
