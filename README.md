@@ -9,6 +9,6 @@
 * Bcript (id)
 
 ## models
-* users - account_name, createdtime, updatedtime
+* users - account_name, createdtime, updatedtime, birthday
 * links - title, url, createdtime, updatedtime, totalclickedcount, dailyclickcount, users_id
 * comments - comments, links_id, users_id
