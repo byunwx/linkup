@@ -1,49 +1,76 @@
 $(document).ready(function() {
   const signUpForm = $("form.signup");
   const emailInput = $("input#email-input");
+  const emailCheck = $("input#email-check");
   const passwordInput = $("input#password-input");
+  const passwordCheck = $("input#email-check");
+  const birthday= $("input#birthday");
 
-  const numbersValidate= "1234567890";
-  const stringValidate="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+  const numbersValidate = "1234567890";
+  const stringValidate = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
-if (passwordInput.val().trim().length<6) {
-  $("#alert").text("YOUR PASSWORD NEED TO BE AT LEAST 6 CHARACTORS");
-} else if (numbersValidate.indexOf(passwordInput.val().trim())<0 && stringValidate.indexOf(passwordInput.val().trim())<0) {
-  $("#alert").text("YOUR PASSWORD NEED AT LEAST ONE NUMBER AND ONE CHARACTOR");
-} else{
-  submitFinal();
-}
-
-function submitFinal(){
-  signUpForm.on("submit", event=> {
-    event.preventDefault();
-    const userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim(),
-      date:
-    };
-
-    if (!userData.email || !userData.password) {
-      return;
-
+  emailCheck.on("blur", ()=>{
+    if (emailInput.val().trim() != emailCheck.val().trim()) {
+      $("#alert").text("NOT MATCHING PASSWORD");
+      emailCheck.style.backgorund="red";
     }
-    signUpUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
-  });
+  })
+  passwordCheck.on("blur", ()=>{
+    if (passwordInput.val().trim() != passwordCheck.val().trim()) {
+      $("#alert").text("NOT MATCHING PASSWORD");
+      passwordCheck.style.backgorund="red";
+    }
+  })
+  birthday.on("blur", ()=>{
+    console.log(birthday.val());
+  })
 
-  function signUpUser(email, password) {
-    $.post("/api/signup", {
-      email: email,
-      password: password
-    }).then(data=> {
-      window.location.replace(data);
-    }).catch(handleLoginErr);
-  }
+  signUpForm.on("submit", event => {
+      event.preventDefault();
+      if (emailInput.val().trim() != emailCheck.val().trim() || passwordInput.val().trim() != passwordCheck.val().trim()) {
+        $("#alert").text("NOT MATCHING EMAIL OR PASSWORD");
+      } else if (true) {
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-  }
-}
+      } else if (passwordInput.val().trim().length < 6) {
+        $("#alert").text("YOUR PASSWORD NEED TO BE AT LEAST 6 CHARACTORS");
+        return;
+      } else if (numbersValidate.indexOf(passwordInput.val().trim()) < 0 && stringValidate.indexOf(passwordInput.val().trim()) < 0) {
+        $("#alert").text("YOUR PASSWORD NEED AT LEAST ONE NUMBER AND ONE CHARACTOR");
+        return;
+      } else {
+        return submitFinal();
+      };
+
+      function submitFinal() {
+        const userData = {
+          email: emailInput.val().trim(),
+          password: passwordInput.val().trim(),
+          birthday: birthday.val()
+        };
+
+        if (!userData.email || !userData.password) {
+          return;
+
+        }
+        signUpUser(userData.email, userData.password);
+        emailInput.val("");
+        passwordInput.val("");
+      }
+    });
+
+    function signUpUser(email, password, birthday) {
+      $.post("/api/signup", {
+        email: email,
+        password: password,
+        birthday: birthday
+      }).then(data => {
+        window.location.replace(data);
+      }).catch(handleLoginErr);
+    }
+
+    function handleLoginErr(err) {
+      $("#alert .msg").text(err.responseJSON);
+      $("#alert").fadeIn(500);
+    }
+
 });
