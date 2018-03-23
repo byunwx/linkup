@@ -7,7 +7,9 @@ module.exports  = (app)=>{
         db.Link.create({
             title: req.body.title,
             url: req.body.url,
-            discription: req.body.description
+            discription: req.body.description,
+            shared: req.body.shared,
+            top500: req.body.top500
             // major site functionality will be witten into this line
         })
     })

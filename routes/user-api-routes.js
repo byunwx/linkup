@@ -5,6 +5,7 @@ module.exports = (app) => {
     // Handles login functionality
   app.post("/api/user/login", passport.authenticate("local"), (req,res)=>{
     // res here will route us to the logged in member page
+    res.json()
   });
 
   app.post("/api/user/signup", (req, res)=>{
