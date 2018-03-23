@@ -34,9 +34,9 @@ module.exports = function(app) {
             include: [db.Link],
             where: {id:req.user.id}
         }).then(function(data){
-            res.json({data
+            res.json(data
               //   we can insert any other information we would like to parse out from the User objec
-            })
+            )// will be edited to not display user password
         })
 
       }
