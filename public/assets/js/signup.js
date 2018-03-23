@@ -4,7 +4,7 @@ $(document).ready(function() {
   const passwordInput = $("input#password-input");
 
   const numbersValidate= "1234567890";
-  const stringValidate="qwertyuiopasdfghjklzxcvbnm";
+  const stringValidate="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
 if (passwordInput.val().trim().length<6) {
   $("#alert").text("YOUR PASSWORD NEED TO BE AT LEAST 6 CHARACTORS");
@@ -19,7 +19,8 @@ function submitFinal(){
     event.preventDefault();
     const userData = {
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
+      date:
     };
 
     if (!userData.email || !userData.password) {
