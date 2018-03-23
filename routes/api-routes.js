@@ -1,6 +1,6 @@
-var db = require("../models");
-var passport = require("../config/passport");
+const db = require("../models");
+const passport = require("../config/passport");
 
-module.exports = function(app) {
-  
+module.exports = app => {
+
 }

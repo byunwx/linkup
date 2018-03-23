@@ -1,7 +1,7 @@
-var path = require("path");
+const path = require("path");
 
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function(app) {
-  
+module.exports = app => {
+
 }

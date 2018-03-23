@@ -1,5 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
-  var Link = sequelize.define("Link", {
+module.exports = (sequelize, DataTypes) => {
+  const Link = sequelize.define("Link", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -12,33 +12,33 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     },
-    discription:{
+    discription: {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    totalclickedcount:{
+    totalclickedcount: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 0
     },
-    dailyclickcount:{
+    dailyclickcount: {
       type: DataTypes.INTEGER,
-      allowNull:false,
+      allowNull: false,
       defaultValue: 0
     },
-    majorsite:{
+    majorsite: {
       type: DataTypes.BOOLEAN,
-      allowNull:false,
+      allowNull: false,
       defaultValue: false
     },
-    share:{
+    share: {
       type: DataTypes.BOOLEAN,
-      allowNull:false,
+      allowNull: false,
       defaultValue: true
     }
   });
 
-  Link.associate = function(models) {
+  Link.associate = models => {
     // We're saying that a link should belong to an user
     // A link can't be created without an user due to the foreign key constraint
     Link.belongsTo(models.User, {
@@ -47,6 +47,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-
   return Link;
 };
