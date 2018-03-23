@@ -74,5 +74,5 @@ $(document).ready(function() {
       $("#alert .msg").text(err.responseJSON);
       $("#alert").fadeIn(500);
     }
-
+    });
 });
