@@ -46,10 +46,7 @@ newLinkSubmit.on("click", function(event) {
      } else {
        $("#validation-modal").modal('toggle');
      }
-
-
-
-
+     
 });
 
 function enterLink(linkData) {
