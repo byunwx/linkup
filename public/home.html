@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
@@ -50,10 +52,10 @@
                 <label for="site-url">Site URL:</label>
                 <input type="text" class="form-control" id="site-url" placeholder="https://www.amazon.com">
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group"> -->
                 <label for="site-desscription">Site Description</label>
-                <textarea class="form-control" id="site-desscription" rows="3" placeholder="Enter a brief description of the website"></textarea>
-              </div>
+                <textarea class="form-control" id="site-description" rows="3" placeholder="Enter a brief description of the website"></textarea>
+              <!-- </div> -->
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="false" id="not-share">
                 <label class="form-check-label" for="not-share">
@@ -68,6 +70,14 @@
         </div>
       </div>
     </div>
-</body>
+
+    <div id="validation-modal" class="modal fade bd-example-modal-lg validation-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <p>Please enter the title, url, and description fields before submitting.</p>
+        </div>
+      </div>
+    </div>
+
 
 </html>

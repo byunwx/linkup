@@ -1,47 +1,69 @@
 $(document).ready(function() {
   console.log("I'm in the form");
-  const newLinkForm = $("#new-link-submit");
+  const newLinkSubmit = $("#new-link-submit");
   const titleInput = $("#site-title");
   const urlInput = $("#site-url");
   const siteDescription = $("#site-description");
-  // const notShared = ("#not-shared");
+  const notShared = $("#not-shared");
 
-newLinkForm.on("click", function(event) {
+newLinkSubmit.on("click", function(event) {
   console.log("submited first");
   event.preventDefault();
 
-  function submitFinal() {
     console.log("called second");
     const linkData = {
       title: titleInput.val().trim(),
       url: urlInput.val().trim(),
       description: siteDescription.val(),
-      // shared: notShared.val()
+      shared: notShared.val()
     };
 
-    if (!linkData.url) {
-      return;
-      console.log(linkData);
-    }
+    // Form validation
+     function formValidation() {
+       var isValid = true
+         if (titleInput.val() === '') {
+           isValid = false
+         }
+        // end of each of the .form-control function
+         if (urlInput.val() === '') {
+           isValid = false;
+         } // end of this.val()
+         if (siteDescription.val() === '') {
+           isValid = false;
+         } // end of this.val()
+       return isValid;
+     } // end of formValidation function
 
-    enterLink(linkData.title, linkData.url, linkData.description);
-    titleInput.val("");
-    urlInput.val("");
-    siteDescription.val("");
-    // notShared.val("");
-  }
-  submitFinal();
+     if (formValidation()){
+
+       enterLink(linkData);
+       // clear value only after we enter the link.
+       titleInput.val("");
+       urlInput.val("");
+       siteDescription.val("");
+       notShared.val("");
+
+     } else {
+       $("#validation-modal").modal('toggle');
+     }
+
+
+
+
 });
 
-function enterLink(title, url, description) {
+function enterLink(linkData) {
   console.log("called third");
-  $.post("api/link/new", {
-    title: title,
-    url: url,
-    description: description,
+  console.log(linkData);
+
+  $.post('api/link/new/', {
+    title: linkData.title,
+    url: linkData.url,
+    description: linkData.description
     // shared: shared
   }).then(data => {
-    console.log(data);
+    console.log(data)
+    console.log("data Log");
   }).catch(handleSubmitError);
 }
 

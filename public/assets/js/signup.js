@@ -52,7 +52,7 @@ $(document).ready(function() {
       // };
 
       function submitFinal() {
-        console.log("called second")
+        console.log("logged second")
         const userData = {
           email: emailInput.val().trim(),
           password: passwordInput.val().trim(),
