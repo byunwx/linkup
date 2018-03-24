@@ -10,6 +10,9 @@ newLinkSubmit.on("click", function(event) {
   console.log("submited first");
   event.preventDefault();
 
+  // code to validate url Here
+  // code to validate checkbox Here.
+
     console.log("called second");
     const linkData = {
       title: titleInput.val().trim(),
@@ -46,7 +49,7 @@ newLinkSubmit.on("click", function(event) {
      } else {
        $("#validation-modal").modal('toggle');
      }
-     
+
 });
 
 function enterLink(linkData) {
@@ -56,8 +59,8 @@ function enterLink(linkData) {
   $.post('api/link/new/', {
     title: linkData.title,
     url: linkData.url,
-    description: linkData.description
-    // shared: shared
+    description: linkData.description,
+    shared: linkData.shared
   }).then(data => {
     console.log(data)
     console.log("data Log");
