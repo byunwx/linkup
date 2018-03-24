@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script src="./assets/js/newlink.js"></script>
+    <title>linkstagram</title>
+</head>
+
+<body>
+    <h1>Home - Followers</h1>
+    <div class="container-fluid">
+        <div id="links-div">
+
+        </div>
+    </div>
+    <footer class="footer">
+        <button class="btn">LoggedInUsername</button>
+        <!-- Button trigger  login modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-link-modal">Add Link</button>
+        <button class="btn">Search</button>
+    </footer>
+
+    <!-- New Links Modal -->
+    <div class="modal fade login-modal" id="add-link-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="add-link-title">Share Your Links Here</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="add-link">
+              <div class="form-group">
+                <label for="site-title">Site Title:</label>
+                <input type="text" class="form-control" id="site-title" placeholder="Name of Site">
+              </div>
+              <div class="form-group">
+                <label for="site-url">Site URL:</label>
+                <input type="text" class="form-control" id="site-url" placeholder="https://www.amazon.com">
+              </div>
+              <div class="form-group">
+                <label for="site-desscription">Site Description</label>
+                <textarea class="form-control" id="site-desscription" rows="3" placeholder="Enter a brief description of the website"></textarea>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="false" id="not-share">
+                <label class="form-check-label" for="not-share">
+                  Check here if you DO NOT want to share this link.
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button id="new-link-submit" type="button" class="btn btn-primary">Submit Link</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

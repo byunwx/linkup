@@ -1,11 +1,12 @@
 $(document).ready(function() {
-  const newLinkForm = $(".add-link");
+  console.log("I'm in the form");
+  const newLinkForm = $("#new-link-submit");
   const titleInput = $("#site-title");
   const urlInput = $("#site-url");
   const siteDescription = $("#site-description");
-  const notShared = ("#not-shared");
+  // const notShared = ("#not-shared");
 
-newLinkForm.on("submit", function(event) {
+newLinkForm.on("click", function(event) {
   console.log("submited first");
   event.preventDefault();
 
@@ -15,28 +16,30 @@ newLinkForm.on("submit", function(event) {
       title: titleInput.val().trim(),
       url: urlInput.val().trim(),
       description: siteDescription.val(),
-      shared: notShared.val()
+      // shared: notShared.val()
     };
 
-    // if (!linkData.url) {
-    //   return;
-    // }
-    enterLink(linkData.title, Data.url, linkData.description, linkData.shared);
+    if (!linkData.url) {
+      return;
+      console.log(linkData);
+    }
+
+    enterLink(linkData.title, linkData.url, linkData.description);
     titleInput.val("");
     urlInput.val("");
     siteDescription.val("");
-    notShared.val("");
+    // notShared.val("");
   }
   submitFinal();
 });
 
-function enterLink(title, url, description, shared) {
+function enterLink(title, url, description) {
   console.log("called third");
-  $.post("api/link/data", {
+  $.post("api/link/new", {
     title: title,
     url: url,
     description: description,
-    shared: shared
+    // shared: shared
   }).then(data => {
     console.log(data);
   }).catch(handleSubmitError);
