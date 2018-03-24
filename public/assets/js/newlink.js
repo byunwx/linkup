@@ -4,4 +4,8 @@ $(document).ready(function() {
   const urlInput = $("#site-url");
   const siteDescription = $("#site-description");
   const notShared = ("#not-shared");
-})
+
+
+
+
+}) // end of document.ready
