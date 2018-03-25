@@ -1,0 +1,105 @@
+<!-- Navigation bar with logo -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="./assets/images/link.jpeg" width="30" height="30" alt="">
+  </a>
+</nav>
+<!-- Jumbotron containing Title, short description and login/signup buttons -->
+  <div class="jumbotron-fluid">
+  <div class="container main-container">
+    <h1 class="display-4">Linkstagram</h1>
+    <p class="lead">Welcome to Linstagram.  Keep track of the favorite site you've visited and see where your friends have navigated.  See the top websites and get recommendations from your friends on where to go for various categories.  DISCOVER sites you never knew existed.</p>
+    <br>
+    <div class="login-signup">
+      <!-- Button trigger  login modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login-modal">Login</button>
+      <!-- Button trigger  signup modal -->
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup-modal">Sign Up Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- container for developer's sites -->
+<div class="container">
+  <div class="row dev-link-row">
+      {{> links/link}}
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade login-modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLongTitle">Link Up With Your Friends</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="login">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="email-input" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="password-input" placeholder="Password">
+      </div>
+    </form>
+    <br />
+    <p>Not a member? <a href="/">Link Up</a></p>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button id="login-submit" type="button" class="btn btn-primary">Login</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Sign Up Modal -->
+<div class="modal fade signup-modal" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Link Up With Your Friends</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <form class="signup">
+         <div class="form-group">
+           <label for="exampleInputEmail1">Email address</label>
+           <input type="email" class="form-control" id="email-input" placeholder="Email">
+         </div>
+         <div class="form-group">
+           <label for="exampleInputEmail">Confirm Email</label>
+           <input type="email" class="form-control" id="email-check" placeholder="Email">
+         </div>
+         <div class="form-group">
+           <label for="exampleInputPassword1">Password</label>
+           <input type="password" class="form-control" id="password-input" placeholder="Password">
+         </div>
+         <div class="form-group">
+           <label for="exampleInputPassword">Confirm Password</label>
+           <input type="password" class="form-control" id="password-check" placeholder="Password">
+         </div>
+         <div class="form-group">
+           <label for="birthday">Birthday</label>
+           <br>
+           <input id="birthday" type="date" name="bday">
+         </div>
+           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+           <span class="err-message">Your email or passord is not valid</span>
+         </div>
+       </form>
+       <span id="alert"></span>
+      </div>
+      <div class="modal-footer">
+        <button id="signup-submit" type="button" class="btn btn-primary">Link Up</button>
+      </div>
+    </div>
+  </div>
+</div>
