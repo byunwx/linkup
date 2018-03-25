@@ -2,6 +2,28 @@
   <a class="navbar-brand" href="#"><img src="http://placehold.it/160x60&amp;text=linkstagram" /></a>
 </nav>
 
+<!-- User Info container -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-sm-12">
+			<img class="img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
+      {{> UserImage }}
+  	</div>
+		<div class="col-md-9 col-sm-12">
+			<div class="row">
+				<div class="col">
+					{{> userName }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					{{> userProfile }}
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
 <!-- link cards for the user goes here -->
 <div class="container">
   <div class="row user">
