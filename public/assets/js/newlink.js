@@ -20,11 +20,13 @@ $(document).ready(function() {
 
   // URL validation
   function isValidURL(){
+
     const urlEntered = urlInput.val().trim();
-    console.log(urlEntered);
+
     var urlregex =  /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
     return urlregex.test(urlEntered);
-  }
+
+  } //isValidURL function
 
   newLinkSubmit.on("click", function(event) {
     console.log("submited first");
@@ -41,7 +43,7 @@ $(document).ready(function() {
         shared: notShared.val()
       };
 
-       if (formValidation()){
+       if (formValidation()) {
 
          enterLink(linkData);
          // clear value only after we enter the link.
@@ -51,7 +53,7 @@ $(document).ready(function() {
          notShared.val("");
 
        } else {
-         alert("Please enter all fields before submitting")
+         alert("Please enter all fields and make sure the url is in the correct format before submitting")
         }
 
   }); // end of newLinkSubmit
@@ -84,7 +86,7 @@ $(document).ready(function() {
            isValid = false
          }
         // end of each of the .form-control function
-         if (urlInput.val() === '') {
+         if (urlInput.val() === '' || !isValidURL()) {
            isValid = false;
          } // end of this.val()
          if (siteDescription.val() === '') {
