@@ -50,27 +50,27 @@ newLinkSubmit.on("click", function(event) {
        $("#validation-modal").modal('toggle');
      }
 
-});
+}); // end of newLinkSubmit
 
-function enterLink(linkData) {
-  console.log("called third");
-  console.log(linkData);
+  function enterLink(linkData) {
+    console.log("called third");
+    console.log(linkData);
 
-  $.post('api/link/new/', {
-    title: linkData.title,
-    url: linkData.url,
-    description: linkData.description,
-    shared: linkData.shared
-  }).then(data => {
-    console.log(data)
-    console.log("data Log");
-  }).catch(handleSubmitError);
-}
+    $.post('api/link/new/', {
+      title: linkData.title,
+      url: linkData.url,
+      description: linkData.description,
+      shared: linkData.shared
+    }).then(data => {
+      console.log(data)
+      console.log("data Log");
+    }).catch(handleSubmitError);
 
-function handleSubmitError(err) {
-  $("#alert .msg").text(err.responseJSON);
-  $("#alert").fadeIn(500);
-}
+  } // end of enterlink function
 
+  function handleSubmitError(err) {
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+  }
 
 }); // end of document.ready

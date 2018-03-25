@@ -22,17 +22,16 @@
       </a>
     </nav>
     <!-- Jumbotron containing Title, short description and login/signup buttons -->
-    <div class="jumbotron-fluid" style="background-image: url(./assets/images/blue-lights.jpg); background-size: 100% 100%;">
-      <div class="jumbotron-overlay"></div>
+			<div class="jumbotron-fluid">
       <div class="container main-container">
         <h1 class="display-4">Linkstagram</h1>
-        <p class="lead">Welcome to Linstagram.  Keep track of the favorite site you've visited and see where your friends have navigated.  See the top websites and get recommendations from your friends on where to go for various categories.  DISCOVER sites you never knew existed.</p>
+        <p class="lead">Welcome to Linkstagram. Keep track of the favorite site you've visited and see where your friends have navigated. See the top websites and get recommendations from your friends on where to go for various categories. DISCOVER sites you never knew existed.</p>
         <br>
         <div class="login-signup">
           <!-- Button trigger  login modal -->
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login-modal">Login</button>
           <!-- Button trigger  signup modal -->
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup-modal">Sign Up Now</button>
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup-modal">Sign Up</button>
         </div>
       </div>
     </div>
@@ -40,11 +39,8 @@
     <!-- container for developer's sites -->
     <div class="container">
       <div class="row dev-link-row">
-        <div class="col-6 col-md-3 dev-link-col">
-          <!-- This is where OUR links go -->
-        </div>
+			    {{> links/link}}
       </div>
-
     </div>
 
     <!-- Login Modal -->
@@ -68,7 +64,7 @@
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
         </form>
-        <br />
+        <br>
         <p>Not a member? <a href="/">Link Up</a></p>
         </form>
       </div>
