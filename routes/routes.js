@@ -5,7 +5,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = app => {
 app.get("/", (req,res) =>{
-    let placeholder; //will be redifined through development
+    // let placeholder; //will be redifined through development
     if (req.user){
         res.redirect("/home")
     }
@@ -17,15 +17,13 @@ app.get("/home", isAuthenticated, (req,res)=>{
     let placeholder;//will be redifined through development
     res.render("home", placeholder)
 });
-app.get("/user/:userid", (req,res)=>{
-    if (!req.user){
-        res.redirect("/");
-    }
+//  testing
+app.get("/user/:id", (req,res)=>{
     db.User.findOne({
             include: [db.Link],
             where: {id:req.params.id}
     }).then((data)=>{
-        res.render("user", data)
+        res.json(data)
     })
 });
 }
