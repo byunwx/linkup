@@ -4,8 +4,6 @@ $(document).ready(function() {
   const titleInput = $("#site-title");
   const urlInput = $("#site-url");
   const siteDescription = $("#site-description");
-  const notShared = $("#not-shared");
-
 
   // check url validation on blur
   $("#site-url").on("blur", function(urlEntered){
@@ -32,15 +30,17 @@ $(document).ready(function() {
     console.log("submited first");
     event.preventDefault();
 
-    // code to validate url Here
-    // code to validate checkbox Here.
+    let shareOption = $("#shareOption input:radio:checked").val()
+    console.log(shareOption);
+
+    if ($("privateLink"))
 
       console.log("called second");
       const linkData = {
         title: titleInput.val().trim(),
         url: urlInput.val().trim(),
         description: siteDescription.val(),
-        shared: notShared.val()
+        shared: shareOption
       };
 
        if (formValidation()) {
@@ -50,7 +50,6 @@ $(document).ready(function() {
          titleInput.val("");
          urlInput.val("");
          siteDescription.val("");
-         notShared.val("");
 
        } else {
          alert("Please enter all fields and make sure the url is in the correct format before submitting")
@@ -61,7 +60,7 @@ $(document).ready(function() {
     function enterLink(linkData) {
       console.log("called third");
       console.log(linkData);
-
+  
       $.post('api/link/new/', {
         title: linkData.title,
         url: linkData.url,

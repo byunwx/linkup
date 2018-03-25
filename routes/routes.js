@@ -10,7 +10,7 @@ app.get("/", (req,res) =>{
         res.redirect("/home")
     }
     // res.render("landing", placeholder)
-    res.sendFile(path.join(__dirname, "../public/user.html"));
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
 });
 
 app.get("/home", isAuthenticated, (req,res)=>{

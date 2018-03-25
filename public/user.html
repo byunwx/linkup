@@ -12,10 +12,33 @@
   <title>linkstagram</title>
 </head>
 
+<style media="screen"> .navbar-brand {width: 100%; text-align: center;}</style>
+
 	<body>
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#"><img src="http://placehold.it/160x60&amp;text=linkstagram" /></a>
-    </nav>
+			<a class="navbar-brand" href="#"><img src="http://placehold.it/160x60&amp;text=linkstagram" /></a>
+		</nav>
+
+		<!-- User Info container -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-12">
+					<img class="img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
+				</div>
+				<div class="col-md-9 col-sm-12">
+					<div class="row">
+						<div class="col">
+							{{> userName }}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							{{> userProfile }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
     <!-- link cards for the user goes here -->
     <div class="container">
@@ -57,11 +80,17 @@
                   <label for="site-desscription">Site Description</label>
                   <textarea class="form-control" id="site-description" rows="3" placeholder="Enter a brief description of the website"></textarea>
                 <!-- </div> -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="false" id="not-share">
-                  <label class="form-check-label" for="not-share">
-                    Check here if you DO NOT want to share this link.
-                  </label>
+                <div class="form-check" id="shareOption">
+                  <div class="row">
+                    <div class="col">
+                      <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true" checked>
+                      <label class="form-check-label" for="shareLink">Share</label>
+                    </div>
+                    <div class="col">
+                      <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false">
+                      <label class="form-check-label" for="privateLink">Private</label>
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>

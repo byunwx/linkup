@@ -64,11 +64,17 @@
               <label for="site-desscription">Site Description</label>
               <textarea class="form-control" id="site-description" rows="3" placeholder="Enter a brief description of the website"></textarea>
             <!-- </div> -->
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="false" id="not-share">
-              <label class="form-check-label" for="not-share">
-                Check here if you DO NOT want to share this link.
-              </label>
+            <div class="form-check" id="shareOption">
+              <div class="row">
+                <div class="col">
+                  <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true" checked>
+                  <label class="form-check-label" for="shareLink">Share</label>
+                </div>
+                <div class="col">
+                  <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false">
+                  <label class="form-check-label" for="privateLink">Private</label>
+                </div>
+              </div>
             </div>
           </form>
         </div>
