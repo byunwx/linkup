@@ -1,6 +1,6 @@
 $(document).ready(function() {
   console.log("linked")
-  const signUpForm = $(".signup");
+  const signUpForm = $("#signup-submit");
   const emailInput = $("#email-input");
   const emailCheck = $("#email-check");
   const passwordInput = $("#password-input");
@@ -33,10 +33,10 @@ $(document).ready(function() {
     }
   });
   birthday.on("blur", function(){
-    console.log(birthday.val());
+    console.log(birthday.val().trim());
   })
 
-  signUpForm.on("submit", function(event){
+  signUpForm.on("click", function(event){
     console.log("submited first")
       event.preventDefault();
       if (emailInput.val().trim() != emailCheck.val().trim() || emailInput.val().trim()==" " ) {
@@ -51,19 +51,20 @@ $(document).ready(function() {
       } else if (numbersValidate.match(passwordInput.val().trim()) || stringValidate.match(passwordInput.val().trim())) {
         $("#alert").html("YOUR PASSWORD NEED AT LEAST ONE NUMBER AND ONE CHARACTOR");
         document.getElementById("password-check").style.background="red";
-      } else if (birthday.val()) {
+      } else if (birthday.val()=="") {
+        console.log(birthday.val());
         $("#alert").html("ENTER BIRTHDAY");
       } else {
-        return signUpUser();
+        return signUpUser(emailInput.val().trim(), passwordInput.val().trim(), birthday.val());
       };
 
 
     function signUpUser(email, password, birthday) {
       console.log("called third")
       $.post("/api/user/signup", {
-        email:emailInput.val().trim(),
-        password: passwordInput.val().trim(),
-        birthday: birthday.val()
+        email:email,
+        password: password,
+        birthday: birthday
       }).then(data => {
         // window.location.replace(data);
         console.log(data)
