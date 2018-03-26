@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     // Associating user with link
     // When an user is deleted, also delete any associated link
     User.hasMany(models.Link, {
-      onDelete: "SET NULL"
+      onDelete: "CASCADE"
     });
   };
   return User;
