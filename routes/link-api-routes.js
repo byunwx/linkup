@@ -3,14 +3,17 @@ const passport = require("../config/passport");
 
 module.exports  = (app)=>{
     // create a new link
-    app.post("/api/link/new", (req,res) =>{
+    app.post("/api/link/new", function(req,res){
+        console.log(req.body);
         db.Link.create({
             title: req.body.title,
             url: req.body.url,
-            discription: req.body.description,
+            description: req.body.description,
             shared: req.body.shared,
-            top500: req.body.top500
-            // major site functionality will be witten into this line
+            top500: req.body.top500,
+            UserId: req.body.UserId
+        }).then(function(dbLink){
+            res.json(dbLink);
         })
     })
     // find all links in database

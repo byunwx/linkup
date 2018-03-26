@@ -12,22 +12,20 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    birthday: {
-      type: DataTypes.DATE,
-      allowNull: true,
-      defaultValue: null
     }
+    // birthday: {
+    //   type: DataTypes.DATEONLY,
+    //   allowNull: true,
+    //   defaultValue: null
+    // }
   });
   User.prototype.validPassword = function(password){return bcrypt.compareSync(password, this.password)};
   User.hook("beforeCreate",user => {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
-  User.associate = models => {
-    // Associating user with link
-    // When an user is deleted, also delete any associated link
+  User.associate = function (models) {
     User.hasMany(models.Link, {
-      onDelete: "CASCADE"
+      onDelete: "cascade"
     });
   };
   return User;

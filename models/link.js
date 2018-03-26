@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  Link.associate = models => {
+  Link.associate = function (models) {
     Link.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
