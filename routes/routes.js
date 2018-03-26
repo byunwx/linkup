@@ -15,11 +15,14 @@ module.exports = app => {
     });
 
     app.get("/home", isAuthenticated, (req, res) => {
-        let links;
-        app.get("/api/link/data", (req, res) => {
-            links = res;
-        });
-        res.render("home", links);
+        db.Link.findAll({
+            where:{include:[db.User]}
+        })
+        .then((data)=>{
+            let links = {};
+            res.render("home", links);
+            // res.json(data) // will be edited to not display user password
+            })
     })
 
 
