@@ -18,11 +18,10 @@
 
 <body>
     <!-- Navigation bar with logo -->
-    <nav class="navbar navbar-light bg-light mb-4">
+    <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="../../public/assets/images/daniel-chen-112129-unsplash.jpg" width="30" height="30" alt="">
+            <img src="./assets/images/link.jpeg" width="30" height="30" alt="">
         </a>
-        <h1>LINKSTAGRAM</h1>
     </nav>
 
     <!-- container for feed links -->
@@ -30,114 +29,73 @@
         <div class="row feed-row">
             {{#each links}}
             <div class="col">
-                {{> links/link}} {{/each}}
-                <a href="{{this.url}}">
-                        <div class="card" data-id="{{this.id}}">
-                            <img class="card-img-top" src="holder.js/100x180/" alt="">
-                            <div class="card-body">
-                                <h4 class="card-title">{{this.title}}</h4>
-                                <p class="card-text">
-                                    {{this.description}}
-                                    <br>
-                                    Total Clicks: {{this.totalClicks}}
-                                    Daily Clicks: {{this.dailyClicks}}
-                                    Top500?: {{this.top500}}
-                                    </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="{{this.url}}">
-                            <div class="card" data-id="{{this.id}}">
-                                <img class="card-img-top" src="holder.js/100x180/" alt="">
-                                <div class="card-body">
-                                    <h4 class="card-title">{{this.title}}</h4>
-                                    <p class="card-text">
-                                        {{this.description}}
-                                        <br>
-                                        Total Clicks: {{this.totalClicks}}
-                                        Daily Clicks: {{this.dailyClicks}}
-                                        Top500?: {{this.top500}}
-                                        </p>
-                                </div>
-                            </div>
-                        </a>
+                {{> links/link}}
             </div>
+            {{/each}}
         </div>
 
-        <!-- footer with modal links -->
-        <footer class="container-fluid w-100 mt-4 bg-dark text-light py-3">
-            <div class="row justify-content-around">
-                <a href="/user" class="user-name">**Username Here**</a>
-                <!-- Button trigger modal for add link -->
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addLink">
-                    Add Link
+        <footer class="fixed-bottom">
+            <div class="row">
+                <button type="button" class="btn btn-success btn-lg btn-block col-sm-3">
+                    <i class="material-icons">home</i>
                 </button>
-                <!-- Button trigger modal for search -->
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#search">
-                    Search
+                <button type="button" class="btn btn-primary btn-lg btn-block col-sm-3">
+                    <i class="material-icons">search</i>
+                </button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block col-sm-3" data-toggle="modal" data-target="#add-link-modal">
+                    <i class="material-icons">add</i>
+                </button>
+                <button type="button" class="btn btn-danger btn-lg btn-block col-sm-3">
+                    <i class="material-icons">person</i>
                 </button>
             </div>
         </footer>
 
-        <!-- Modal for add link   {{> links/link}} {{/each}} -->
-        <div class="modal fade" id="addLink" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+        <!-- New Links Modal -->
+        <div class="modal fade login-modal" id="add-link-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <h5 class="modal-title" id="add-link-title">Share Your Links Here</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="modalAddLink">Add Link</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="container-fluid">
-                            Add rows here
-                        </div>
+                        <form class="add-link">
+                            <div class="form-group">
+                                <label for="site-title">Site Title:</label>
+                                <input type="text" class="form-control" id="site-title" placeholder="Name of Site">
+                            </div>
+                            <div class="form-group">
+                                <label for="site-url">Site URL:</label>
+                                <input type="url" class="form-control" id="site-url" placeholder="https://www.amazon.com" required>
+                            </div>
+                            <!-- <div class="form-group"> -->
+                            <label for="site-desscription">Site Description</label>
+                            <textarea class="form-control" id="site-description" rows="3" placeholder="Enter a brief description of the website"></textarea>
+                            <!-- </div> -->
+                            <div class="form-check" id="shareOption">
+                                <div class="row">
+                                    <div class="col">
+                                        <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true" checked>
+                                        <label class="form-check-label" for="shareLink">Share</label>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false">
+                                        <label class="form-check-label" for="privateLink">Private</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button id="new-link-submit" type="button" class="btn btn-primary">Submit Link</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for search -->
-        <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="modelTitleId">Search</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container-fluid">
-                            <input type="text"></input>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            $('#addLink').on('show.bs.modal', event => {
-                var button = $(event.relatedTarget);
-                var modal = $(this);
-                // Use above variables to manipulate the DOM
-
-            });
-            $('#search').on('show.bs.modal', event => {
-                var button = $(event.relatedTarget);
-                var modal = $(this);
-                // Use above variables to manipulate the DOM
-
-            });
-        </script>
 
 </body>
 
