@@ -1,3 +1,4 @@
+'use strict';
 const db = require("../models");
 const passport = require("../config/passport");
 
@@ -38,7 +39,7 @@ module.exports = (app) => {
                     id: req.user.id
                 }
             }).then(function (data) {
-                let userData= { 
+                let userData= {
                     id: data.id,
                     email: data.email,
                     birthday: data.birthday,

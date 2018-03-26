@@ -4,6 +4,7 @@ $(document).ready(function () {
   const titleInput = $("#site-title");
   const urlInput = $("#site-url");
   const siteDescription = $("#site-description");
+  let userIdData;
 
   // check url validation on blur
   $("#site-url").on("blur", function (urlEntered) {
@@ -28,6 +29,7 @@ $(document).ready(function () {
   } //isValidURL function
 
   newLinkSubmit.on("click", function (event) {
+    // console.log(`this should be undefined: ${getUser()}`);
     console.log("submited first");
     event.preventDefault();
 
@@ -41,9 +43,10 @@ $(document).ready(function () {
       title: titleInput.val().trim(),
       url: urlInput.val().trim(),
       description: siteDescription.val(),
-      shared: shareOption
+      shared: shareOption,
+      UserId: 3
     };
-
+    console.log(`this should be defined: ${userIdData}`);
     if (formValidation()) {
 
       enterLink(linkData);
@@ -61,12 +64,12 @@ $(document).ready(function () {
   function enterLink(linkData) {
     console.log("called third");
     console.log(linkData);
-
     $.post('api/link/new/', {
       title: linkData.title,
       url: linkData.url,
       description: linkData.description,
-      shared: linkData.shared
+      shared: linkData.shared,
+      UserId: linkData.UserId
     }).then(data => {
       console.log(data)
       console.log("data Log");
