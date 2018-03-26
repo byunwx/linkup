@@ -1,3 +1,4 @@
+'use strict';
 const path = require("path");
 const db = require("../models");
 
@@ -17,14 +18,7 @@ app.get("/", (req,res)=>{
     res.render("landing", placeholder)
 });
 
-// app.get("/home", isAuthenticated, (req,res)=>{
-//     let placeholder;//will be redifined through development
-//     res.render("home", placeholder)
-// });
-app.get("/home", (req,res)=>{
-    let placeholder;//will be redifined through development
-    res.render("home", placeholder)
-});
+
 
 
 // app.get("/search", isAuthenticated, (req,res)=>{
@@ -36,6 +30,24 @@ app.get("/search", (req,res)=>{
     let placeholder;//will be redifined through development
     res.render("search", placeholder)
 });
+
+// app.get("/home", isAuthenticated, (req, res) => {
+//     db.Link.findAll({
+//         where:{include:[db.User]}
+//     })
+//     .then((data)=>{
+//         let links = {};
+//         res.render("home", links);
+//         // res.json(data) // will be edited to not display user password
+//         })
+// })
+
+app.get("/home", (req, res) => {
+        let links = {};
+        res.render("home", links);
+        // res.json(data) // will be edited to not display user password
+})
+
 
 app.get("/user/:userid", (req,res)=>{
     if (!req.user){
