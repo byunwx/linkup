@@ -12,6 +12,7 @@ $(document).ready(function() {
       document.getElementById("site-url").style.background="lightgreen";
       return;
     } else {
+      document.getElementById("site-url").style.borderColor="red";
       alert("enter a valid url starting with http:// or https:// and with .com, .net etc.");
     }
   }); // end of url validation on blue
