@@ -66,8 +66,8 @@ $(document).ready(function() {
         password: password,
         birthday: birthday
       }).then(data => {
-        // window.location.replace(data);
-        console.log(data)
+        window.location.replace(data);
+        // console.log(data)
       }).catch(handleLoginErr);
     }
 
