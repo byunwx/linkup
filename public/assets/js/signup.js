@@ -17,7 +17,7 @@ $(document).ready(function() {
   $("#email-check").on("blur", function(){
     if (emailInput.val().trim() != emailCheck.val().trim() || emailInput.val().trim()==" " ) {
       $("#alert").html("NOT MATCHING PASSWORD");
-      document.getElementById("email-check").style.borderColor="red";
+      document.getElementById("email-check").style.background="lightpink";
     }else{
       document.getElementById("email-check").style.background="lightgreen";
     }
@@ -25,13 +25,13 @@ $(document).ready(function() {
   $("#password-check").on("blur", function(){
     if (passwordInput.val().trim() != passwordCheck.val().trim()) {
       $("#alert").html("NOT MATCHING PASSWORD");
-      document.getElementById("password-check").style.borderColor="red";
+      document.getElementById("password-check").style.background="lightpink";
     } else if (passwordInput.val().trim().length < 6) {
       $("#alert").html("YOUR PASSWORD NEED TO BE AT LEAST 6 CHARACTORS");
-      document.getElementById("password-check").style.borderColor="red";
+      document.getElementById("password-check").style.background="lightpink";
     } else if (numbersValidate.match(passwordInput.val().trim()) || stringValidate.match(passwordInput.val().trim())) {
       $("#alert").html("YOUR PASSWORD NEED AT LEAST ONE NUMBER AND ONE CHARACTOR");
-      document.getElementById("password-check").style.borderColor="red";
+      document.getElementById("password-check").style.background="lightpink";
     } else{
       document.getElementById("password-check").style.background="lightgreen";
     }
