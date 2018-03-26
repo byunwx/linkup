@@ -1,13 +1,5 @@
 $(document).ready(function() {
-  console.log("linked")
-  // const signUpForm = $(".signup");
-  //signup variables
-  // const emailSignup = $("#email-signup");
-  // const passwordSignup = $("#password-signup");
-  // const birthdaySignup= $("#birthday");
-  // //Login Variables
-  const emailLogin = $("#email-signup");
-  const passwordLogin = $("#password-signup");
+  console.log("linked to signup")
   const numbersValidate = "1234567890";
   const stringValidate = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
@@ -79,14 +71,9 @@ $(document).ready(function() {
     function signUpUser(email, password, birthday) {
       console.log("sing up post called")
       $.post("/api/user/signup", {
-        // email:emailSignup.val().trim(),
-        // password: passwordSignup.val().trim(),
-        // birthday: birthday.val()
-        // ** FROM DEVELOPMENT **
         email:email,
         password: password,
         birthday: birthday
-        //****************** */
       }).then(data => {
         window.location.replace(data);
       }).catch(handleLoginErr);
@@ -96,23 +83,6 @@ $(document).ready(function() {
       $("#alert .msg").text(err.responseJSON);
       $("#alert").fadeIn(500);
     }
-$("#login-submit").on("click", function(){
-      console.log("clickd login")
-        function loginUser() {
-          console.log("login up post called")
-          $.post("/api/user/login", {
-            email:emailLogin.val().trim(),
-            password: passwordLogin.val().trim(),
-          }).then(data => {
-            window.location.replace(data);
-          }).catch(handleLoginErr);
-        }
-    loginUser()
-        function handleLoginErr(err) {
-          $("#alert .msg").text(err.responseJSON);
-          $("#alert").fadeIn(500);
-        }
-        });
 });
 
 });
