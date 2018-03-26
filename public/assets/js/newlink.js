@@ -39,21 +39,25 @@ $(document).ready(function () {
     if ($("privateLink"))
 
       console.log("called second");
-    const linkData = {
-      title: titleInput.val().trim(),
-      url: urlInput.val().trim(),
-      description: siteDescription.val(),
-      shared: shareOption,
-      UserId: 3
-    };
+    // const linkData = {
+    //   title: titleInput.val().trim(),
+    //   url: urlInput.val().trim(),
+    //   description: siteDescription.val(),
+    //   shared: shareOption,
+    //   UserId: 3
+    // };
     console.log(`this should be defined: ${userIdData}`);
     if (formValidation()) {
+      $.get("/api/user/data",function(data){
+        console.log(data)
+        return(enterLink(data.id))
+      })
 
-      enterLink(linkData);
+      // enterLink(linkData);
       // clear value only after we enter the link.
-      titleInput.val("");
-      urlInput.val("");
-      siteDescription.val("");
+      // titleInput.val("");
+      // urlInput.val("");
+      // siteDescription.val("");
 
     } else {
       alert("Please enter all fields and make sure the url is in the correct format before submitting")
@@ -61,15 +65,15 @@ $(document).ready(function () {
 
   }); // end of newLinkSubmit
 
-  function enterLink(linkData) {
+  function enterLink(ID) {
+    let shareOption = $("#shareOption input:radio:checked").val()
     console.log("called third");
-    console.log(linkData);
     $.post('api/link/new/', {
-      title: linkData.title,
-      url: linkData.url,
-      description: linkData.description,
-      shared: linkData.shared,
-      UserId: linkData.UserId
+      title: titleInput.val().trim(),
+      url: urlInput.val().trim(),
+      description: siteDescription.val().trim(),
+      shared: shareOption,
+      UserId: ID
     }).then(data => {
       console.log(data)
       console.log("data Log");
