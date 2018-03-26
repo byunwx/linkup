@@ -26,12 +26,6 @@ app.get("/search", (req,res)=>{
 });
 
 
-app.get("/home", (req, res) => {
-        let links = {};
-        res.render("home", links);
-        // res.json(data) // will be edited to not display user password
-})
-
 
 app.get("/user/:userid", (req,res)=>{
     if (!req.user){
