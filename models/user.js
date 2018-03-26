@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     birthday: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: true
     }
   });
-  User.prototype.validPassword = password => bcrypt.compareSync(password, this.password);
-  User.hook("beforeCreate", (user) => {
+  User.prototype.validPassword = function(password){return bcrypt.compareSync(password, this.password)};
+  User.hook("beforeCreate",user => {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
   User.associate = models => {

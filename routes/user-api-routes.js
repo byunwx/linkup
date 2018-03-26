@@ -9,12 +9,12 @@ module.exports = (app) => {
 
     app.post("/api/user/signup", function (req, res) {
         //   console.log("post request made")
-        // console.log(req.body)
-        // res.end()
+        console.log(req.body)
+        //   res.end()
         db.User.create({
             email: req.body.email,
             password: req.body.password,
-            birthday: req.body.birthday
+            //   birthday: req.body.birthday
         }).then(function () {
             res.redirect(307, "/api/user/login")
             // res.end();
@@ -26,29 +26,7 @@ module.exports = (app) => {
     app.get("/logout", (req, res) => {
         req.logout();
         res.redirect("/");
-    })
-    app.get("/api/user/data", (req, res) => {
-        //   console.log(req.user)
-        if (!req.user) {
-            res.json({})
-        } else {
-            db.User.findOne({
-                include: [db.Link],
-                where: {
-                    id: req.user.id
-                }
-            }).then((data) => {
-                res.json(data
-                    //   we can insert any other information we would like to parse out from the User object
-                ) // will be edited to not display user password
-
-            })
-        }
     });
-    app.get("/logout", function (req, res) {
-        req.logout();
-        res.redirect("/");
-    })
     app.get("/api/user/data", function (req, res) {
         //   console.log(req.user)
         if (!req.user) {
