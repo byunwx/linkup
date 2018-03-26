@@ -15,14 +15,9 @@ module.exports = app => {
     });
 
     app.get("/home", isAuthenticated, (req, res) => {
-        db.Link.findAll({
-            where:{include:[db.User]}
-        })
-        .then((data)=>{
-            let links = {};
-            res.render("home", links);
-            // res.json(data) // will be edited to not display user password
-            })
+        let placeholder;//will be redifined through development
+        res.render("home", placeholder)
+
     })
 
 
