@@ -23,9 +23,9 @@ module.exports = (app) => {
           res.json (err)
       })
     });
-    app.get("/logout", (req,res)=>{
-      req.logout();
-      res.redirect("/");
+    app.get("/logout", (req, res) => {
+        req.logout();
+        res.redirect("/");
     });
     app.get("/api/user/data", function (req, res) {
         //   console.log(req.user)

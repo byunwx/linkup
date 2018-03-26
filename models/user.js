@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     birthday: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: true,
+      defaultValue: null
     }
   });
   User.prototype.validPassword = function(password){return bcrypt.compareSync(password, this.password)};
@@ -26,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     // Associating user with link
     // When an user is deleted, also delete any associated link
     User.hasMany(models.Link, {
-      onDelete: "SET NULL"
+      onDelete: "CASCADE"
     });
   };
   return User;
