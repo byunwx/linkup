@@ -20,18 +20,28 @@ module.exports = app => {
 
     })
 
+app.get("/search", (req,res)=>{
+    let placeholder;//will be redifined through development
+    res.render("search", placeholder)
+});
 
-    app.get("/user/:userid", (req, res) => {
-        if (!req.user) {
-            res.redirect("/");
-        }
-        db.User.findOne({
+
+app.get("/home", (req, res) => {
+        let links = {};
+        res.render("home", links);
+        // res.json(data) // will be edited to not display user password
+})
+
+
+app.get("/user/:userid", (req,res)=>{
+    if (!req.user){
+        res.redirect("/");
+    }
+    db.User.findOne({
             include: [db.Link],
-            where: {
-                id: req.params.id
-            }
-        }).then((data) => {
-            res.render("user", data);
-        })
-    });
+            where: {id:req.params.id}
+    }).then((data)=>{
+        res.render("user", data)
+    })
+});
 }
