@@ -24,8 +24,9 @@ module.exports = app => {
 
     app.get("/home", isAuthenticated, (req, res) => {
         db.Link.findAll({}).then(data => {
-            console.log(data);
-            let links = data;
+            let links = {
+                links: data
+            }
             res.render("home", links);
         });
     })
