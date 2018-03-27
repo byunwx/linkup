@@ -34,11 +34,13 @@ module.exports = app => {
       if (!req.user){
           res.redirect("/");
       }
+    
       db.User.findOne({
               include: [db.Link],
-              where: {id:req.params.id}
+              where: {id:req.params.userid}
       }).then((data)=>{
-          res.render("user", data)
+         console.log("this is data: ", data);
+          res.render("user");
       })
   });
   }
