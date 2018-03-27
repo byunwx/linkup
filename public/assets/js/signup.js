@@ -69,12 +69,20 @@ $(document).ready(function() {
 
 
     function signUpUser(email, password, birthday) {
-      console.log("sing up post called")
-      $.post("/api/user/signup", {
+      let newUser={};
+      if(birthday==""){
+        newUser={
+          email:email,
+          password: password
+        }
+      }else{
+      newUser={
         email:email,
         password: password,
         birthday: birthday
-      }).then(data => {
+      }
+      }
+      $.post("/api/user/signup", newUser).then(data => {
         window.location.replace(data);
       }).catch(handleLoginErr);
     }
