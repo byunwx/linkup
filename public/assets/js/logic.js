@@ -20,3 +20,23 @@ $(".target_person").on("click", function(){
   });
 })
 });
+
+$(".card").on("click", function(){
+  let TC=$(this).data("totalClicks").val();
+  let DC=$(this).data("dayClicks").val();
+  TC++
+  DC++
+  var newPost = {
+    totalClicks: TC,
+    dailyClicks: DC,
+    id: $(this).data("id")
+  };
+  $.ajax({
+    method: "PUT",
+    url: "/api/posts",
+    data: newPost
+  })
+    .then(function() {
+      window.location.href = "/blog";
+    });
+})
