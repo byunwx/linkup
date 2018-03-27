@@ -8,6 +8,7 @@ color:black;}
 
 /* FOOTER */
 footer {
+  background-color: #f8f9fa!important;
   border-top: 1px solid lightgray;
 }
 footer button {
@@ -17,9 +18,20 @@ footer button {
   margin: 0!important;
   padding: 0!important;
   padding-top: 15px!important;
-  margin-bottom: 10px!important;
 }
-
+.logout-btn {
+  background-color: transparent;
+}
+.clear {
+position:relative;
+display:inline-block;
+}
+.clear:after {
+content: "clear";
+color: black;
+font-size: 44px;
+text-shadow: 0 0 10px gray;
+}
 .home {
 position:relative;
 display:inline-block;
