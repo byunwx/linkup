@@ -34,16 +34,13 @@ module.exports = app => {
       if (!req.user){
           res.redirect("/");
       }
-      console.log("--------------");
-      console.log(req.params.userid);
-      console.log("--------------");
+    
       db.User.findOne({
               include: [db.Link],
               where: {id:req.params.userid}
       }).then((data)=>{
-        console.log("345678987654567890");
-          res.render("user", data)
-          console.log("asdfghgfdsadfgh");
+         console.log("this is data: ", data);
+          res.render("user");
       })
   });
   }
