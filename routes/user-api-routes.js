@@ -14,6 +14,7 @@ module.exports = (app) => {
         console.log(req.body)
         db.User.create({
             email: req.body.email,
+            username: req.body.username,
             password: req.body.password,
             birthday: req.body.birthday
         }).then(function () {
