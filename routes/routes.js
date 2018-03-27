@@ -10,15 +10,19 @@ module.exports = app => {
         if (req.user) {
             res.redirect("/home")
         } else {
-            let placeholder; //will be redifined through development
-            res.render("landing", placeholder)
-        }
+            // we can edit this query to pull from a specific category (the dev category)
+            db.Link.findAll({}).then(data => {
+                let devLinks = {
+                    devLinks: data
+                }
+                res.render("landing", devLinks);
+            });
+        };
     });
 
-
     app.get("/search", isAuthenticated, (req, res) => {
-        let placeholder; //will be redifined through development
-        res.render("search", placeholder)
+        let placeholder; //will be redefined through development
+        res.render("search", placeholder);
     });
 
 

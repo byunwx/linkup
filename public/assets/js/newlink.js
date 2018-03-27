@@ -68,7 +68,7 @@ $(document).ready(function () {
   function enterLink(ID) {
     let shareOption = $("#shareOption input:radio:checked").val()
     console.log("called third");
-    $.post('api/link/new/', {
+    $.post('/api/link/new/', {
       title: titleInput.val().trim(),
       url: urlInput.val().trim(),
       description: siteDescription.val().trim(),

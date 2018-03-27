@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: true
     },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'General'
+    },
     totalClicks: {
       type: DataTypes.INTEGER,
       allowNull: false,
