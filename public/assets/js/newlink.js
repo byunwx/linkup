@@ -77,6 +77,7 @@ $(document).ready(function () {
     }).then(data => {
       console.log(data)
       console.log("data Log");
+      window.location.href = `/home`;
     }).catch(handleSubmitError);
 
   } // end of enterlink function
