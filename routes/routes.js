@@ -23,10 +23,13 @@ module.exports = app => {
 
 
     app.get("/home", isAuthenticated, (req, res) => {
-        let links = {};
-        res.render("home", links);
+        db.Link.findAll({}).then(data => {
+            console.log(data);
+            let links = data;
+            res.render("home", links);
+        });
         // res.json(data) // will be edited to not display user password
-    })
+    });
 
 
     app.get("/user/:userid", (req, res) => {
