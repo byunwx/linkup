@@ -1,0 +1,62 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.card {
+color:black;}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid lightgray;
+}
+footer button {
+  background-color: white!important;
+  height: 60px!important;
+  border: none!important;
+  margin: 0!important;
+  padding: 0!important;
+  padding-top: 15px!important;
+  margin-bottom: 10px!important;
+}
+
+.home {
+position:relative;
+display:inline-block;
+}
+.home:after {
+content: "home";
+color: blue;
+font-size: 44px;
+text-shadow: 0 0 10px gray;
+}
+.search {
+position:relative;
+display:inline-block;
+}
+.search:after {
+content: "search";
+color: yellow;
+font-size: 44px;
+text-shadow: 0 0 10px gray;
+}
+.add {
+position:relative;
+display:inline-block;
+}
+.add:after {
+content: "add";
+color: green;
+font-size: 44px;
+text-shadow: 0 0 10px gray;
+}
+.person {
+position:relative;
+display:inline-block;
+}
+.person:after {
+content: "person";
+color: red;
+font-size: 44px;
+text-shadow: 0 0 10px gray;
+}
