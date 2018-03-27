@@ -2,37 +2,40 @@
   <a class="navbar-brand" href="#"><img src="http://placehold.it/160x60&amp;text=linkstagram" /></a>
   <button type="button" class="btn btn-lg logout-btn"><a href="/logout"><span class="material-icons clear"></span></a></button>
 </nav>
-
+<div class="user-bg">
 <!-- User Info container -->
-<div class="container">
-	<div class="row">
-		<div class="col-md-3 col-sm-12">
-			<img class="img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
-      {{> UserImage }}
+<div class="container user-container">
+	<div class="row user-links-row">
+		<div class="col-7 user-link-col">
+	     <div class="row">
+         <div class="col-12">
+           <!-- user's links -->
+          {{> links/link}}
+         </div>
+       </div>
   	</div>
-		<div class="col-md-9 col-sm-12">
+		<div class="col-5">
 			<div class="row">
-				<div class="col">
-					{{> userName }}
-				</div>
-        <div class="col">
+				<div class="col-4">
+          {{> UserImage }}
+          <img class="img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
           <button id="edit-profile" type="button" name="edit-profile">Edit Profile</button>
+      	</div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col">
+              {{> userName }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              {{> userProfile }}
+            </div>
+          </div>
         </div>
-			</div>
-			<div class="row">
-				<div class="col">
-					{{> userProfile }}
-				</div>
 			</div>
 		</div>
 	</div>
-	</div>
-
-<!-- link cards for the user goes here -->
-<div class="container">
-  <div class="row user">
-    {{> links/link}}
-  </div>
 </div>
 
 <footer class="fixed-bottom">
@@ -132,6 +135,8 @@
       </form>
     </div>
   </div>
+</div>
+
 </div>
 
   <script src="../assets/js/newlink.js"></script>

@@ -2,6 +2,21 @@ body {
   margin: 0 auto;
   padding: 0;
 }
+/* LOG OUT BUTTON */
+.logout-btn {
+  background-color: transparent;
+}
+.clear {
+position:relative;
+display:inline-block;
+}
+.clear:after {
+content: "clear";
+color: black;
+font-size: 44px;
+text-shadow: 0 0 10px gray;
+}
+/************************************/
 
 .card {
 color:black;}
@@ -18,19 +33,6 @@ footer button {
   margin: 0!important;
   padding: 0!important;
   padding-top: 15px!important;
-}
-.logout-btn {
-  background-color: transparent;
-}
-.clear {
-position:relative;
-display:inline-block;
-}
-.clear:after {
-content: "clear";
-color: black;
-font-size: 44px;
-text-shadow: 0 0 10px gray;
 }
 .home {
 position:relative;
@@ -72,8 +74,23 @@ color: red;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
+/*********************************/
 
 /* USER PROFILE EDIT DIVZ */
+/* .user-bg {
+  background-color: yellow;
+  background-image: url(../../assets/images/abstract.jpg);
+} */
+.user-container {
+  max-width: 960px;
+  padding-left: 70px;
+  padding-top: 50px;
+}
+.user-link-col {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+}
 .profile-box {
   background-color: rgba(0, 0, 0, 0.75);
   color: coral;
@@ -85,7 +102,18 @@ text-shadow: 0 0 10px gray;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+/* .profile-box-hidden {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: coral;
+  padding: 1.25em;
+  height: 520px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+} */
 ::placeholder {
   color: lightgray;
 }
@@ -98,11 +126,9 @@ text-shadow: 0 0 10px gray;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .profile-pic-col {
   padding: 0;
 }
-
 .profile-submit {
   background-color: coral;
   color: black;
@@ -111,7 +137,6 @@ text-shadow: 0 0 10px gray;
   width: 100px;
   height: 40px;
 }
-
 #firstName, #lastName, #userBio, #userImage, .userImgLabel {
   background-color: transparent!important;
   border: none;
@@ -125,3 +150,4 @@ text-shadow: 0 0 10px gray;
 .custom-file-label::after {
   visibility: hidden;
 }
+/************************************************/
