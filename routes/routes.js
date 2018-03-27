@@ -28,21 +28,22 @@ module.exports = app => {
             let links = data;
             res.render("home", links);
         });
-        // res.json(data) // will be edited to not display user password
-    });
+    })
 
 
     app.get("/user/:userid", (req, res) => {
         if (!req.user) {
             res.redirect("/");
         }
+
         db.User.findOne({
             include: [db.Link],
             where: {
-                id: req.params.id
+                id: req.params.userid
             }
         }).then((data) => {
-            res.render("user", data)
+            console.log("this is data: ", data);
+            res.render("user");
         })
     });
 }
