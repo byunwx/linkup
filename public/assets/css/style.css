@@ -2,6 +2,10 @@ body {
   margin: 0 auto;
   padding: 0;
 }
+.navbar {
+  background-color: rgba(0, 0, 0, 0.75)!important;
+
+}
 /* LOG OUT BUTTON */
 .logout-btn {
   background-color: transparent;
@@ -12,7 +16,7 @@ display:inline-block;
 }
 .clear:after {
 content: "clear";
-color: black;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
@@ -23,13 +27,14 @@ color:black;}
 
 /* FOOTER */
 footer {
-  background-color: #f8f9fa!important;
+  /* background-color: rgba(0, 0, 0, 0.6)!important; */
   border-top: 1px solid lightgray;
 }
 footer button {
-  background-color: #f8f9fa!important;
+  background-color: rgba(0, 0, 0, 0.75)!important;
   height: 75px!important;
   border: none!important;
+  border-radius: 0!important;
   margin: 0!important;
   padding: 0!important;
   padding-top: 15px!important;
@@ -40,7 +45,7 @@ display:inline-block;
 }
 .home:after {
 content: "home";
-color: blue;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
@@ -50,7 +55,7 @@ display:inline-block;
 }
 .search:after {
 content: "search";
-color: yellow;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
@@ -60,7 +65,7 @@ display:inline-block;
 }
 .add:after {
 content: "add";
-color: green;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
@@ -70,7 +75,7 @@ display:inline-block;
 }
 .person:after {
 content: "person";
-color: red;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
@@ -96,7 +101,7 @@ text-shadow: 0 0 10px gray;
   color: coral;
   padding: 1.25em;
   height: 520px;
-  width: 400px;
+  min-width: 400px;
   position: absolute;
   top: 50%;
   left: 50%;
