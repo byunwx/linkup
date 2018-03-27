@@ -22,10 +22,11 @@ $(".target_person").on("click", function(){
 });
 
 $(".card").on("click", function(){
-  let TC=$(this).data("totalClicks").val();
-  let DC=$(this).data("dayClicks").val();
+  let TC=$(this).data("totalclicks");
+  let DC=$(this).data("dailyclicks");
   TC++
   DC++
+  console.log("ajax click",TC, DC);
   var newPost = {
     totalClicks: TC,
     dailyClicks: DC,
@@ -33,10 +34,11 @@ $(".card").on("click", function(){
   };
   $.ajax({
     method: "PUT",
-    url: "/api/posts",
+    url: "/api/link/update",
     data: newPost
   })
     .then(function() {
-      window.location.href = "/blog";
+      window.location.href = "/";
+      console.log("ajax done");
     });
 })
