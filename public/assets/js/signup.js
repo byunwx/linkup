@@ -7,6 +7,7 @@ $(document).ready(function() {
   // *****CHANGES FROM DEVELOPMENT****
   const signUpForm = $("#signup-submit");
   const emailInput = $("#email-input");
+  const usernameInput = $("#username-input");
   const emailCheck = $("#email-check");
   const passwordInput = $("#password-input");
   const passwordCheck = $("#password-check");
@@ -41,7 +42,7 @@ $(document).ready(function() {
   })
 
   signUpForm.on("click", function(event){
-    console.log("submited first")
+    console.log("submitted first")
       event.preventDefault();
       if (emailInput.val().trim() != emailCheck.val().trim() || emailInput.val().trim()==" " ) {
         $("#alert").html("NOT MATCHING PASSWORD");
@@ -50,10 +51,10 @@ $(document).ready(function() {
         $("#alert").html("NOT MATCHING PASSWORD");
         document.getElementById("password-check").style.background="red";
       } else if (passwordInput.val().trim().length < 6) {
-        $("#alert").html("YOUR PASSWORD NEED TO BE AT LEAST 6 CHARACTORS");
+        $("#alert").html("YOUR PASSWORD NEED TO BE AT LEAST 6 CHARACTERS");
         document.getElementById("password-check").style.background="red";
       } else if (numbersValidate.match(passwordInput.val().trim()) || stringValidate.match(passwordInput.val().trim())) {
-        $("#alert").html("YOUR PASSWORD NEED AT LEAST ONE NUMBER AND ONE CHARACTOR");
+        $("#alert").html("YOUR PASSWORD NEED AT LEAST ONE NUMBER AND ONE CHARACTER");
         document.getElementById("password-check").style.background="red";
       }
       // else if (birthday.val()=="") {
@@ -61,23 +62,22 @@ $(document).ready(function() {
       //   $("#alert").html("ENTER BIRTHDAY");
       // }
       else {
-        console.log(emailInput.val().trim(), passwordInput.val().trim(), birthday.val());
-        return signUpUser(emailInput.val().trim(), passwordInput.val().trim(), birthday.val());
+        console.log(emailInput.val().trim(), usernameInput.val().trim(), passwordInput.val().trim(), birthday.val());
+        return signUpUser(emailInput.val().trim(), usernameInput.val().trim(), passwordInput.val().trim(), birthday.val());
       };
 
-
-
-
-    function signUpUser(email, password, birthday) {
+    function signUpUser(email, username, password, birthday) {
       let newUser={};
       if(birthday==""){
         newUser={
-          email:email,
+          email: email,
+          username: username,
           password: password
         }
       }else{
       newUser={
         email:email,
+        username: username,
         password: password,
         birthday: birthday
       }
