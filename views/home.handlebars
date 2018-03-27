@@ -3,11 +3,15 @@
     <a class="navbar-brand" href="#">
         <img src="./assets/images/link.jpeg" width="30" height="30" alt="">
     </a>
-    <button type="button" name="button"> <a href="/logout">Logout</a> </button>
+    <button type="button" class="btn btn-lg logout-btn"><a href="/logout"><span class="material-icons clear"></span></a></button>
+<!--
+    <button type="button" name="button">
+        <a href="/logout">Logout</a>
+    </button> -->
 </nav>
 
 <!-- container for feed links -->
-<div class="container">
+<div class="container mt-5 mb-5">
     <div class="row feed-row">
         {{#each links}}
         <div class="col">
@@ -17,12 +21,12 @@
     </div>
 
     <footer class="fixed-bottom">
-        <div class="row">
-          <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home"><i class="material-icons">home</i></button>
-          <button type="button" class="btn btn-primary btn-lg btn-block col-sm-3 target_search"><i class="material-icons">search</i></button>
-          <button type="button" class="btn btn-secondary btn-lg btn-block col-sm-3" data-toggle="modal" data-target="#add-link-modal"><i class="material-icons">add</i></button>
-          <button type="button" class="btn btn-danger btn-lg btn-block col-sm-3 target_person" ><i class="material-icons">person</i></button>
-        </div>
+      <div class="row footer-row">
+        <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home"><span class="material-icons home"></span></button>
+        <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_search"><span class="material-icons search"></span></button>
+        <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_add" data-toggle="modal" data-target="#add-link-modal"><span data-toggle="modal" data-target="#add-link-modal" class="material-icons add"></span></button>
+        <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_person"><span class="material-icons person"></span></button>
+      </div>
     </footer>
 
     <!-- New Links Modal -->
@@ -73,4 +77,3 @@
 
     <script src="./assets/js/newlink.js"></script>
     <script src="./assets/js/logic.js"></script>
-

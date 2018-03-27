@@ -6,41 +6,45 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = app => {
 
-  app.get("/", (req,res)=>{
-      if (req.user){
-          res.redirect("/home")
-      }
-      else{
-      let placeholder;//will be redifined through development
-      res.render("landing", placeholder)
-    }
-  });
+    app.get("/", (req, res) => {
+        if (req.user) {
+            res.redirect("/home")
+        } else {
+            let placeholder; //will be redifined through development
+            res.render("landing", placeholder)
+        }
+    });
 
 
-  app.get("/search", isAuthenticated, (req,res)=>{
-      let placeholder;//will be redifined through development
-      res.render("search", placeholder)
-  });
+    app.get("/search", isAuthenticated, (req, res) => {
+        let placeholder; //will be redifined through development
+        res.render("search", placeholder)
+    });
 
 
-  app.get("/home", isAuthenticated, (req, res) => {
-          let links = {};
-          res.render("home", links);
-          // res.json(data) // will be edited to not display user password
-  })
+    app.get("/home", isAuthenticated, (req, res) => {
+        db.Link.findAll({}).then(data => {
+            let links = {
+                links: data
+            }
+            res.render("home", links);
+        });
+    })
 
 
-  app.get("/user/:userid", (req,res)=>{
-      if (!req.user){
-          res.redirect("/");
-      }
-    
-      db.User.findOne({
-              include: [db.Link],
-              where: {id:req.params.userid}
-      }).then((data)=>{
-         console.log("this is data: ", data);
-          res.render("user");
-      })
-  });
-  }
+    app.get("/user/:userid", (req, res) => {
+        if (!req.user) {
+            res.redirect("/");
+        }
+
+        db.User.findOne({
+            include: [db.Link],
+            where: {
+                id: req.params.userid
+            }
+        }).then((data) => {
+            console.log("this is data: ", data);
+            res.render("user");
+        })
+    });
+}
