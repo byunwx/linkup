@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: true,
       defaultValue: null
+    },
+    array:{
+      type:DataTypes.TEXT,
+      allowNull:true,
     }
   });
   User.prototype.validPassword = function(password){return bcrypt.compareSync(password, this.password)};
