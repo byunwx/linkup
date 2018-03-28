@@ -4,7 +4,6 @@ body {
 }
 .navbar {
   background-color: rgba(0, 0, 0, 0.75)!important;
-
 }
 /* LOG OUT BUTTON */
 .logout-btn {
@@ -21,6 +20,44 @@ font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
 /************************************/
+
+/* JUNBOTROM AND LANDING CSS */
+.jumbotron-fluid {
+  position: relative;
+  text-align: center;
+  min-height: 550px;
+}
+.main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main-container p {
+  padding: 10px 40px;
+}
+.loginBtn, .signupBtn {
+  background-color: coral;
+  color: black;
+}
+.loginBtn, .signupBtn {
+  border: none;
+  color: white;
+  font-size: 22px;
+  text-shadow: 0 0 5px black;
+  width: 130px;
+  height: 50px;
+  margin: 0 10px;
+}
+.loginBtn:hover, .signupBtn:hover {
+  background-color: rgba(0, 0, 0, 0.75)!important;
+  color: coral!important;
+}
+.logo {
+  width: 400px;
+  height: auto;
+  text-align: center;
+}
 
 .card {
 color:black;}
