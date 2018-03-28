@@ -62,7 +62,7 @@ $(document).ready(function() {
       //   $("#alert").html("ENTER BIRTHDAY");
       // }
       else {
-        console.log(emailInput.val().trim(), usernameInput.val().trim(), passwordInput.val().trim(), birthday.val());
+        // console.log(emailInput.val().trim(), usernameInput.val().trim(), passwordInput.val().trim(), birthday.val());
         return signUpUser(emailInput.val().trim(), usernameInput.val().trim(), passwordInput.val().trim(), birthday.val());
       };
 
@@ -83,13 +83,19 @@ $(document).ready(function() {
       }
       }
       $.post("/api/user/signup", newUser).then(data => {
-        window.location.replace(data);
+        if(data=="/home"){
+          console.log(data);
+          window.location.replace(data);
+        }else if (data.errors[0]!="") {
+          $("#alert").text(data.errors[0].message);
+          $("#alert").fadeIn(500);
+          console.log("im here")
+        }
       }).catch(handleLoginErr);
     }
 
     function handleLoginErr(err) {
-      $("#alert .msg").text(err.responseJSON);
-      $("#alert").fadeIn(500);
+      console.log(err)
     }
 });
 

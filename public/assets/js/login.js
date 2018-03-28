@@ -8,7 +8,11 @@ $(document).ready(function () {
         $.post('/api/user/login', {
             email: email,
             password: password
-        }).then(data => window.location.replace(data)).catch(err => console.log(err))
+        }).then(data => window.location.replace(data)).catch(err => {
+          $("#alertSignup").html("NOT MATCHING EMAIL OR PASSWORD");
+          document.getElementById("alertSignup").style.color="red";
+          console.log(err);
+        })
     };
     $("#login-submit").on("click", function () {
         console.log("clicked login")
@@ -25,6 +29,6 @@ $(document).ready(function () {
         passwordInput.val('');
     });
 
-    
+
 
 });
