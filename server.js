@@ -87,7 +87,7 @@ app.get('/scrape/', (req, res) => {
 
 // function that creates a request to our scraper route using a promise, it then parses the data and in a for loop creates entries into the db
 const scraper = () => {
-  rp('http://localhost:8080/scrape/').then(function (res) {
+  rp('https://getlinkup.herokuapp.com/scrape/').then(function (res) {
     if (res != '') {
       let top500 = res;
       top500 = JSON.parse(top500);
@@ -126,6 +126,6 @@ schedule.scheduleJob('00 00 * * *', function () {
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT);
   });
 });
