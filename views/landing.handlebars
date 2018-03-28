@@ -100,7 +100,11 @@
  <div class="landing-links-bg">
    <div class="container">
      <div class="row dev-link-row">
-       {{> links/link}}
+       {{#each links}}
+       <div class="col">
+           {{> links/link}}
+       </div>
+       {{/each}}
      </div>
    </div>
  </div>
