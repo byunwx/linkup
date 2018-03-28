@@ -1,15 +1,15 @@
 $(document).ready(function () {
   // click to open and close Modal
-  $(".login-box").hide();
-  $(".signup-box").hide();
-  $(".newLink-box").hide();
-  $(".profile-box").hide();
 
 
   $(".loginBtn").click(function(){
     $(".login-box").show();
   })
   $(".signupBtn").click(function(){
+    $(".signup-box").show();
+  })
+  $("#linkUpSign").click(function(){
+    $(".login-box").hide();
     $(".signup-box").show();
   })
   $(".close-btn").click(function(){

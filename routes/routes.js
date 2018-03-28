@@ -75,7 +75,7 @@ module.exports = app => {
         }).then((data) => {
           db.Link.findAll({
             where:{
-              id: req.params.userid
+              UserId: req.params.userid
             },
             order:[
               ["totalClicks", "DESC"]

@@ -1,12 +1,6 @@
-<nav class="navbar navbar-fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="http://placehold.it/160x60&amp;text=linkstagram" />
-  </a>
-  <button type="button" class="btn btn-lg logout-btn">
-    <a href="/logout">
-      <span class="material-icons clear"></span>
-    </a>
-  </button>
+<nav class="navbar navbar-fixed-topp navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img class="logoHead" src="../../assets/images/logoHead.png" /></a>
+  <button type="button" class="btn btn-lg logout-btn"><a href="/logout"><span class="material-icons clear"></span></a></button>
 </nav>
 <!-- User Info container -->
 <div class="container user-container">
@@ -27,7 +21,7 @@
       <div class="row">
         <div class="col-4">
           {{> UserImage }}
-          <img class="img img-responsive img-fluid" src="http://placehold.it/200x200&amp;text=UserImage" alt="">
+          <img class="user-image img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
           <button id="edit-profile" type="button" name="edit-profile">Edit Profile</button>
         </div>
         <div class="col-8">
@@ -78,28 +72,29 @@
     </div>
   </div>
   <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-  <form class="add-link">
-    <div class="form-group">
-      <label for="site-title">Site Title:</label>
-      <input type="text" class="form-control" id="site-title" placeholder="Name of Site">
-    </div>
-    <div class="form-group">
-      <label for="site-url">Site URL:</label>
-      <input type="url" class="form-control" id="site-url" placeholder="https://www.amazon.com" required>
-    </div>
-    <!-- <div class="form-group"> -->
-    <label for="site-desscription">Site Description</label>
-    <textarea class="form-control" id="site-description" rows="3" placeholder="Enter a brief description of the website"></textarea>
-    <!-- </div> -->
-    <div class="form-check" id="shareOption">
-      <div class="row">
-        <div class="col">
-          <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true" checked>
-          <label class="form-check-label" for="shareLink">Share</label>
-        </div>
-        <div class="col">
-          <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false">
-          <label class="form-check-label" for="privateLink">Private</label>
+    <form class="add-link">
+      <div class="form-group">
+        <label for="site-title">Site Title:</label>
+        <input type="text" class="form-control" id="site-title" placeholder="Name of Site">
+      </div>
+      <div class="form-group">
+        <label for="site-url">Site URL:</label>
+        <input type="url"  class="form-control" id="site-url" required>
+      </div>
+      <!-- <div class="form-group"> -->
+        <label for="site-desscription">Site Description</label>
+        <textarea class="form-control" id="site-description" rows="3" placeholder="Enter a brief description of the website"></textarea>
+      <!-- </div> -->
+      <div class="form-check" id="shareOption">
+        <div class="row">
+          <div class="col">
+            <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true" checked>
+            <label class="form-check-label" for="shareLink">Share</label>
+          </div>
+          <div class="col">
+            <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false">
+            <label class="form-check-label" for="privateLink">Private</label>
+          </div>
         </div>
       </div>
     </div>

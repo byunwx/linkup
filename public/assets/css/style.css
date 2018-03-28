@@ -4,6 +4,11 @@ body {
 }
 .navbar {
   background-color: rgba(0, 0, 0, 0.75)!important;
+  width: 100%;
+}
+.logoHead {
+  height: 60px;
+  width: auto;
 }
 /* LOG OUT BUTTON */
 .logout-btn, .close-btn {
@@ -26,7 +31,15 @@ cursor: pointer!important;
   top: 10px;
   right: 10px;
 }
-
+.whole-page{
+  min-height: 100vh;
+}
+.text-mid{
+  text-align: center;
+}
+.aboutUs{
+  background-color: #ff7e4f;
+}
 /************************************/
 
 /* JUNBOTROM AND LANDING CSS */
@@ -275,6 +288,10 @@ text-shadow: 0 0 10px gray;
 .profile-pic-col {
   padding: 0;
 }
+.user-image {
+  border-radius: 50%;
+  overflow: hidden;
+}
 .profile-submit, #new-link-submit {
   background-color: coral;
   border: none;
@@ -339,3 +356,7 @@ input[type='radio']:checked:after {
   visibility: hidden;
 }
 /************************************************/
+/* hidden */
+.newLink-box, .profile-box, .login-box, .signup-box, .newLink-box, .profile-box{
+  display: none;
+}

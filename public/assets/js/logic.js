@@ -1,8 +1,7 @@
 $(document).ready(function () {
 
   // click to open and close Modal
-  $(".newLink-box").hide();
-  $(".profile-box").hide();
+
 
   $(".add-link-button").click(function() {
     $(".newLink-box").show();
