@@ -83,26 +83,19 @@ $(document).ready(function() {
       }
       }
       $.post("/api/user/signup", newUser).then(data => {
-        console.log("checking if this goes here")
-        console.log(data);
-        if (data.errors[0]!="") {
+        if(data=="/home"){
+          console.log(data);
+          window.location.replace(data);
+        }else if (data.errors[0]!="") {
           $("#alert").text(data.errors[0].message);
           $("#alert").fadeIn(500);
           console.log("im here")
         }
-        if(data=="/home"){
-          console.log(data);
-          window.location.replace(data);
-        }
-
-      })
-      // .catch(handleLoginErr);
+      }).catch(handleLoginErr);
     }
 
     function handleLoginErr(err) {
       console.log(err)
-      $("#alert .msg").text(err.responseJSON);
-      $("#alert").fadeIn(500);
     }
 });
 
