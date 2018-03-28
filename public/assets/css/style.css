@@ -48,6 +48,7 @@ text-shadow: 0 0 10px gray;
   width: 130px;
   height: 50px;
   margin: 0 10px;
+  border-radius: 20px;
 }
 .loginBtn:hover, .signupBtn:hover {
   background-color: rgba(0, 0, 0, 0.75)!important;
@@ -130,7 +131,40 @@ text-shadow: 0 0 10px gray;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
+  visibility: hidden;
 }
+/* Signup FORM MODAL */
+.signup-box {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: coral;
+  padding: 1.25em;
+  height: 580px;
+  min-width: 750px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  /* visibility: hidden; */
+}
+#birthday {
+  width: 100%;
+}
+#signup-submit {
+  background-color: coral;
+  border: none;
+  color: white;
+  font-size: 22px;
+  text-shadow: 0 0 5px black;
+  width: 130px;
+  height: 50px;
+  margin: 0 10px;
+  border-radius: 20px;
+}
+.modal-footer {
+  border: none;
+}
+
 /* USER PROFILE EDIT DIVZ */
 /* .user-bg {
   background-color: yellow;
