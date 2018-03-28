@@ -209,7 +209,25 @@ text-shadow: 0 0 10px gray;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+  visibility: hidden;
 }
+.newLink-box {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: coral;
+  padding: 0 3em;
+  height: 590px;
+  min-width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+#shareOption {
+  margin-top: 20px;
+}
+
+
 /* .profile-box-hidden {
   background-color: rgba(0, 0, 0, 0.75);
   color: coral;
@@ -237,7 +255,7 @@ text-shadow: 0 0 10px gray;
 .profile-pic-col {
   padding: 0;
 }
-.profile-submit {
+.profile-submit, #new-link-submit {
   background-color: coral;
   border: none;
   color: white;
@@ -255,11 +273,30 @@ text-shadow: 0 0 10px gray;
   width: 100px;
   height: 40px; */
 }
+#new-link-submit {
+  margin-top: 5px;
+}
+
+input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #00b698;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
 #firstName, #lastName, #userBio,
 #userImage, #birthday, .userImgLabel,
 .form-control, #password-check, #password-input,
 #email-check, #email-input, #username-input,
-#email-signup, #password-signup {
+#email-signup, #password-signup, #site-title,
+#site-url, #site-description {
   background-color: transparent!important;
   border: none;
   border-bottom: 1px solid coral;
