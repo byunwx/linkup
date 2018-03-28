@@ -12,6 +12,10 @@ $(document).ready(function () {
   $(".signupBtn").click(function(){
     $(".signup-box").show();
   })
+  $("#linkUpSign").click(function(){
+    $(".login-box").hide();
+    $(".signup-box").show();
+  })
   $(".close-btn").click(function(){
     $(".login-box").hide();
     $(".signup-box").hide();
