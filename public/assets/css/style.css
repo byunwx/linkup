@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 .navbar {
-  background-color: rgba(0, 0, 0, 0.75)!important;
+  background-color: rgba(0, 0, 0, 0.8)!important;
   width: 100%;
 }
 .logoHead {
@@ -95,12 +95,12 @@ cursor: pointer!important;
   border: 2px solid black;
   color:black;
 }
-.card-body {background-color: rgba(0, 0, 0, 0.75)!important;}
+.card-body {background-color: rgba(0, 0, 0, 0.8)!important;}
 .card-title {color: coral; text-align: center;}
 .card-text {color: #fff;}
 
 .aboutUs {
-  background-color: rgba(0, 0, 0, 0.75)!important;
+  background-color: rgba(0, 0, 0, 0.8)!important;
   color: white;
 }
 .whole-page h3 {
@@ -136,7 +136,7 @@ footer {
   border-top: 1px solid lightgray;
 }
 footer button {
-  background-color: rgba(0, 0, 0, 0.75)!important;
+  background-color: rgba(0, 0, 0, 0.8)!important;
   height: 75px!important;
   border: none!important;
   border-radius: 0!important;
@@ -188,12 +188,12 @@ text-shadow: 0 0 10px gray;
 
 /* LOGIN FORM MODAL */
 .login-box {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   color: coral;
   padding: 0 3em;
   height: 470px;
   min-width: 700px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -222,12 +222,12 @@ text-shadow: 0 0 10px gray;
 }
 /* Signup FORM MODAL */
 .signup-box {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   color: coral;
   padding: 0 3em;
   height: 580px;
   min-width: 750px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -269,7 +269,7 @@ text-shadow: 0 0 10px gray;
   padding-bottom: 25px;
 }
 .profile-box {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   color: coral;
   padding: 0 3em;
   height: 560px;
@@ -282,7 +282,7 @@ text-shadow: 0 0 10px gray;
   /* visibility: hidden; */
 }
 .newLink-box {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   color: coral;
   padding: 0 3em;
   height: 590px;
@@ -300,7 +300,7 @@ text-shadow: 0 0 10px gray;
 
 
 /* .profile-box-hidden {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   color: coral;
   padding: 1.25em;
   height: 520px;
