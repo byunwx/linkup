@@ -118,6 +118,19 @@ text-shadow: 0 0 10px gray;
 }
 /*********************************/
 
+/* LOGIN FORM MODAL */
+.login-box {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: coral;
+  padding: 1.25em;
+  height: 520px;
+  min-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
 /* USER PROFILE EDIT DIVZ */
 /* .user-bg {
   background-color: yellow;
@@ -143,6 +156,7 @@ text-shadow: 0 0 10px gray;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 5;
 }
 /* .profile-box-hidden {
   background-color: rgba(0, 0, 0, 0.75);

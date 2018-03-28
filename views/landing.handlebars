@@ -21,6 +21,35 @@
   </div>
 </div>
 
+<!-- login Form -->
+<div class="login-box">
+<img class="profileImg"src="https://placehold.it/100x100" alt="">
+<div class="row">
+  <div class="col">
+    <form class="login">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="email-signup" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="password-signup" placeholder="Password">
+      </div>
+    </form>
+    <br />
+    <p>Not a member?
+      <a data-toggle="modal" data-target="#signup-modal">Link Up</a>
+    </p>
+    </form>
+    <div class="modal-footer">
+      <span id="alertSignup"></span>
+      <button id="login-submit" type="button" class="btn btn-primary">Login</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
 <!-- container for developer's sites -->
 <div class="container">
   <div class="row dev-link-row">
@@ -113,5 +142,10 @@
       </div>
     </div>
   </div>
+
+
+
+
+
   <script src="./assets/js/signup.js"></script>
   <script src="./assets/js/login.js"></script>
