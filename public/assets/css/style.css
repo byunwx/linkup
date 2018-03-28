@@ -2,23 +2,10 @@ body {
   margin: 0 auto;
   padding: 0;
 }
-
-.card {
-color:black;}
-
-/* FOOTER */
-footer {
-  background-color: #f8f9fa!important;
-  border-top: 1px solid lightgray;
+.navbar {
+  background-color: rgba(0, 0, 0, 0.75)!important;
 }
-footer button {
-  background-color: #f8f9fa!important;
-  height: 75px!important;
-  border: none!important;
-  margin: 0!important;
-  padding: 0!important;
-  padding-top: 15px!important;
-}
+/* LOG OUT BUTTON */
 .logout-btn {
   background-color: transparent;
 }
@@ -28,9 +15,28 @@ display:inline-block;
 }
 .clear:after {
 content: "clear";
-color: black;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
+}
+/************************************/
+
+.card {
+color:black;}
+
+/* FOOTER */
+footer {
+  /* background-color: rgba(0, 0, 0, 0.6)!important; */
+  border-top: 1px solid lightgray;
+}
+footer button {
+  background-color: rgba(0, 0, 0, 0.75)!important;
+  height: 75px!important;
+  border: none!important;
+  border-radius: 0!important;
+  margin: 0!important;
+  padding: 0!important;
+  padding-top: 15px!important;
 }
 .home {
 position:relative;
@@ -38,7 +44,7 @@ display:inline-block;
 }
 .home:after {
 content: "home";
-color: blue;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
@@ -48,7 +54,7 @@ display:inline-block;
 }
 .search:after {
 content: "search";
-color: yellow;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
@@ -58,7 +64,7 @@ display:inline-block;
 }
 .add:after {
 content: "add";
-color: green;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
@@ -68,7 +74,87 @@ display:inline-block;
 }
 .person:after {
 content: "person";
-color: red;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
+/*********************************/
+
+/* USER PROFILE EDIT DIVZ */
+/* .user-bg {
+  background-color: yellow;
+  background-image: url(../../assets/images/abstract.jpg);
+} */
+.user-container {
+  max-width: 960px;
+  padding-left: 70px;
+  padding-top: 50px;
+}
+.user-link-col {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+}
+.profile-box {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: coral;
+  padding: 1.25em;
+  min-height: 520px;
+  min-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* .profile-box-hidden {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: coral;
+  padding: 1.25em;
+  height: 520px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+} */
+::placeholder {
+  color: lightgray;
+}
+#userBio {
+  max-height: 90px;
+}
+.profileImg {
+  border: 2px solid coral;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.profile-pic-col {
+  padding: 0;
+}
+.profile-submit {
+  background-color: coral;
+  color: black;
+  border-color: black;
+  border-radius: 20px;
+  width: 100px;
+  height: 40px;
+}
+#firstName, #lastName, #userBio, #userImage, .userImgLabel {
+  background-color: transparent!important;
+  border: none;
+  border-bottom: 1px solid coral;
+  border-radius: 0;
+  color: #fff;
+}
+.userImgLabel {
+  color: #878787;
+}
+.custom-file-label::after {
+  visibility: hidden;
+}
+/************************************************/

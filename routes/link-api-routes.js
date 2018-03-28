@@ -8,6 +8,7 @@ module.exports  = (app)=>{
         db.Link.create({
             title: req.body.title,
             url: req.body.url,
+            shortenedUrl: req.body.shortenedUrl,
             description: req.body.description,
             shared: req.body.shared,
             top500: req.body.top500,
