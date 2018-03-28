@@ -259,6 +259,9 @@ text-shadow: 0 0 10px gray;
 ::placeholder {
   color: lightgray;
 }
+#userBio {
+  max-height: 90px;
+}
 .profileImg {
   border: 2px solid coral;
   border-radius: 50%;

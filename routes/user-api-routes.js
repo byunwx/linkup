@@ -93,4 +93,17 @@ module.exports = (app) => {
         });
         // console.log(req.body)
       });
+
+      // update user profile
+    app.put("/api/user/info", function(req, res) {
+        db.User.update(
+          req.body,
+          {
+            where: {
+              id: req.body.id
+            }
+          }).then(function(dbPost) {
+          res.json(dbPost);
+        });
+      });
 }

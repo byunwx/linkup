@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-fixed-top navbar-light bg-light">
   <a class="navbar-brand" href="#"><img src="http://placehold.it/160x60&amp;text=linkstagram" /></a>
   <button type="button" class="btn btn-lg logout-btn"><a href="/logout"><span class="material-icons clear"></span></a></button>
 </nav>
@@ -9,7 +9,11 @@
 	     <div class="row">
          <div class="col-12">
            <!-- user's links -->
-          {{> links/link}}
+           {{#each links}}
+           <div class="col">
+               {{> links/link}}
+           </div>
+           {{/each}}
          </div>
        </div>
   	</div>
@@ -119,17 +123,19 @@
         <div class="rows profile-pic-row mt-3">
           <div class="col profile-pic-col">
             <label for="userImg">Profile Picture:</label>
-            <div class="input-group mb-3">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="userImage">
-                <label class="custom-file-label userImgLabel" for="userImage">Click here to upload profile picture</label>
-              </div>
+            <div class="input-group">
+                <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input id="userImage" type="file" style="display: none;" multiple>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
             </div>
           </div>
         </div>
         <div class="row" align="center">
           <div class="col mt-3">
-            <button id="profile-submit" class="profile-submit" type="submit" name="button">Submit</button>
+            <button id="profile-submit" class="profile-submit" type="button" name="button">Submit</button>
           </div>
         </div>
       </form>
