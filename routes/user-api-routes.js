@@ -44,7 +44,11 @@ module.exports = (app) => {
             }).then(function (data) {
                 let userData = {
                     id: data.id,
+                    username:data.username,
                     email: data.email,
+                    firstName: data.firstName,
+                    lastName:data.lastName,
+                    bio:data.bio,
                     array: data.array,
                     birthday: data.birthday,
                     createdAt: data.createdAt,
