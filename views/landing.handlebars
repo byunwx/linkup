@@ -7,59 +7,41 @@
 <!-- Jumbotron containing Title, short description and login/signup buttons -->
 <div class="jumbotron-fluid">
   <div class="container main-container">
-    <h1 class="display-4">Linkstagram</h1>
+    <img class="logo" src="../assets/images/logo.png" alt="">
     <p class="lead">Welcome to Linkstagram. Keep track of the favorite site you've visited and see where your friends have navigated. See
       the top websites and get recommendations from your friends on where to go for various categories. DISCOVER sites you
       never knew existed.</p>
     <br>
     <div class="login-signup">
       <!-- Button trigger  login modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login-modal">Login</button>
+      <button type="button" class=" loginBtn btn btn-primary">Login</button>
       <!-- Button trigger  signup modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup-modal">Sign Up</button>
+      <button type="button" class=" signupBtn btn btn-primary">Sign Up</button>
     </div>
   </div>
 </div>
 
-<!-- container for developer's sites -->
-<div class="container">
-  <div class="row dev-link-row">
-    {{#each links}}
+<!-- login Form -->
+<div class="login-box">
+  <img class="profileImg"src="https://placehold.it/100x100" alt="">
+  <button class="close-btn"><span class="material-icons clear"></span></button>
+  <div class="row">
     <div class="col">
-        {{> links/link}}
-    </div>
-    {{/each}}
-  </div>
-</div>
-
-<!-- Login Modal -->
-<div class="modal fade login-modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Link Up With Your Friends</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="login">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-signup" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-signup" placeholder="Password">
-          </div>
-        </form>
-        <br />
-        <p>Not a member?
-          <a data-toggle="modal" data-target="#signup-modal">Link Up</a>
-        </p>
-        </form>
-      </div>
+      <form class="login">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="email-signup" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="password-signup" placeholder="Password">
+        </div>
+      </form>
+      <br />
+      <p>Not a member?
+        <a class="linkUpText" data-toggle="modal" data-target="#signup-modal">Link Up</a>
+      </p>
+      </form>
       <div class="modal-footer">
         <span id="alertSignup"></span>
         <button id="login-submit" type="button" class="btn btn-primary">Login</button>
@@ -68,54 +50,62 @@
   </div>
 </div>
 
-<!-- Sign Up Modal -->
-<div class="modal fade signup-modal" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Link Up With Your Friends</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<!-- Signup Form -->
+<div class="signup-box">
+  <img class="profileImg"src="https://placehold.it/100x100" alt="">
+  <button class="close-btn"><span class="material-icons clear"></span></button>
+  <form class="signup">
+    <div class="form-group">
+      <label for="exampleInputUsername">Select a Username</label>
+      <input type="text" class="form-control" id="username-input" placeholder="Username">
+    </div>
+    <div class="form-group row">
+      <div class="col">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="email-input" placeholder="Email">
       </div>
-      <div class="modal-body ">
-        <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputUsername">Select a Username</label>
-            <input type="text" class="form-control" id="username-input" placeholder="Username">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail">Confirm Email</label>
-            <input type="email" class="form-control" id="email-check" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword">Confirm Password</label>
-            <input type="password" class="form-control" id="password-check" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <label for="birthday">Birthday</label>
-            <br>
-            <input id="birthday" type="date" name="bday">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="err-message">Your email, username, or password is not valid</span>
-          </div>
-        </form>
-        <span id="alert"></span>
-      </div>
-      <div class="modal-footer">
-        <button id="signup-submit" type="button" class="btn btn-primary">Link Up</button>
+      <div class="col">
+        <label for="exampleInputEmail">Confirm Email</label>
+        <input type="email" class="form-control" id="email-check" placeholder="Email">
       </div>
     </div>
+    <div class="form-group row">
+      <div class="col">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="password-input" placeholder="Password">
+      </div>
+      <div class="col">
+        <label for="exampleInputPassword">Confirm Password</label>
+        <input type="password" class="form-control" id="password-check" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="birthday">Birthday</label>
+      <br>
+      <input id="birthday" type="date" name="bday">
+    </div>
+    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+      <span class="err-message">Your email, username, or password is not valid</span>
+    </div>
+  </form>
+  <span id="alert"></span>
+  <div class="modal-footer">
+    <button id="signup-submit" type="button" class="btn">Link Up</button>
   </div>
+</div>
+
+
+
+<!-- container for developer's sites -->
+ <div class="landing-links-bg">
+   <div class="container">
+     <div class="row dev-link-row">
+       {{> links/link}}
+     </div>
+   </div>
+ </div>
+
+
+
   <script src="./assets/js/signup.js"></script>
   <script src="./assets/js/login.js"></script>
