@@ -11,17 +11,32 @@ module.exports = app => {
             res.redirect("/home")
         } else {
             // we can edit this query to pull from a specific category (the dev category)
-            db.Link.findAll({}).then(data => {
-                let devLinks = {
-                    devLinks: data
+            db.Link.findAll({
+              limit:3,
+              where:{
+                shared:true
+              },
+              order:[
+                ["totalClicks", "DESC"]
+              ]
+            }).then(data => {
+                let links = {
+                    links: data
                 }
-                res.render("landing", devLinks);
+                res.render("landing", links);
             });
         };
     });
 
     app.get("/search", isAuthenticated, (req, res) => {
-        db.Link.findAll({}).then(data => {
+        db.Link.findAll({
+          where:{
+            shared:true
+          },
+          order:[
+            ["totalClicks", "ASC"]
+          ]
+        }).then(data => {
             let links = {
                 links: data
             }
@@ -31,7 +46,14 @@ module.exports = app => {
 
 
     app.get("/home", isAuthenticated, (req, res) => {
-        db.Link.findAll({}).then(data => {
+        db.Link.findAll({
+          where:{
+            shared:true
+          },
+          order:[
+            ["totalClicks", "DESC"]
+          ]
+        }).then(data => {
             let links = {
                 links: data
             }
@@ -53,7 +75,7 @@ module.exports = app => {
         }).then((data) => {
           db.Link.findAll({
             where:{
-              id:req.user.id
+              id: req.params.userid
             },
             order:[
               ["totalClicks", "DESC"]
