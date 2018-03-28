@@ -5,6 +5,8 @@ $(document).ready(function () {
   const urlInput = $("#site-url");
   const siteDescription = $("#site-description");
 
+  document.getElementById('site-url').value="https://";
+
   // check url validation on blur
   $("#site-url").on("blur", function (urlEntered) {
 
@@ -71,7 +73,7 @@ $(document).ready(function () {
     $.post('/api/link/new/', {
       title: titleInput.val().trim(),
       url: urlInput.val().trim(),
-      shortenedUrl: `${shortInput}/`,
+      shortenedUrl: shortInput,
       description: siteDescription.val().trim(),
       shared: shareOption,
       UserId: ID
