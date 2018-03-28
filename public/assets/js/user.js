@@ -48,14 +48,13 @@ $(document).ready(function() {
           url: "/api/user/info",
           data: profileUpdate
         })
-          .then(function() {
-            console.log("ajax done");
+          .then(function(req, res) {
+            console.log(req.body);
           });
-    });
-
-
-
+    }); // end of get request for user data
   }) // end of #profile-submit.on click
+
+
 
 
 }) // end of document.ready
