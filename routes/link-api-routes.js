@@ -54,9 +54,14 @@ module.exports  = (app)=>{
             res.json(data)
         })
     })
-    // increase a link's clickcount
-    // app.put("/api/link/click", function(req,res){
-    //     db.Link.update(req.body,
-    //         {where: {id: req.body.id}})
-    // })
+    app.post("/api/link/search", (req, res)=>{
+      console.log("it work here")
+        db.Links.findAll(req.body).then((data)=>{
+          let links = {
+              links: data
+          }
+          res.render("user", links);
+        })
+    })
+
 }

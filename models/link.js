@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     category: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'General'
+      defaultValue: 'general'
     },
     totalClicks: {
       type: DataTypes.INTEGER,
