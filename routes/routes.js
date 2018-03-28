@@ -34,7 +34,7 @@ module.exports = app => {
             shared:true
           },
           order:[
-            ["totalClicks", "ASC"]
+            ["totalClicks", "DESC"]
           ]
         }).then(data => {
             let links = {
@@ -51,7 +51,7 @@ module.exports = app => {
             shared:true
           },
           order:[
-            ["totalClicks", "DESC"]
+            ["createdAt", "DESC"]
           ]
         }).then(data => {
             let links = {
