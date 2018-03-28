@@ -1,9 +1,5 @@
 $(document).ready(function () {
   // click to open and close Modal
-  $(".login-box").hide();
-  $(".signup-box").hide();
-  $(".newLink-box").hide();
-  $(".profile-box").hide();
 
 
   $(".loginBtn").click(function(){
