@@ -27,7 +27,9 @@ module.exports = app => {
 
 
     app.get("/home", isAuthenticated, (req, res) => {
-        db.Link.findAll({}).then(data => {
+        db.Link.findAll({
+            include:[db.User]            
+        }).then(data => {
             let links = {
                 links: data
             }
