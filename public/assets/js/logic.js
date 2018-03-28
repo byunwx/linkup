@@ -47,8 +47,6 @@ $(".target_person").on("click", function(){
     return window.location.href = `/user/${ID}`;
   });
 })
-});
-
 $(".card").on("click", function(){
   let TC=$(this).data("totalclicks");
   let DC=$(this).data("dailyclicks");
@@ -70,3 +68,29 @@ $(".card").on("click", function(){
       console.log("ajax done");
     });
 })
+$("#categoryUser").change(function(){
+  $("select option:selected").each(function(){
+    const x = document.getElementById("categoryUser").selectedIndex;
+    const categoryValue = document.getElementsByTagName("option")[x].value;
+    console.log("adfasdfasdf",categoryValue);
+    let search={
+      where:{
+        category: categoryValue
+      },
+      order:[
+        ["totalClicks", "DESC"]
+      ]
+    }
+    if(categoryValue=="all"){
+      search={
+        order:[
+          ["totalClicks", "DESC"]
+        ]
+      }
+    }
+    $.post("/api/link/search", search).then(data=>{
+      console.log("helloloolollo",data)
+    });
+  })
+})
+});

@@ -33,7 +33,7 @@ module.exports  = (app)=>{
             include:[db.User],
             where:{id:req.params.id,
                 }
-                
+
         }).then((data)=>{
             res.json(data)// will be edited to not display user password
         })
@@ -55,9 +55,13 @@ module.exports  = (app)=>{
             res.json(data)
         })
     })
-    // increase a link's clickcount
-    // app.put("/api/link/click", function(req,res){
-    //     db.Link.update(req.body,
-    //         {where: {id: req.body.id}})
-    // })
+    app.post("/api/link/search", (req, res)=>{
+        db.Link.findAll(req.body).then((data)=>{
+          let links = {
+              links: data
+          }
+          res.render("user", links);
+        })
+    })
+
 }
