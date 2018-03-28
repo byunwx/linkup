@@ -6,14 +6,15 @@ $(document).ready(function () {
   $(".profile-box").hide();
 
 
-  $("loginBtn").click(function(){
+  $(".loginBtn").click(function(){
     $(".login-box").show();
   })
-  $("signupBtn").on("click", function(){
+  $(".signupBtn").click(function(){
     $(".signup-box").show();
   })
   $(".close-btn").click(function(){
-    $(".login-box").toggleClass("login-box");
+    $(".login-box").hide();
+    $(".signup-box").hide();
     //
     // $(".signup-box").hide();
     // $(".login-box").hide();
