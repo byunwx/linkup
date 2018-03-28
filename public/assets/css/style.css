@@ -123,32 +123,50 @@ text-shadow: 0 0 10px gray;
 .login-box {
   background-color: rgba(0, 0, 0, 0.75);
   color: coral;
-  padding: 1.25em;
-  height: 520px;
-  min-width: 400px;
+  padding: 0 3em;
+  height: 470px;
+  min-width: 700px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 5;
-  visibility: hidden;
+  z-index: 10;
+  /* visibility: hidden; */
+}
+.linkUpText {
+  color: #00b698!important;
+}
+.linkUpText:hover {
+  color: #fff!important;
+}
+#login-submit {
+  background-color: coral;
+  border: none;
+  color: white;
+  font-size: 22px;
+  text-shadow: 0 0 5px black;
+  width: 130px;
+  height: 50px;
+  margin: 0 10px;
+  border-radius: 20px;
 }
 /* Signup FORM MODAL */
 .signup-box {
   background-color: rgba(0, 0, 0, 0.75);
   color: coral;
-  padding: 1.25em;
+  padding: 0 3em;
   height: 580px;
   min-width: 750px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 5;
-  /* visibility: hidden; */
+  z-index: 10;
+  visibility: hidden;
 }
 #birthday {
   width: 100%;
+  height: 45px;
 }
 #signup-submit {
   background-color: coral;
@@ -183,14 +201,14 @@ text-shadow: 0 0 10px gray;
 .profile-box {
   background-color: rgba(0, 0, 0, 0.75);
   color: coral;
-  padding: 1.25em;
-  height: 520px;
-  min-width: 400px;
+  padding: 0 3em;
+  height: 560px;
+  min-width: 700px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 5;
+  z-index: 10;
 }
 /* .profile-box-hidden {
   background-color: rgba(0, 0, 0, 0.75);
@@ -221,18 +239,35 @@ text-shadow: 0 0 10px gray;
 }
 .profile-submit {
   background-color: coral;
+  border: none;
+  color: white;
+  font-size: 22px;
+  text-shadow: 0 0 5px black;
+  width: 130px;
+  height: 50px;
+  margin: 0 10px;
+  margin-top: 20px;
+  border-radius: 20px;
+  /* background-color: coral;
   color: black;
   border-color: black;
   border-radius: 20px;
   width: 100px;
-  height: 40px;
+  height: 40px; */
 }
-#firstName, #lastName, #userBio, #userImage, .userImgLabel {
+#firstName, #lastName, #userBio,
+#userImage, #birthday, .userImgLabel,
+.form-control, #password-check, #password-input,
+#email-check, #email-input, #username-input,
+#email-signup, #password-signup {
   background-color: transparent!important;
   border: none;
   border-bottom: 1px solid coral;
   border-radius: 0;
   color: #fff;
+}
+#birthday {
+  color: gray;
 }
 .userImgLabel {
   color: #878787;
