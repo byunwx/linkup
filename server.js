@@ -84,8 +84,8 @@ schedule.scheduleJob('* 4 * * 2', function () {
 });
 
 //this cronjob is set to run every day at midnight to reset the dailyClicks in the db
-schedule.scheduledJob('00 00 * * *', function () {
-  console.log('Time to clear the clicks!');
+schedule.scheduleJob('00 00 * * *', function () {
+  console.log('Time to clear the daily clicks!');
   db.Link.update({
     dailyClicks: 0
   }, {
