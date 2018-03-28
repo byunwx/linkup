@@ -20,7 +20,7 @@ module.exports  = (app)=>{
     // find all links in database
     app.get("/api/link/data", (req,res)=>{
         db.Link.findAll({
-            where:{include:[db.User]}
+            include:[db.User]
         })
         .then((data)=>{
             res.json(data) // will be edited to not display user password
@@ -30,9 +30,10 @@ module.exports  = (app)=>{
     // find all the information for a specific link
     app.get("/api/link/:id",(req,res)=>{
         db.Link.findOne({
-            where:{
-                include:[db.User]},
-                id:req.params.id
+            include:[db.User],
+            where:{id:req.params.id,
+                }
+                
         }).then((data)=>{
             res.json(data)// will be edited to not display user password
         })

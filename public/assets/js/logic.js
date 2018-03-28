@@ -7,6 +7,11 @@ $(document).ready(function () {
     $(".newLink-box").show();
   })
 
+
+  $(document).on("click",".delete-btn",function(){
+    deleteLink($(this).attr("data-linkID"))
+  })
+
   $("#edit-profile").click(function(){
     $(".profile-box").show();
   })

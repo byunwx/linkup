@@ -1,22 +1,45 @@
-function updatePost(post) {
-    $.ajax({
-      method: "PUT",
-      url: "/api/user/follow",
-      data: post
-    })
-      .then(function() {
-        window.location.href = "/home";
-        console.log("updated")
-      });
-  }
-  $("#follow").on("click", function(){
-      callTest(2)
-      // this will be adjusted to call the function with this.data.id or something
-  })
+let linkIDArr = $('#linkCards .follow-btn').map(function(){
+    return this.id;
+})
+let testervar = "hellooooo"
+function reRender(){
+    $.get("/api/user/data", function(data) {
+        //current user id
+        let currentUser =data.id
+        console.log(currentUser);
+        //current user following array
+        let followingArr = JSON.parse(data.array)
+        console.log(followingArr)
+
+        // .get();
+        console.log(linkIDArr);
+        for( var i = 0; i<linkIDArr.length; i++){
+            if ($(`#${linkIDArr[i]}`).attr("data-userID")==currentUser){
+                console.log("condintional true")
+                $(`#${linkIDArr[i]}`).text("this is your post: delete?")
+                $(`#${linkIDArr[i]}`).attr("class", "delete-btn btn-danger")
+                
+            } else if(followingArr!==null && followingArr.following.includes($(`#${linkIDArr[i]}`).attr("data-userID")))
+            {
+                $(`#${linkIDArr[i]}`).text("You Already Follow this user")
+                $(`#${linkIDArr[i]}`).attr("class", "unfollow")
+                
+            }
+            console.log($(`#${linkIDArr[i]}`).attr("data-userID"))
+        }
+        
+    })    
+}
+reRender();
 function callTest(followee){
     console.log("test")
+    // console.log($(this.text())
+    // if($(this).text() !== "Follow User"){
+    //     return
+    // }
     $.get("/api/user/data", function(data) {
     //update follower (current user)
+    
         let arrTest={}
         console.log("this is the follower data")
         console.log(JSON.parse(data.array));
@@ -32,13 +55,17 @@ function callTest(followee){
                 followers:[]
             }
         }//end of JSON Parse if else
+        if(followee==data.id){
+            console.log("you cannot follow yourself")
+            return
 
+        }
         if(arrTest.following.includes(followee)){
             // if the array already includes the id of the user you are trying to follow
             // stop the function
             console.log("you already follow this user")
             return
-        }else{
+        }//else{
         arrTest.following.push(followee)
             //push the ID of the user you are trying to follow to the array 
         var newPost = {
@@ -49,7 +76,7 @@ function callTest(followee){
         // setting the ID so sequelize knows where to update
         updatePost(newPost);  
         updateFollowee(followee,newPost.id)    
-        }
+        //}
     });
     function updateFollowee(followee,follower){
     // update the followee (user being followed)
@@ -80,3 +107,41 @@ function callTest(followee){
         })
     }
 }
+// follower put request
+function updatePost(post) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/user/follow",
+      data: post
+    })
+      .then(function() {
+        location.reload()
+        console.log("followed")
+      });
+  }
+function updateLink(post){
+    $.ajax({
+        method: "PUT",
+        url:"/api/link/update",
+        data: post
+    })
+    .then(function(){
+        location.reload()
+        console.log("updated")
+    })
+}
+function deleteLink(post){
+    $.ajax({
+        method:"DELETE",
+        url:"/api/link/delete",
+        data:{id:post}
+    })
+    .then(function(){
+        location.reload()
+    })
+}
+  $(document).on("click",".follow-btn", function(){
+      callTest($(this).attr("data-userID"))
+
+      // this will be adjusted to call the function with this.data.id or something
+  })
