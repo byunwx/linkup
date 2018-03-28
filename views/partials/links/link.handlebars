@@ -1,4 +1,4 @@
-<div class="card" data-id="{{this.id}}" data-totalclicks="{{this.totalClicks}}" data-dailyclicks="{{this.dailyClicks}}">
+<div class="card" data-id="{{this.id}}" data-totalclicks="{{this.totalClicks}}" data-dailyclicks="{{this.dailyClicks}}" data-top500="{{this.top500}}">
     {{!-- <button type="button" class="btn btn-lg logout-btn">
         <a href="">
             <span class="material-icons clear"></span>
@@ -13,14 +13,13 @@
                 <p class="card-text">
                     {{this.description}}
                     <br>
-   
-                    posted by : username {{this.User.username}}  
-                    <br> Total Clicks: {{this.totalClicks}} | Daily Clicks: {{this.dailyClicks}} | Top500?: {{this.top500}}
+                    Posted by: {{this.User.username}}
+                    <br> Total Clicks: {{this.totalClicks}} <br> Daily Clicks: {{this.dailyClicks}}
                 </p>
             </span>
+              </a>
+            <button class="followBtn" id="{{this.id}}"  data-userID={{this.UserId}} data-linkID={{this.id}} class="follow-btn btn btn-primary follow">Follow</button>
+
         </div>
-    </a>
 </div>
-<button id ="{{this.id}}"  data-userID={{this.UserId}} data-linkID={{this.id}} class="follow-btn btn btn-primary follow">Follow User</button>
-
-
+<!-- <button id ="{{this.id}}"  data-userID={{this.UserId}} data-linkID={{this.id}} class="follow-btn btn btn-primary follow">Follow User</button> -->
