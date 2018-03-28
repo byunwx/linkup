@@ -224,7 +224,7 @@ text-shadow: 0 0 10px gray;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 .newLink-box {
   background-color: rgba(0, 0, 0, 0.75);
@@ -237,6 +237,7 @@ text-shadow: 0 0 10px gray;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+  /* visibility: hidden; */
 }
 #shareOption {
   margin-top: 20px;

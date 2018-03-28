@@ -24,7 +24,7 @@
   <div class="row footer-row">
     <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home"><span class="material-icons home"></span></button>
     <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home"><span class="material-icons search"></span></button>
-    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_add" data-toggle="modal" data-target="#add-link-modal"><span data-toggle="modal" data-target="#add-link-modal" class="material-icons add"></span></button>
+    <button type="button" class="add-link-button btn btn-success btn-lg btn-block col-sm-3 target_add" data-toggle="modal" data-target="#add-link-modal"><span data-toggle="modal" data-target="#add-link-modal" class="material-icons add"></span></button>
     <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home"><span class="material-icons person"></span></button>
   </div>
 </footer>
@@ -71,49 +71,6 @@
 </div>
 <!------------------------------------------------------>
 
-<!-- New Links Modal -->
-  <div class="modal fade login-modal" id="add-link-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="add-link-title">Share Your Links Here</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form class="add-link">
-            <div class="form-group">
-              <label for="site-title">Site Title:</label>
-              <input type="text" class="form-control" id="site-title" placeholder="Name of Site">
-            </div>
-            <div class="form-group">
-              <label for="site-url">Site URL:</label>
-              <input type="url"  class="form-control" id="site-url" placeholder="https://www.amazon.com" required>
-            </div>
-            <!-- <div class="form-group"> -->
-              <label for="site-desscription">Site Description</label>
-              <textarea class="form-control" id="site-description" rows="3" placeholder="Enter a brief description of the website"></textarea>
-            <!-- </div> -->
-            <div class="form-check" id="shareOption">
-              <div class="row">
-                <div class="col">
-                  <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true" checked>
-                  <label class="form-check-label" for="shareLink">Share</label>
-                </div>
-                <div class="col">
-                  <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false">
-                  <label class="form-check-label" for="privateLink">Private</label>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button id="new-link-submit" type="button" class="btn btn-primary">Submit Link</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <script src="./assets/js/newlink.js"></script>
   <script src="./assets/js/logic.js"></script>

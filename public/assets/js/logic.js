@@ -1,23 +1,28 @@
 $(document).ready(function () {
 
-  // // click to open and close Modal
-  // $(".login-box").show();
-  // $(".signup-box").hide();
-  // $(".newLink-box").hide();
-  // $(".profile-box").hide();
-  //
-  // $("loginBtn").click(function(){
-  //   $(".login-box").show();
-  // })
-  // $("signupBtn").on("click", function(){
-  //   $(".signup-box").show();
-  // })
-  // $(".close-btn").click(function(){
-  //   $(".signup-box").hide();
-  //   $(".login-box").hide();
-  //   $(".newLink-box").hide();
-  //   $(".profile-box").hide();
-  // })
+  // click to open and close Modal
+  $(".newLink-box").hide();
+  $(".profile-box").hide();
+
+  $(".add-link-button").click(function() {
+    $(".newLink-box").show();
+  })
+
+  $("#edit-profile").click(function(){
+    $(".profile-box").show();
+  })
+
+
+  $("#new-link-submit").click(function(){
+    $(".newLink-box").hide();
+  })
+  $("profile-submit").click(function(){
+    $(".profile-box").hide();
+  })
+  $(".close-btn").click(function(){
+    $(".newLink-box").hide();
+    $(".profile-box").hide();
+  })
 
 $(".target_home").on("click", function(){
   console.log("home");
