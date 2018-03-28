@@ -31,7 +31,15 @@ cursor: pointer!important;
   top: 10px;
   right: 10px;
 }
-
+.whole-page{
+  min-height: 100vh;
+}
+.text-mid{
+  text-align: center;
+}
+.aboutUs{
+  background-color: #ff7e4f;
+}
 /************************************/
 
 /* JUNBOTROM AND LANDING CSS */
