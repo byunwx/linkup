@@ -4,7 +4,6 @@ body {
 }
 .navbar {
   background-color: rgba(0, 0, 0, 0.75)!important;
-
 }
 /* LOG OUT BUTTON */
 .logout-btn {
@@ -100,7 +99,7 @@ text-shadow: 0 0 10px gray;
   background-color: rgba(0, 0, 0, 0.75);
   color: coral;
   padding: 1.25em;
-  height: 520px;
+  min-height: 520px;
   min-width: 400px;
   position: absolute;
   top: 50%;
@@ -121,6 +120,9 @@ text-shadow: 0 0 10px gray;
 } */
 ::placeholder {
   color: lightgray;
+}
+#userBio {
+  max-height: 90px;
 }
 .profileImg {
   border: 2px solid coral;
