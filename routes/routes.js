@@ -21,8 +21,12 @@ module.exports = app => {
     });
 
     app.get("/search", isAuthenticated, (req, res) => {
-        let placeholder; //will be redefined through development
-        res.render("search", placeholder);
+        db.Link.findAll({}).then(data => {
+            let links = {
+                links: data
+            }
+            res.render("search", links);
+        });
     });
 
 
@@ -47,8 +51,21 @@ module.exports = app => {
                 id: req.params.userid
             }
         }).then((data) => {
-            console.log("this is data: ", data);
-            res.render("user");
+          db.Link.findAll({
+            where:{
+              id:req.user.id
+            },
+            order:[
+              ["totalClicks", "DESC"]
+            ]
+          }).then(data => {
+              let links = {
+                  links: data
+              }
+              res.render("user", links);
+          });
         })
+
     });
+
 }
