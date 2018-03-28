@@ -1,4 +1,25 @@
 $(document).ready(function () {
+  // click to open and close Modal
+  $(".login-box").hide();
+  $(".signup-box").hide();
+  $(".newLink-box").hide();
+  $(".profile-box").hide();
+
+
+  $("loginBtn").click(function(){
+    $(".login-box").show();
+  })
+  $("signupBtn").on("click", function(){
+    $(".signup-box").show();
+  })
+  $(".close-btn").click(function(){
+    $(".login-box").toggleClass("login-box");
+    //
+    // $(".signup-box").hide();
+    // $(".login-box").hide();
+    // $(".newLink-box").hide();
+    // $(".profile-box").hide();
+  })
     console.log("linked to login")
     const emailInput = $('input#email-signup');
     const passwordInput = $('input#password-signup');
