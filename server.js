@@ -6,11 +6,15 @@ const cheerio = require('cheerio');
 const request = require('request');
 const rp = require('request-promise');
 const schedule = require('node-schedule');
+const aws = require('aws-sdk');
+aws.config.region = 'us-east-2';
 // middleware
 //Session data is not saved in the cookie itself, just the session ID. Session data is stored server-side.
 const passport = require("./config/passport");
 //Passport uses the concept of strategies to authenticate requests.
 const PORT = process.env.PORT || 8080;
+//AWS link to our bucket
+const S3_BUCKET = process.env.S3_BUCKET;
 const db = require("./models");
 
 const app = express();
@@ -37,6 +41,33 @@ app.set("view engine", "handlebars");
 require("./routes/routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 require("./routes/link-api-routes.js")(app);
+
+// heroku boilerplate GET route to configure our S3 bucket
+app.get('/sign-s3', (req, res) => {
+  const s3 = new aws.S3();
+  const fileName = req.query['file-name'];
+  const fileType = req.query['file-type'];
+  const s3Params = {
+    Bucket: S3_BUCKET,
+    Key: fileName,
+    Expires: 60,
+    ContentType: fileType,
+    ACL: 'public-read'
+  };
+
+  s3.getSignedUrl('putObject', s3Params, (err, data) => {
+    if(err){
+      console.log(err);
+      return res.end();
+    }
+    const returnData = {
+      signedRequest: data,
+      url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+    };
+    res.write(JSON.stringify(returnData));
+    res.end();
+  });
+});
 
 // This is our scraper route which will scrape the Moz top500 and return the results as JSON in a {0: url, 1: url} format
 app.get('/scrape/', (req, res) => {
