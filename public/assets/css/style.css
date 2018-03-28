@@ -4,6 +4,11 @@ body {
 }
 .navbar {
   background-color: rgba(0, 0, 0, 0.75)!important;
+  width: 100%;
+}
+.logoHead {
+  height: 60px;
+  width: auto;
 }
 /* LOG OUT BUTTON */
 .logout-btn, .close-btn {
@@ -282,6 +287,10 @@ text-shadow: 0 0 10px gray;
 }
 .profile-pic-col {
   padding: 0;
+}
+.user-image {
+  border-radius: 50%;
+  overflow: hidden;
 }
 .profile-submit, #new-link-submit {
   background-color: coral;
