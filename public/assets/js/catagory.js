@@ -5,27 +5,27 @@ $.get("/api/user/data", function(data){
   for (var i = 0; i < myCat.length; i++) {
     let newOption=$("<option>").attr("value", myCat[i]);
     newOption.text(myCat[i]);
-    $("#catagoryUser").append(newOption);
+    $("#categoryUser").append(newOption);
   }
 })
-$("#catagoryUser").change(function(){
+$("#categoryUser").change(function(){
   $("select option:selected").each(function(){
-    const x = document.getElementById("catagoryUser").selectedIndex;
-    const catagoryValue = document.getElementsByTagName("option")[x].value;
+    const x = document.getElementById("categoryUser").selectedIndex;
+    const categoryValue = document.getElementsByTagName("option")[x].value;
     let name = window.location.href;
     let thing= name.split("/");
     let lastUrl= thing[thing.length-1];
-    console.log("adfasdfasdf",catagoryValue);
+    console.log("adfasdfasdf",categoryValue);
     let search={
       where:{
         UserId: lastUrl,
-        catagory: catagoryValue
+        category: categoryValue
       },
       order:[
         ["totalClicks", "DESC"]
       ]
     }
-    if(catagoryValue=="all"){
+    if(categoryValue=="all"){
       search={
         where:{
           UserId: lastUrl,
@@ -37,7 +37,7 @@ $("#catagoryUser").change(function(){
     }
     $.post("/api/link/search", search).then(data=>{
       console.log("helloloolollo",data)
-    })
+    });
   })
 })
 })

@@ -3,14 +3,20 @@
   <a class="navbar-brand" href="#"><img class="logoHead" src="../../assets/images/logoHead.png" /></a>
     <button type="button" class="btn btn-lg logout-btn"><a href="/logout"><span class="material-icons clear"></span></a></button>
 </nav>
-
-
 <div class="container-fluid">
   <div class="input-group mb-3 col-md-6 offset-md-3">
-    <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="basic-addon2">
+    <select class="category" id="categoryUser">
+      <option value="all">all</option>
+      <option value="general">general</option>
+      <option value="shopping">shopping</option>
+      <option value="food">food</option>
+      <option value="entertainment">entertainment</option>
+      <option value="travel">travel</option>
+    </select>
+    <!-- <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="basic-addon2">
     <div class="input-group-append">
       <button class="btn btn-outline-secondary" type="button">Search</button>
-    </div>
+    </div> -->
   </div>
 
   <div class="row" id="linkCards">
@@ -76,4 +82,3 @@
   <script src="./assets/js/newlink.js"></script>
   <script src="./assets/js/logic.js"></script>
   <script src="./assets/js/followTest.js"></script>
-  

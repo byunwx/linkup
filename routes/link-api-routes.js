@@ -33,7 +33,7 @@ module.exports  = (app)=>{
             include:[db.User],
             where:{id:req.params.id,
                 }
-                
+
         }).then((data)=>{
             res.json(data)// will be edited to not display user password
         })
@@ -56,8 +56,7 @@ module.exports  = (app)=>{
         })
     })
     app.post("/api/link/search", (req, res)=>{
-      console.log("it work here")
-        db.Links.findAll(req.body).then((data)=>{
+        db.Link.findAll(req.body).then((data)=>{
           let links = {
               links: data
           }
