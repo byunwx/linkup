@@ -47,6 +47,7 @@ module.exports = app => {
 
     app.get("/home", isAuthenticated, (req, res) => {
         db.Link.findAll({
+            include:[db.User],            
           where:{
             shared:true
           },
