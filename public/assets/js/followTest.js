@@ -1,6 +1,7 @@
 let linkIDArr = $('#linkCards .follow-btn').map(function(){
     return this.id;
 })
+let testervar = "hellooooo"
 function reRender(){
     $.get("/api/user/data", function(data) {
         //current user id
@@ -15,8 +16,8 @@ function reRender(){
         for( var i = 0; i<linkIDArr.length; i++){
             if ($(`#${linkIDArr[i]}`).attr("data-userID")==currentUser){
                 console.log("condintional true")
-                $(`#${linkIDArr[i]}`).text("this is you")
-                $(`#${linkIDArr[i]}`).attr("class", "edit")
+                $(`#${linkIDArr[i]}`).text("this is your post: delete?")
+                $(`#${linkIDArr[i]}`).attr("class", "delete-btn btn-danger")
                 
             } else if(followingArr!==null && followingArr.following.includes($(`#${linkIDArr[i]}`).attr("data-userID")))
             {
@@ -106,6 +107,7 @@ function callTest(followee){
         })
     }
 }
+// follower put request
 function updatePost(post) {
     $.ajax({
       method: "PUT",
@@ -113,10 +115,31 @@ function updatePost(post) {
       data: post
     })
       .then(function() {
-        window.location.href = "/home";
-        console.log("updated")
+        location.reload()
+        console.log("followed")
       });
   }
+function updateLink(post){
+    $.ajax({
+        method: "PUT",
+        url:"/api/link/update",
+        data: post
+    })
+    .then(function(){
+        location.reload()
+        console.log("updated")
+    })
+}
+function deleteLink(post){
+    $.ajax({
+        method:"DELETE",
+        url:"/api/link/delete",
+        data:{id:post}
+    })
+    .then(function(){
+        location.reload()
+    })
+}
   $(document).on("click",".follow-btn", function(){
       callTest($(this).attr("data-userID"))
 
