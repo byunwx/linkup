@@ -49,6 +49,7 @@ $(document).ready(function() {
           data: profileUpdate
         })
           .then(function(req, res) {
+            window.location.href = `/user/${ID}`;
             console.log(req.body);
           });
     }); // end of get request for user data
