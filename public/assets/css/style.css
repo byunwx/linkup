@@ -44,6 +44,7 @@ cursor: pointer!important;
 
 /* JUNBOTROM AND LANDING CSS */
 .jumbotron-fluid {
+  background-image: url("../../assets/images/abstract.jpg");
   position: relative;
   text-align: center;
   min-height: 550px;
@@ -55,13 +56,18 @@ cursor: pointer!important;
   transform: translate(-50%, -50%);
 }
 .main-container p {
+  color: white;
+  font-size: 34px;
   padding: 10px 40px;
+  text-shadow: 0 0 5px black;
+
 }
 .loginBtn, .signupBtn {
   background-color: coral;
   color: black;
 }
-.loginBtn, .signupBtn {
+.loginBtn, .signupBtn, .email-submit {
+  background-color: coral;
   border: none;
   color: white;
   font-size: 22px;
@@ -71,7 +77,7 @@ cursor: pointer!important;
   margin: 0 10px;
   border-radius: 20px;
 }
-.loginBtn:hover, .signupBtn:hover {
+.loginBtn:hover, .signupBtn:hover, .email-submit:hover {
   background-color: #00b698!important;
   color: white!important;
 }
@@ -81,13 +87,49 @@ cursor: pointer!important;
   text-align: center;
 }
 .landing-links-bg {
-  background-color: rgba(0, 0, 0, 0.75)!important;
+  padding: 40px 0;
+}
+.landingCards {
+}
+.card {
+  border: 2px solid black;
+  color:black;
+}
+.card-body {background-color: rgba(0, 0, 0, 0.75)!important;}
+.card-title {color: coral; text-align: center;}
+.card-text {color: #fff;}
 
+.aboutUs {
+  background-color: rgba(0, 0, 0, 0.75)!important;
+  color: white;
+}
+.whole-page h3 {
+  color: coral;
+}
+.whole-page h2 {
+  font-size: 54px;
 }
 
-.card {
-color:black;}
-
+.thedeveloper {
+  border: 1px solid coral;
+  margin-bottom: 15px;
+}
+.contactUs {
+  text-align: center;
+}
+.contactUs input, .contactUs textarea {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid coral;
+}
+.contactUs input::placeholder, .contactUs textarea::placeholder {
+  color:gray;
+}
+.ourInfoRow {
+  margin-top: 30px;
+}
 /* FOOTER */
 footer {
   /* background-color: rgba(0, 0, 0, 0.6)!important; */

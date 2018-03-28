@@ -26,7 +26,7 @@
           {{> UserImage }}
           <img class="user-image img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
           <button id="edit-profile" type="button" name="edit-profile">Edit Profile</button>
-      	</div>
+        </div>
         <div class="col-8">
           <div class="row">
             <div class="col">
@@ -39,26 +39,36 @@
             </div>
           </div>
         </div>
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer class="fixed-bottom">
   <div class="row footer-row">
-    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home"><span class="material-icons home"></span></button>
-    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_search"><span class="material-icons search"></span></button>
-    <button type="button" class="add-link-button btn btn-success btn-lg btn-block col-sm-3 target_add" data-toggle="modal" data-target="#add-link-modal"><span data-toggle="modal" data-target="#add-link-modal" class="material-icons add"></span></button>
-    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_person"><span class="material-icons person"></span></button>
+    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home">
+      <span class="material-icons home"></span>
+    </button>
+    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_search">
+      <span class="material-icons search"></span>
+    </button>
+    <button type="button" class="add-link-button btn btn-success btn-lg btn-block col-sm-3 target_add" data-toggle="modal" data-target="#add-link-modal">
+      <span data-toggle="modal" data-target="#add-link-modal" class="material-icons add"></span>
+    </button>
+    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_person">
+      <span class="material-icons person"></span>
+    </button>
   </div>
 </footer>
 
 
 
-  <!-- New Link Form -->
+<!-- New Link Form -->
 <div class="newLink-box">
-  <img class="profileImg"src="https://placehold.it/100x100" alt="">
-  <button class="close-btn"><span class="material-icons clear"></span></button>
+  <img class="profileImg" src="https://placehold.it/100x100" alt="">
+  <button class="close-btn">
+    <span class="material-icons clear"></span>
+  </button>
   <div class="row">
     <div class="col">
       <h5 class="modal-title" id="add-link-title" align="center">Share Your Links Here</h5>
@@ -90,17 +100,20 @@
           </div>
         </div>
       </div>
-    </form>
-    <div class="modal-footer">
-      <button id="new-link-submit" type="button" class="btn btn-primary">Submit Link</button>
     </div>
+  </form>
+  <div class="modal-footer">
+    <button id="new-link-submit" type="button" class="btn btn-primary">Submit Link</button>
+  </div>
 </div>
 <!------------------------------------------------------>
 
-  <!-- User Profile Form -->
+<!-- User Profile Form -->
 <div class="profile-box">
-  <img class="profileImg"src="https://placehold.it/100x100" alt="">
-  <button class="close-btn"><span class="material-icons clear"></span></button>
+  <img class="profileImg" src="https://placehold.it/100x100" alt="">
+  <button class="close-btn">
+    <span class="material-icons clear"></span>
+  </button>
 
   <div class="row">
     <div class="col">
@@ -126,14 +139,23 @@
         <div class="rows profile-pic-row mt-3">
           <div class="col profile-pic-col">
             <label for="userImg">Profile Picture:</label>
+            <input type="file" id="file-input">
+            <p id="status">Please select a file</p>
+            <form method="POST" action="/save-details">
+              <input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
+              <input type="submit" value="Update profile">
+            </form>
+            {{!--
             <div class="input-group">
-                <label class="input-group-btn">
-                    <span class="btn btn-primary">
-                        Browse&hellip; <input id="userImage" type="file" style="display: none;" multiple>
-                    </span>
-                </label>
-                <input type="text" class="form-control" readonly>
-            </div>
+              <label class="input-group-btn">
+                <span class="btn btn-primary">
+                  Browse&hellip;
+                  <input id="userImage" type="file" style="display: none;" multiple>
+                </span>
+              </label>
+              <input type="text" class="form-control" readonly>
+            </div> --}}
+
           </div>
         </div>
         <div class="row" align="center">
@@ -147,7 +169,13 @@
 </div>
 
 
+<<<<<<< HEAD
   <script src="../assets/js/newlink.js"></script>
   <script src="../assets/js/logic.js"></script>
   <script src="../assets/js/user.js"></script>
   <script src="../assets/js/catagory.js"></script>
+=======
+<script src="../assets/js/newlink.js"></script>
+<script src="../assets/js/logic.js"></script>
+<script src="../assets/js/user.js"></script>
+>>>>>>> 2acf92fe756281bcba63121451ba089380d7b949

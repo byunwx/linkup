@@ -1,3 +1,4 @@
+$(document).ready(function () {
 $.get("/api/user/data", function(data){
   let myCat=data.linkCategories.split(",");
   console.log(myCat);
@@ -38,4 +39,5 @@ $("#catagoryUser").change(function(){
       console.log("helloloolollo",data)
     })
   })
+})
 })
