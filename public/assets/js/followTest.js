@@ -9,8 +9,8 @@ function updatePost(post) {
         console.log("updated")
       });
   }
-  $("#follow").on("click", function(){
-      callTest(2)
+  $(".follow").on("click", function(){
+      callTest($(this).attr("data-userID"))
       // this will be adjusted to call the function with this.data.id or something
   })
 function callTest(followee){

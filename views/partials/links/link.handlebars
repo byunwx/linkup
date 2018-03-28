@@ -1,5 +1,5 @@
-<a href="{{this.url}}" target="_blank">
-    <div class="card" data-id="{{this.id}}" data-totalclicks="{{this.totalClicks}}" data-dailyclicks="{{this.dailyClicks}}">
+<div class="card" data-id="{{this.id}}" data-totalclicks="{{this.totalClicks}}" data-dailyclicks="{{this.dailyClicks}}">
+    <a href="{{this.url}}" target="_blank">
         <img class="card-img-top" src="http://placehold.it/300x300&amp;text=CardPlaceholder" alt="">
         <div class="card-body">
             <h4 class="card-title">{{this.title}}</h4>
@@ -11,5 +11,7 @@
                 </p>
             </span>
         </div>
-    </div>
-</a>
+    </a>
+    <button data-userID={{this.UserId}} class="btn btn-primary follow">Follow User</button>
+</div>
+
