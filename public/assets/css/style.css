@@ -6,19 +6,27 @@ body {
   background-color: rgba(0, 0, 0, 0.75)!important;
 }
 /* LOG OUT BUTTON */
-.logout-btn {
+.logout-btn, .close-btn {
   background-color: transparent;
+  border: none;
 }
 .clear {
-position:relative;
+/* position:relative; */
 display:inline-block;
 }
 .clear:after {
 content: "clear";
 color: coral;
 font-size: 44px;
-text-shadow: 0 0 10px gray;
+text-shadow: 0 0 10px lightgray;
+cursor: pointer!important;
 }
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 /************************************/
 
 /* JUNBOTROM AND LANDING CSS */
@@ -261,7 +269,7 @@ text-shadow: 0 0 10px gray;
   color: white;
   font-size: 22px;
   text-shadow: 0 0 5px black;
-  width: 130px;
+  width: 140px;
   height: 50px;
   margin: 0 10px;
   margin-top: 20px;
@@ -275,6 +283,12 @@ text-shadow: 0 0 10px gray;
 }
 #new-link-submit {
   margin-top: 5px;
+}
+.profile-submit:hover, #new-link-submit:hover,
+#signup-submit:hover, #login-submit:hover {
+  background-color: #fff;
+  color: #00b698;
+  text-shadow: none;
 }
 
 input[type='radio']:checked:after {
