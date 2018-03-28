@@ -71,7 +71,7 @@ $(document).ready(function () {
     $.post('/api/link/new/', {
       title: titleInput.val().trim(),
       url: urlInput.val().trim(),
-      shortenedUrl: `${shortInput}/`,
+      shortenedUrl: shortInput,
       description: siteDescription.val().trim(),
       shared: shareOption,
       UserId: ID
