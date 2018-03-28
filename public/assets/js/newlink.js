@@ -5,6 +5,8 @@ $(document).ready(function () {
   const urlInput = $("#site-url");
   const siteDescription = $("#site-description");
 
+  document.getElementById('site-url').value="https://";
+
   // check url validation on blur
   $("#site-url").on("blur", function (urlEntered) {
 
