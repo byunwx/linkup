@@ -1,5 +1,5 @@
 # linkstagram
-
+developer: Woojoo Byun, Adrian Kyzer, Marcus Hilaire, Jon Telles
 ## html pages
 * login, upload, result, profile, landing
 
