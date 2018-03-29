@@ -12,13 +12,13 @@ module.exports = app => {
         } else {
             // we can edit this query to pull from a specific category (the dev category)
             db.Link.findAll({
-              limit:3,
-              where:{
-                shared:true
-              },
-              order:[
-                ["totalClicks", "DESC"]
-              ]
+                limit: 3,
+                where: {
+                    shared: true
+                },
+                order: [
+                    ["totalClicks", "DESC"]
+                ]
             }).then(data => {
                 let links = {
                     links: data
@@ -30,12 +30,12 @@ module.exports = app => {
 
     app.get("/search", isAuthenticated, (req, res) => {
         db.Link.findAll({
-          where:{
-            shared:true
-          },
-          order:[
-            ["totalClicks", "DESC"]
-          ]
+            where: {
+                shared: true
+            },
+            order: [
+                ["totalClicks", "DESC"]
+            ]
         }).then(data => {
             let links = {
                 links: data
@@ -47,13 +47,13 @@ module.exports = app => {
 
     app.get("/home", isAuthenticated, (req, res) => {
         db.Link.findAll({
-            include:[db.User],            
-          where:{
-            shared:true
-          },
-          order:[
-            ["createdAt", "DESC"]
-          ]
+            include: [db.User],
+            where: {
+                shared: true
+            },
+            order: [
+                ["createdAt", "DESC"]
+            ]
         }).then(data => {
             let links = {
                 links: data
@@ -74,22 +74,20 @@ module.exports = app => {
                 id: req.params.userid
             }
         }).then((data) => {
-          db.Link.findAll({
-            where:{
-              UserId: req.params.userid
-            },
-            order:[
-              ["totalClicks", "DESC"]
-            ]
-          }).then(data => {
-              let links = {
-                  links: data
-              }
-              res.render("user", links);
-          });
+            db.Link.findAll({
+                where: {
+                    UserId: req.params.userid
+                },
+                order: [
+                    ["totalClicks", "DESC"]
+                ]
+            }).then(data => {
+                let links = {
+                    links: data
+                }
+                res.render("user", links);
+            });
         })
-
     });
-    
 
 }
