@@ -123,7 +123,6 @@ cursor: pointer!important;
 .thedeveloper {
   border: 1px solid coral;
   margin-bottom: 15px;
-  padding: 30px;
 }
 .contactUs {
   text-align: center;
@@ -211,6 +210,9 @@ text-shadow: 0 0 10px gray;
   padding-top: 100px;
   max-width: 960px;
 }
+.landing-container {
+  padding: 30px 0;
+}
 .searchPageSearch {
   height: 50px;
   width:35%;
@@ -221,6 +223,9 @@ text-shadow: 0 0 10px gray;
 }
 #linkCards {
   margin-bottom: 100px;
+}
+.landingCards {
+  margin-bottom: 15px;
 }
 .pageTitle {color:#00b698;}
 .colorTitle {color:coral;}
