@@ -30,6 +30,9 @@ module.exports = app => {
     });
 
     app.get("/search/all", isAuthenticated, (req, res) => {
+        if (!req.user) {
+            res.redirect("/");
+        }
         db.Link.findAll({
             include:[db.User],
             where: {
@@ -46,6 +49,9 @@ module.exports = app => {
         });
     });
     app.get("/search/:category", isAuthenticated, (req, res) => {
+        if (!req.user) {
+            res.redirect("/");
+        }
         db.Link.findAll({
             include:[db.User],
           where:{
