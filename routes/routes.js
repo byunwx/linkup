@@ -12,7 +12,8 @@ module.exports = app => {
         } else {
             // we can edit this query to pull from a specific category (the dev category)
             db.Link.findAll({
-                limit: 3,
+            include:[db.User],
+            limit: 3,
                 where: {
                     shared: true
                 },
@@ -30,6 +31,7 @@ module.exports = app => {
 
     app.get("/search/all", isAuthenticated, (req, res) => {
         db.Link.findAll({
+            include:[db.User],
             where: {
                 shared: true
             },
@@ -45,6 +47,7 @@ module.exports = app => {
     });
     app.get("/search/:category", isAuthenticated, (req, res) => {
         db.Link.findAll({
+            include:[db.User],
           where:{
             category:req.params.category,
             shared:true
@@ -98,7 +101,10 @@ module.exports = app => {
     app.get("/user/:userid/all", (req, res) => {
         if (!req.user) {
             res.redirect("/");
-        }
+        }else if (req.params.userid!=req.user.id) {
+          console.log("redirect 1")
+          res.redirect("/");
+        }else{
           db.Link.findAll({
             where:{
               UserId: req.params.userid
@@ -112,12 +118,16 @@ module.exports = app => {
               }
               res.render("user", links);
           });
-
+        }
     });
     app.get("/user/:userid/:category", (req, res) => {
         if (!req.user) {
             res.redirect("/");
-        }
+        }else if (req.params.userid!=req.user.id) {
+          console.log("redirect 2")
+          res.redirect("/");
+        }else{
+
           db.Link.findAll({
             where:{
               category: req.params.category,
@@ -127,12 +137,15 @@ module.exports = app => {
               ["totalClicks", "DESC"]
             ]
           }).then(data => {
+            console.log("------");
+            console.log(req.user);
+            console.log("------");
               let links = {
                   links: data
               }
               res.render("user", links);
           });
-
+        }
     });
 
 
