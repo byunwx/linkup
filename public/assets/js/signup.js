@@ -57,10 +57,7 @@ $(document).ready(function() {
         $("#alert").html("YOUR PASSWORD NEED AT LEAST ONE NUMBER AND ONE CHARACTER");
         document.getElementById("password-check").style.background="red";
       }
-      // else if (birthday.val()=="") {
-      //   console.log(birthday.val());
-      //   $("#alert").html("ENTER BIRTHDAY");
-      // }
+
       else {
         // console.log(emailInput.val().trim(), usernameInput.val().trim(), passwordInput.val().trim(), birthday.val());
         return signUpUser(emailInput.val().trim(), usernameInput.val().trim(), passwordInput.val().trim(), birthday.val());
