@@ -49,12 +49,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     lastlogin: {
-      type: DataTypes.DATETIME,
+      type: DataTypes.DATE,
       allowNull: true,
       defaultValue: null
     },
     lastlogout:{
-      type: DataTypes.DATETIME,
+      type: DataTypes.DATE,
       allowNull: true,
       defaultValue: null
     }
