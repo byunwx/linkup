@@ -7,18 +7,17 @@
 						<label for="title">Site Title:</label>
 						<input  type="text"  id="title" value={{links.title}} >
 						<br />
-                        <lable for="url" >Site URL:</lable>
-						<input type="text"  id="url" value= {{links.url}}>                        
+                        <p for="url" >Site URL: {{links.url}} </p>                      
 						<label for="body">Description:</label>
 						<input rows="10" id="description" value={{links.description}}></input>
                         <div class="form-check" id="shareOption">
                             <div class="row">
                             <div class="col">
-                                <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true">
+                                <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true" checked>
                                 <label class="form-check-label" for="shareLink">Share</label>
                             </div>
                             <div class="col">
-                                <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false" checked>
+                                <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false">
                                 <label class="form-check-label" for="privateLink">Private</label>
                             </div>
                             </div>
