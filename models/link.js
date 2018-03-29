@@ -46,10 +46,6 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: true
     }
   });
-  // Link.hook("afterCreate", link => {
-
-  //   link.top500 = ;
-  // });
   Link.associate = function (models) {
     Link.belongsTo(models.User, {
       foreignKey: {
