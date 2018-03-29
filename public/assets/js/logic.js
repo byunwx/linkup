@@ -1,5 +1,28 @@
 $(document).ready(function () {
 
+  if($("#categoryUser")[0]){
+    setTimeout(selectorReset, 200);
+    const lastParam=window.location.pathname.split("/")[window.location.pathname.split("/").length-1];
+    function selectorReset(){
+      document.getElementById("categoryUser").value = lastParam;
+    }
+  }
+
+  $.get("/api/user/data",function(data){
+    const ID=data.id;
+
+        let myCat = data.linkCategories.split(",");
+        let catSel=$("<select>").attr("class", "catSel");
+        catSel.append($("<option>").attr("value", "null").text("Change Category"));
+        for (var i = 1; i < myCat.length; i++) {
+          let catOp=$("<option>").attr("value", myCat[i]).text(myCat[i]);
+          catSel.append(catOp);
+        }
+        $(".cat"+ID).append(catSel);
+
+
+
+  });
   // click to open and close Modal
 
 
@@ -7,7 +30,7 @@ $(document).ready(function () {
     $(".newLink-box").show();
   })
 
-  
+
 
   $("#edit-profile").click(function(){
     $(".profile-box").show();
@@ -32,7 +55,7 @@ $(".target_home").on("click", function(){
 
 $(".target_search").on("click", function(){
   console.log("search");
-  window.location.href = `/search`;
+  window.location.href = `/search/all`;
   });
 
 $(".target_person").on("click", function(){
@@ -41,7 +64,7 @@ $(".target_person").on("click", function(){
   $.get("/api/user/data",function(data){
     const ID=data.id;
     console.log(data);
-    return window.location.href = `/user/${ID}`;
+    return window.location.href = `/user/${ID}/all`;
   });
 })
 $(".card").on("click", function(){
@@ -61,7 +84,7 @@ $(".card").on("click", function(){
     data: newPost
   })
     .then(function() {
-      window.location.href = "/";
+      location.reload();
       console.log("ajax done");
     });
 })
@@ -69,25 +92,30 @@ $("#categoryUser").change(function(){
   $("select option:selected").each(function(){
     const x = document.getElementById("categoryUser").selectedIndex;
     const categoryValue = document.getElementsByTagName("option")[x].value;
-    console.log("adfasdfasdf",categoryValue);
-    let search={
-      where:{
-        category: categoryValue
-      },
-      order:[
-        ["totalClicks", "DESC"]
-      ]
-    }
-    if(categoryValue=="all"){
-      search={
-        order:[
-          ["totalClicks", "DESC"]
-        ]
-      }
-    }
-    $.post("/api/link/search", search).then(data=>{
-      console.log("helloloolollo",data)
-    });
+    console.log(window.location.path,categoryValue);
+    window.location.href=`${categoryValue}`;
   })
+})
+
+$(".catSel").change(function(){
+  if ($(this).find('option:selected').val()=="null") {
+    return;
+  }else{
+    var newPost = {
+      category: $(this).find('option:selected').val(),
+      id: $(this).data("id")
+    };
+    $.ajax({
+      method: "PUT",
+      url: "/api/link/update",
+      data: newPost
+    })
+      .then(function() {
+        location.reload();
+
+        console.log("ajax done");
+      });
+
+    }
 })
 });
