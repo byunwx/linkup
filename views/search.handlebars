@@ -1,26 +1,19 @@
 <!-- Navigation bar with logo -->
 <nav class="navbar navbar-fixed-top navbar-light bg-light">
   <a class="navbar-brand" href="#"><img class="logoHead" src="../../assets/images/logoHead.png" /></a>
-    <button type="button" class="btn btn-lg logout-btn"><a href="/logout"><span class="material-icons clear"></span></a></button>
+  <select class="category searchPageSearch" id="categoryUser">
+    <option value="all">All Categories</option>
+    <option value="general">general</option>
+    <option value="shopping">shopping</option>
+    <option value="food">food</option>
+    <option value="entertainment">entertainment</option>
+    <option value="travel">travel</option>
+  </select>
+  <button type="button" class="btn btn-lg logout-btn"><a href="/logout"><span class="material-icons clear"></span></a></button>
 </nav>
 
 <!-- Search Container -->
 <div class="container search-container mb-5">
-  <div class="input-group mb-5 col-md-6 offset-md-3">
-    <select class="category searchPageSearch" id="categoryUser">
-      <option value="all">All Categories</option>
-      <option value="general">general</option>
-      <option value="shopping">shopping</option>
-      <option value="food">food</option>
-      <option value="entertainment">entertainment</option>
-      <option value="travel">travel</option>
-    </select>
-    <!-- <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="basic-addon2">
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button">Search</button>
-    </div> -->
-  </div>
-
   <div class="row" id="linkCards" >
     {{#each links}}
     <div class="col-md-4 col-sm-6 col-xs-12 mb-3">
