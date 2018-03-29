@@ -83,7 +83,7 @@ $(document).ready(function() {
         if(data=="/home"){
           console.log(data);
           window.location.replace(data);
-        }else if (data.errors[0]!="") {
+        }else{
           $("#alert").text(data.errors[0].message);
           $("#alert").fadeIn(500);
           console.log("im here")
