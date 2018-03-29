@@ -71,6 +71,7 @@ module.exports = app => {
             ["createdAt", "DESC"]
           ]
         }).then(data => {
+          console.log("----- this is data:\n",data);
             let links = {
                 links: data
             }

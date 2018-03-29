@@ -1,5 +1,18 @@
 $(document).ready(function () {
+  $.get("/api/user/data",function(data){
+    const ID=data.id;
 
+        let myCat = data.linkCategories.split(",");
+        let catSel=$("<select>").attr("class", "catSel");
+        for (var i = 1; i < myCat.length; i++) {
+          let catOp=$("<option>").attr("value", myCat[i]).text(myCat[i]);
+          catSel.append(catOp);
+        }
+        $(".cat"+ID).append(catSel);
+
+
+
+  });
   // click to open and close Modal
 
 
