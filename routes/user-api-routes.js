@@ -44,16 +44,17 @@ module.exports = (app) => {
             }).then(function (data) {
                 let userData = {
                     id: data.id,
-                    username:data.username,
+                    username: data.username,
                     email: data.email,
                     firstName: data.firstName,
-                    lastName:data.lastName,
-                    bio:data.bio,
+                    lastName: data.lastName,
+                    bio: data.bio,
+                    image: data.image,
                     array: data.array,
                     birthday: data.birthday,
                     createdAt: data.createdAt,
                     updatedAt: data.updatedAt,
-                    linkCategories:data.linkCategories,
+                    linkCategories: data.linkCategories,
                     Links: data.Links
                 }
                 res.json(userData);
@@ -76,6 +77,7 @@ module.exports = (app) => {
                     id: data.id,
                     email: data.email,
                     array: data.array,
+                    image: data.image,
                     birthday: data.birthday,
                     createdAt: data.createdAt,
                     updatedAt: data.updatedAt,
@@ -86,30 +88,28 @@ module.exports = (app) => {
         }
     })
     // update user data for followers
-    app.put("/api/user/follow", function(req, res) {
+    app.put("/api/user/follow", function (req, res) {
         db.User.update(
-          req.body,
-          {
-            where: {
-              id: req.body.id
-            }
-          }).then(function(dbPost) {
-          res.json(dbPost);
+            req.body, {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function (dbPost) {
+            res.json(dbPost);
         });
         // console.log(req.body)
-      });
+    });
 
-      // update user profile
-    app.put("/api/user/info", function(req, res) {
+    // update user profile
+    app.put("/api/user/info", function (req, res) {
         db.User.update(
-          req.body,
-          {
-            where: {
-              id: req.body.id
-            }
-          }).then(function(dbPost) {
-          res.json(dbPost);
+            req.body, {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function (dbPost) {
+            res.json(dbPost);
         });
-      });
+    });
 
 }

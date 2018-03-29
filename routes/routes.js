@@ -12,13 +12,13 @@ module.exports = app => {
         } else {
             // we can edit this query to pull from a specific category (the dev category)
             db.Link.findAll({
-              limit:3,
-              where:{
-                shared:true
-              },
-              order:[
-                ["totalClicks", "DESC"]
-              ]
+                limit: 3,
+                where: {
+                    shared: true
+                },
+                order: [
+                    ["totalClicks", "DESC"]
+                ]
             }).then(data => {
                 let links = {
                     links: data
@@ -30,12 +30,12 @@ module.exports = app => {
 
     app.get("/search/all", isAuthenticated, (req, res) => {
         db.Link.findAll({
-          where:{
-            shared:true
-          },
-          order:[
-            ["totalClicks", "DESC"]
-          ]
+            where: {
+                shared: true
+            },
+            order: [
+                ["totalClicks", "DESC"]
+            ]
         }).then(data => {
             let links = {
                 links: data

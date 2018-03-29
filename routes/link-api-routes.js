@@ -55,14 +55,7 @@ module.exports  = (app)=>{
             res.json(data)
         })
     })
-    // app.post("/api/link/search", (req, res)=>{
-    //     db.Link.findAll(req.body).then((data)=>{
-    //       let links = {
-    //           links: data
-    //       }
-    //       res.render("user", links);
-    //     })
-    // })
+
     app.get("/api/user/:id/:category", function (req, res) {
       db.Link.findAll({
         where:{

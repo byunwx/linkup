@@ -8,36 +8,5 @@ $.get("/api/user/data", function(data){
     $("#categoryUser").append(newOption);
   }
 })
-// $("#categoryUser").change(function(){
-//   $("select option:selected").each(function(){
-//     const x = document.getElementById("categoryUser").selectedIndex;
-//     const categoryValue = document.getElementsByTagName("option")[x].value;
-//     window.location.path=`../${categoryValue}`;
-//     let thing= name.split("/");
-//     let lastUrl= thing[thing.length-1];
-//     console.log("adfasdfasdf",categoryValue);
-//     let search={
-//       where:{
-//         UserId: lastUrl,
-//         category: categoryValue
-//       },
-//       order:[
-//         ["totalClicks", "DESC"]
-//       ]
-//     }
-//     if(categoryValue=="all"){
-//       search={
-//         where:{
-//           UserId: lastUrl,
-//         },
-//         order:[
-//           ["totalClicks", "DESC"]
-//         ]
-//       }
-//     }
-//     $.post("/api/link/search", search).then(data=>{
-//       console.log("helloloolollo",data)
-//     });
-//   })
-// })
+
 })
