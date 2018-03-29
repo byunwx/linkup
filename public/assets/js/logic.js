@@ -4,6 +4,7 @@ $(document).ready(function () {
 
         let myCat = data.linkCategories.split(",");
         let catSel=$("<select>").attr("class", "catSel");
+        catSel.append($("<option>").attr("value", "null").text("Change Category"));
         for (var i = 1; i < myCat.length; i++) {
           let catOp=$("<option>").attr("value", myCat[i]).text(myCat[i]);
           catSel.append(catOp);
@@ -88,13 +89,9 @@ $("#categoryUser").change(function(){
 })
 
 $(".catSel").change(function(){
-  $("select option:selected").each(function(){
-    const x = document.getElementById(".catSel").selectedIndex;
-    const categoryValue = document.getElementsByTagName("option")[x].value;
-    console.log($(this).parent().data("id"));
     var newPost = {
-      category: categoryValue,
-      id: $(this).parent().data("id")
+      category: $(this).find('option:selected').text(),
+      id: $(this).data("id")
     };
     $.ajax({
       method: "PUT",
@@ -105,6 +102,6 @@ $(".catSel").change(function(){
         location.reload();
         console.log("ajax done");
       });
-  })
+  // })
 })
 });
