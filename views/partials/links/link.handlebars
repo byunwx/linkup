@@ -1,9 +1,4 @@
 <div class="card" data-id="{{this.id}}" data-totalclicks="{{this.totalClicks}}" data-dailyclicks="{{this.dailyClicks}}" data-top500="{{this.top500}}">
-    {{!-- <button type="button" class="btn btn-lg logout-btn">
-        <a href="">
-            <span class="material-icons clear"></span>
-        </a>
-    </button> --}}
     <a href="{{this.url}}" target="_blank">
         <img class="card-img-top" src="http://placehold.it/300x300&amp;text=CardPlaceholder" alt="">
         <div class="card-body">
@@ -18,11 +13,16 @@
                 </p>
             </span>
               </a>
+<<<<<<< HEAD
               <span class="catSelector"></span>
             <button class="followBtn" id="{{this.id}}"  data-userID={{this.UserId}} data-linkID={{this.id}} class="follow-btn btn btn-primary follow">Follow</button>
+=======
+>>>>>>> b9676ea07b3d7934253a5bdb442d7b044cdd3d5e
 
         </div>
 </div>
+            <button id="{{this.id}}"  data-userID={{this.UserId}} data-linkID={{this.id}} class="follow-btn followBtn btn btn-primary follow">Follow</button>
+
 <!-- <button id ="{{this.id}}"  data-userID={{this.UserId}} data-linkID={{this.id}} class="follow-btn btn btn-primary follow">Follow User</button> -->
 
 <!-- $.get("/api/user/data", function(data) {

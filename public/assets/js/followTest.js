@@ -17,15 +17,15 @@ function reRender(){
             //loop through each card on the page
             if ($(`#${linkIDArr[i]}`).attr("data-userID")==currentUser){
                 //if the current user id = button user id
-                $(`#${linkIDArr[i]}`).text("this is your post: delete?")
-                $(`#${linkIDArr[i]}`).attr("class", "delete-btn btn-danger")
+                $(`#${linkIDArr[i]}`).text("Edit Your Post?")
+                $(`#${linkIDArr[i]}`).attr("class", "edit-btn followBtn")
                 // render the button as "this is your post" and change class to delete
                 // will be used to call the delete function
             } else
             if(followingArr!==null && followingArr.following.includes($(`#${linkIDArr[i]}`).attr("data-userID"))){
                 //if the current user is following a user with the id of the button
-                $(`#${linkIDArr[i]}`).text("You Already Follow this user")
-                $(`#${linkIDArr[i]}`).attr("class", "unfollow-btn btn-success")
+                $(`#${linkIDArr[i]}`).text("Unfollow?")
+                $(`#${linkIDArr[i]}`).attr("class", "unfollow-btn followBtn")
                 //render the button as "you already follow this post" and change class to unfollow
                 //will be used to call the unfollow function
             }
@@ -167,7 +167,7 @@ function updateLink(post){
         data: post
     })
     .then(function(){
-        location.reload()
+        location.assign("/")
         console.log("updated")
     })
 }
@@ -189,3 +189,14 @@ function deleteLink(post){
 $(document).on("click",".unfollow-btn", function(){
     unfollow($(this).attr("data-userID"))
   })
+<<<<<<< HEAD
+=======
+  // route to edit page
+  $(document).on("click",".edit-btn",function(){
+    location.assign(`/link/${$(this).attr("data-linkid")}`)
+  })
+  //call delete
+  $(document).on("click",".delete-btn",function(){
+    deleteLink($(this).attr("data-linkID"))
+  })
+>>>>>>> b9676ea07b3d7934253a5bdb442d7b044cdd3d5e

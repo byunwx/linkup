@@ -1,0 +1,62 @@
+	<div>
+		<div>
+			<div>
+				<form id="cms">
+					<div class="form-group">
+                        <h1 id="poster" data-poster={{links.UserId}}> Posted by : {{links.User.username}}</h1>
+						<label for="title">Site Title:</label>
+						<input  type="text"  id="title" value={{links.title}} >
+						<br />
+                        <lable for="url" >Site URL:</lable>
+						<input type="text"  id="url" value= {{links.url}}>                        
+						<label for="body">Description:</label>
+						<input rows="10" id="description" value={{links.description}}></input>
+                        <div class="form-check" id="shareOption">
+                            <div class="row">
+                            <div class="col">
+                                <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true">
+                                <label class="form-check-label" for="shareLink">Share</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false" checked>
+                                <label class="form-check-label" for="privateLink">Private</label>
+                            </div>
+                            </div>
+                        </div>
+						<br />
+						<button id ="update" class="btn btn-success"  data-linkID={{links.id}} >Submit</button>
+                        <button id="{{links.id}}"  data-userID={{links.UserId}} data-linkID={{links.id}} class="delete-btn btn btn-danger">Delete Post</button>
+                        
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script src="../assets/js/followTest.js"></script>    
+<script>
+    let poster =$("#poster").attr("data-poster")
+    console.log(poster)
+    $.get("/api/user/data",function(data){
+        let currentUser=data.id
+        console.log(poster)
+        console.log(currentUser)
+        if(currentUser != poster){
+            location.assign("/")
+    }
+    });
+    $("#update").on("click",function(event){
+        let shortInput = $("#url").val().trim();  
+        shortInput = shortInput.replace(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)/gm, '')      
+        let putData={
+        id: $("#update").attr("data-linkID"),
+        title: $("#title").val().trim(),
+        url: $("#url").val().trim(),
+        shortenedUrl: shortInput,
+        description: $("#description").val().trim(),
+        shared: $("#shareOption input:radio:checked").val()
+        }
+            event.preventDefault()
+            updateLink(putData)            
+            console.log(putData)
+    })
+</script>

@@ -77,7 +77,22 @@ module.exports = app => {
             res.render("home", links);
         });
     })
-
+    app.get("/link/:linkid", (req,res)=>{
+        if(!req.user){
+            res.redirect("/")
+        }
+        db.Link.findOne({
+            include:[db.User],
+            where:{
+                id:req.params.linkid
+            }
+        }).then(data=>{
+            let links = {
+                links:data
+            }
+            res.render("update", links)
+        });
+    })
 
     app.get("/user/:userid", (req, res) => {
         if (!req.user) {
