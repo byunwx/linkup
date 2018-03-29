@@ -43,6 +43,22 @@ module.exports = app => {
             res.render("search", links);
         });
     });
+    app.get("/search/:category", isAuthenticated, (req, res) => {
+        db.Link.findAll({
+          where:{
+            category:req.params.category,
+            shared:true
+          },
+          order:[
+            ["totalClicks", "DESC"]
+          ]
+        }).then(data => {
+            let links = {
+                links: data
+            }
+            res.render("search", links);
+        });
+    });
 
 
     app.get("/home", isAuthenticated, (req, res) => {
@@ -69,6 +85,26 @@ module.exports = app => {
         }
           db.Link.findAll({
             where:{
+              UserId: req.params.userid
+            },
+            order:[
+              ["totalClicks", "DESC"]
+            ]
+          }).then(data => {
+              let links = {
+                  links: data
+              }
+              res.render("user", links);
+          });
+
+    });
+    app.get("/user/:userid/:category", (req, res) => {
+        if (!req.user) {
+            res.redirect("/");
+        }
+          db.Link.findAll({
+            where:{
+              category: req.params.category,
               UserId: req.params.userid
             },
             order:[
