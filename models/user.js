@@ -57,6 +57,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: true,
       defaultValue: null
+    },
+    icon:{
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null
+    },
+    flag:{
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      defaultValue: 0
     }
   });
   User.prototype.validPassword = function (password) {
