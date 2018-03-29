@@ -62,6 +62,7 @@ module.exports = app => {
 
 
     app.get("/home", isAuthenticated, (req, res) => {
+
         db.Link.findAll({
             include:[db.User],
           where:{
@@ -71,7 +72,6 @@ module.exports = app => {
             ["createdAt", "DESC"]
           ]
         }).then(data => {
-          console.log("----- this is data:\n",data);
             let links = {
                 links: data
             }

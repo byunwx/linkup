@@ -89,8 +89,11 @@ $("#categoryUser").change(function(){
 })
 
 $(".catSel").change(function(){
+  if ($(this).find('option:selected').val()=="null") {
+    return;
+  }else{
     var newPost = {
-      category: $(this).find('option:selected').text(),
+      category: $(this).find('option:selected').val(),
       id: $(this).data("id")
     };
     $.ajax({
@@ -102,6 +105,7 @@ $(".catSel").change(function(){
         location.reload();
         console.log("ajax done");
       });
-  // })
+
+    }
 })
 });
