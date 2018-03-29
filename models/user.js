@@ -47,6 +47,16 @@ module.exports = (sequelize, DataTypes) => {
     array: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    lastlogin: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: null
+    },
+    lastlogout:{
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: null
     }
   });
   User.prototype.validPassword = function (password) {

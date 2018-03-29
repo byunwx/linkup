@@ -8,6 +8,8 @@ a {
 .navbar {
   background-color: rgba(0, 0, 0, 0.75)!important;
   width: 100%;
+  position: fixed;
+  z-index: 100;
 }
 .logoHead {
   height: 60px;
@@ -141,7 +143,7 @@ cursor: pointer!important;
 .ourInfoRow {
   margin-top: 30px;
 }
-.followBtn {
+.followBtn{
   background-color: coral;
   border-radius: 20px;
   color: #fff;
@@ -278,10 +280,18 @@ text-shadow: 0 0 10px gray;
   background-color: yellow;
   background-image: url(../../assets/images/abstract.jpg);
 } */
+.catSearch {
+  width: 92%;
+  margin: 0 10px 30px 20px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: coral;
+}
+
 .user-container {
   max-width: 960px;
   padding-left: 70px;
-  padding-top: 50px;
+  padding-top: 120px;
 }
 .user-link-col {
   padding-left: 30px;
@@ -294,12 +304,24 @@ text-shadow: 0 0 10px gray;
   padding: 0 3em;
   height: 560px;
   min-width: 700px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
   /* visibility: hidden; */
+}
+
+.profile-row {
+  position: fixed;
+}
+
+#edit-profile {
+  background-color: coral;
+  border-radius: 20px;
+  color: #fff;
+  border: none;
+  margin-top: 20px;
 }
 .newLink-box {
   background-color: rgba(0, 0, 0, 0.75);
@@ -307,7 +329,7 @@ text-shadow: 0 0 10px gray;
   padding: 0 3em;
   height: 590px;
   min-width: 700px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
