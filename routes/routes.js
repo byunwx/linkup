@@ -115,9 +115,10 @@ module.exports = app => {
 
     });
     app.get("/user/:userid/:category", (req, res) => {
-        if (!req.user) {
+        if (!req.user||req.params.userid!=req.user.id) {
             res.redirect("/");
         }
+
           db.Link.findAll({
             where:{
               category: req.params.category,
@@ -127,6 +128,9 @@ module.exports = app => {
               ["totalClicks", "DESC"]
             ]
           }).then(data => {
+            console.log("------");
+            console.log(req.user);
+            console.log("------");
               let links = {
                   links: data
               }
