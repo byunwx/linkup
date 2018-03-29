@@ -9,7 +9,7 @@ a {
   background-color: rgba(0, 0, 0, 0.75)!important;
   width: 100%;
   position: fixed;
-  z-index: 100;
+  z-index: 1;
 }
 .logoHead {
   height: 60px;
@@ -52,7 +52,7 @@ cursor: pointer!important;
   background-image: url("../../assets/images/abstract.jpg");
   position: relative;
   text-align: center;
-  min-height: 550px;
+  min-height: 650px;
   border-bottom: 2px solid #010;
 }
 .main-container {
