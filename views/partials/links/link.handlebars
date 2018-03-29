@@ -1,6 +1,7 @@
 
 <a href="{{this.url}}" target="_blank">
   <div class="card" data-id="{{this.id}}" data-totalclicks="{{this.totalClicks}}" data-dailyclicks="{{this.dailyClicks}}" data-top500="{{this.top500}}">
+
     <img class="card-img-top" src="/assets/images/{{this.category}}.png" alt="">
     <div class="card-body">
       <h4 class="card-title">{{this.title}}</h4>
@@ -26,14 +27,3 @@
 <br>
             <span class="catSel cat{{this.UserId}}" data-id={{this.UserId}}></span>
 
-
-<!-- $.get("/api/user/data", function(data) {
-  data.id
-  let myCat = data.linkCategories.split(",");
-  let catSel=$("<select>").attr("class", "catSel");
-  for (var i = 0; i < myCat.length; i++) {
-    let catOp=$("<option>").attr("value", myCat[i]).text(myCat[i]);
-    catSel.append(catOp);
-  }
-  $(.catSelector).append(catSel);
-}); -->
