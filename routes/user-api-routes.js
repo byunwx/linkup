@@ -8,12 +8,13 @@ module.exports = (app) => {
         console.log("loging attemtp")
         res.json("/home")
     });
-
+    // Handles signin functionality
     app.post("/api/user/signup", function (req, res) {
         console.log("signup attempt")
         console.log(req.body)
         db.User.create({
             email: req.body.email,
+            username: req.body.username,
             password: req.body.password,
             birthday: req.body.birthday
         }).then(function () {
@@ -24,10 +25,12 @@ module.exports = (app) => {
             res.json(err)
         })
     });
+    //logout
     app.get("/logout", (req, res) => {
         req.logout();
         res.redirect("/");
     });
+    // get current user's data
     app.get("/api/user/data", function (req, res) {
         //   console.log(req.user)
         if (!req.user) {
@@ -41,7 +44,38 @@ module.exports = (app) => {
             }).then(function (data) {
                 let userData = {
                     id: data.id,
+                    username:data.username,
                     email: data.email,
+                    firstName: data.firstName,
+                    lastName:data.lastName,
+                    bio:data.bio,
+                    array: data.array,
+                    birthday: data.birthday,
+                    createdAt: data.createdAt,
+                    updatedAt: data.updatedAt,
+                    linkCategories:data.linkCategories,
+                    Links: data.Links
+                }
+                res.json(userData);
+            })
+        }
+    })
+    //get user data based on req.params.id
+    app.get("/api/user/:id", function (req, res) {
+        //   console.log(req.user)
+        if (!req.user) {
+            res.json({})
+        } else {
+            db.User.findOne({
+                include: [db.Link],
+                where: {
+                    id: req.params.id
+                }
+            }).then(function (data) {
+                let userData = {
+                    id: data.id,
+                    email: data.email,
+                    array: data.array,
                     birthday: data.birthday,
                     createdAt: data.createdAt,
                     updatedAt: data.updatedAt,
@@ -49,7 +83,33 @@ module.exports = (app) => {
                 }
                 res.json(userData);
             })
-
         }
     })
+    // update user data for followers
+    app.put("/api/user/follow", function(req, res) {
+        db.User.update(
+          req.body,
+          {
+            where: {
+              id: req.body.id
+            }
+          }).then(function(dbPost) {
+          res.json(dbPost);
+        });
+        // console.log(req.body)
+      });
+
+      // update user profile
+    app.put("/api/user/info", function(req, res) {
+        db.User.update(
+          req.body,
+          {
+            where: {
+              id: req.body.id
+            }
+          }).then(function(dbPost) {
+          res.json(dbPost);
+        });
+      });
+
 }

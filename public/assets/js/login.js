@@ -1,4 +1,26 @@
 $(document).ready(function () {
+  // click to open and close Modal
+
+
+  $(".loginBtn").click(function(){
+    $(".login-box").show();
+  })
+  $(".signupBtn").click(function(){
+    $(".signup-box").show();
+  })
+  $("#linkUpSign").click(function(){
+    $(".login-box").hide();
+    $(".signup-box").show();
+  })
+  $(".close-btn").click(function(){
+    $(".login-box").hide();
+    $(".signup-box").hide();
+    //
+    // $(".signup-box").hide();
+    // $(".login-box").hide();
+    // $(".newLink-box").hide();
+    // $(".profile-box").hide();
+  })
     console.log("linked to login")
     const emailInput = $('input#email-signup');
     const passwordInput = $('input#password-signup');
@@ -8,7 +30,11 @@ $(document).ready(function () {
         $.post('/api/user/login', {
             email: email,
             password: password
-        }).then(data => window.location.replace(data)).catch(err => console.log(err))
+        }).then(data => window.location.replace(data)).catch(err => {
+          $("#alertSignup").html("NOT MATCHING EMAIL OR PASSWORD");
+          document.getElementById("alertSignup").style.color="red";
+          console.log(err);
+        })
     };
     $("#login-submit").on("click", function () {
         console.log("clicked login")
@@ -25,6 +51,6 @@ $(document).ready(function () {
         passwordInput.val('');
     });
 
-    
+
 
 });

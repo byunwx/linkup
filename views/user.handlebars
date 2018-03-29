@@ -1,90 +1,176 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#"><img src="http://placehold.it/160x60&amp;text=linkstagram" /></a>
+<nav class="navbar navbar-fixed-topp navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img class="logoHead" src="../../assets/images/logoHead.png" /></a>
   <button type="button" class="btn btn-lg logout-btn"><a href="/logout"><span class="material-icons clear"></span></a></button>
 </nav>
-
 <!-- User Info container -->
-<div class="container">
-	<div class="row">
-		<div class="col-md-3 col-sm-12">
-			<img class="img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
-      {{> UserImage }}
-  	</div>
-		<div class="col-md-9 col-sm-12">
-			<div class="row">
-				<div class="col">
-					{{> userName }}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					{{> userProfile }}
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
+<div class="container user-container">
+	<div class="row user-links-row">
+		<div class="col-7 user-link-col">
+      <select class="category" id="categoryUser">
 
-<!-- link cards for the user goes here -->
-<div class="container">
-  <div class="row user">
-    {{> links/link}}
+      </select>
+	     <div class="row">
+         <div class="col-12" id="linkCards">
+           <!-- user's links -->
+           {{#each links}}
+           <div class="col">
+               {{> links/link}}
+           </div>
+           {{/each}}
+         </div>
+       </div>
+  	</div>
+		<div class="col-5">
+			<div class="row">
+				<div class="col-4">
+          {{> UserImage }}
+          <img class="user-image img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
+          <button id="edit-profile" type="button" name="edit-profile">Edit Profile</button>
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col">
+              {{> userName }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              {{> userProfile }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <footer class="fixed-bottom">
   <div class="row footer-row">
-    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home"><span class="material-icons home"></span></button>
-    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_search"><span class="material-icons search"></span></button>
-    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_add" data-toggle="modal" data-target="#add-link-modal"><span data-toggle="modal" data-target="#add-link-modal" class="material-icons add"></span></button>
-    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_person"><span class="material-icons person"></span></button>
+    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home">
+      <span class="material-icons home"></span>
+    </button>
+    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_search">
+      <span class="material-icons search"></span>
+    </button>
+    <button type="button" class="add-link-button btn btn-success btn-lg btn-block col-sm-3 target_add" data-toggle="modal" data-target="#add-link-modal">
+      <span data-toggle="modal" data-target="#add-link-modal" class="material-icons add"></span>
+    </button>
+    <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_person">
+      <span class="material-icons person"></span>
+    </button>
   </div>
 </footer>
 
-<!-- New Links Modal -->
-  <div class="modal fade login-modal" id="add-link-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="add-link-title">Share Your Links Here</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form class="add-link">
-            <div class="form-group">
-              <label for="site-title">Site Title:</label>
-              <input type="text" class="form-control" id="site-title" placeholder="Name of Site">
-            </div>
-            <div class="form-group">
-              <label for="site-url">Site URL:</label>
-              <input type="url"  class="form-control" id="site-url" placeholder="https://www.amazon.com" required>
-            </div>
-            <!-- <div class="form-group"> -->
-              <label for="site-desscription">Site Description</label>
-              <textarea class="form-control" id="site-description" rows="3" placeholder="Enter a brief description of the website"></textarea>
-            <!-- </div> -->
-            <div class="form-check" id="shareOption">
-              <div class="row">
-                <div class="col">
-                  <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true" checked>
-                  <label class="form-check-label" for="shareLink">Share</label>
-                </div>
-                <div class="col">
-                  <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false">
-                  <label class="form-check-label" for="privateLink">Private</label>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button id="new-link-submit" type="button" class="btn btn-primary">Submit Link</button>
+
+
+<!-- New Link Form -->
+<div class="newLink-box">
+  <img class="profileImg" src="https://placehold.it/100x100" alt="">
+  <button class="close-btn">
+    <span class="material-icons clear"></span>
+  </button>
+  <div class="row">
+    <div class="col">
+      <h5 class="modal-title" id="add-link-title" align="center">Share Your Links Here</h5>
+    </div>
+  </div>
+  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+    <form class="add-link">
+      <div class="form-group">
+        <label for="site-title">Site Title:</label>
+        <input type="text" class="form-control" id="site-title" placeholder="Name of Site">
+      </div>
+      <div class="form-group">
+        <label for="site-url">Site URL:</label>
+        <input type="url"  class="form-control" id="site-url" required>
+      </div>
+      <!-- <div class="form-group"> -->
+        <label for="site-desscription">Site Description</label>
+        <textarea class="form-control" id="site-description" rows="3" placeholder="Enter a brief description of the website"></textarea>
+      <!-- </div> -->
+      <div class="form-check" id="shareOption">
+        <div class="row">
+          <div class="col">
+            <input class="form-check-input" type="radio" name="shareLinkOption" id="shareLink" value="true" checked>
+            <label class="form-check-label" for="shareLink">Share</label>
+          </div>
+          <div class="col">
+            <input class="form-check-input" type="radio" name="shareLinkOption" id="privateLink" value="false">
+            <label class="form-check-label" for="privateLink">Private</label>
+          </div>
         </div>
       </div>
     </div>
+  </form>
+  <div class="modal-footer">
+    <button id="new-link-submit" type="button" class="btn btn-primary">Submit Link</button>
   </div>
+</div>
+
+
+<!-- User Profile Form -->
+<div class="profile-box">
+  <img class="profileImg" src="https://placehold.it/100x100" alt="">
+  <button class="close-btn">
+    <span class="material-icons clear"></span>
+  </button>
+
+  <div class="row">
+    <div class="col">
+      <form>
+        <div class="form-row name-row mb-3">
+          <div class="col firstName-col">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" id="firstName" placeholder="(Optional)">
+          </div>
+          <div class="col lastName-col">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control" id="lastName" placeholder="(Optional)">
+          </div>
+        </div>
+        <div class="row bio-row mb-3">
+          <div class="col bio-col">
+            <label for="user-bio">Short Bio:</label>
+            <div class="input-group">
+              <textarea class="form-control" id="userBio" rows="3" placeholder="Tell us a little bit about yourself..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="rows profile-pic-row mt-3">
+          <div class="col profile-pic-col">
+            <label for="userImg">Profile Picture:</label>
+            <input type="file" id="file-input">
+            <p id="status">Please select a file</p>
+            <form method="POST" action="/save-details">
+              <input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
+              <input type="submit" value="Update profile">
+            </form>
+            {{!--
+            <div class="input-group">
+              <label class="input-group-btn">
+                <span class="btn btn-primary">
+                  Browse&hellip;
+                  <input id="userImage" type="file" style="display: none;" multiple>
+                </span>
+              </label>
+              <input type="text" class="form-control" readonly>
+            </div> --}}
+
+          </div>
+        </div>
+        <div class="row" align="center">
+          <div class="col mt-3">
+            <button id="profile-submit" class="profile-submit" type="button" name="button">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
   <script src="../assets/js/newlink.js"></script>
   <script src="../assets/js/logic.js"></script>
+  <script src="../assets/js/user.js"></script>
+  <script src="../assets/js/catagory.js"></script>
+  <script src="../assets/js/followTest.js"></script>
