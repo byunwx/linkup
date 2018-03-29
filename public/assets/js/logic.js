@@ -7,7 +7,7 @@ $(document).ready(function () {
     $(".newLink-box").show();
   })
 
-  
+
 
   $("#edit-profile").click(function(){
     $(".profile-box").show();
@@ -32,7 +32,7 @@ $(".target_home").on("click", function(){
 
 $(".target_search").on("click", function(){
   console.log("search");
-  window.location.href = `/search`;
+  window.location.href = `/search/all`;
   });
 
 $(".target_person").on("click", function(){
@@ -41,7 +41,7 @@ $(".target_person").on("click", function(){
   $.get("/api/user/data",function(data){
     const ID=data.id;
     console.log(data);
-    return window.location.href = `/user/${ID}`;
+    return window.location.href = `/user/${ID}/all`;
   });
 })
 $(".card").on("click", function(){
@@ -69,25 +69,8 @@ $("#categoryUser").change(function(){
   $("select option:selected").each(function(){
     const x = document.getElementById("categoryUser").selectedIndex;
     const categoryValue = document.getElementsByTagName("option")[x].value;
-    console.log("adfasdfasdf",categoryValue);
-    let search={
-      where:{
-        category: categoryValue
-      },
-      order:[
-        ["totalClicks", "DESC"]
-      ]
-    }
-    if(categoryValue=="all"){
-      search={
-        order:[
-          ["totalClicks", "DESC"]
-        ]
-      }
-    }
-    $.post("/api/link/search", search).then(data=>{
-      console.log("helloloolollo",data)
-    });
+    console.log(window.location.path,categoryValue);
+    window.location.href=`${categoryValue}`;
   })
 })
 
@@ -95,10 +78,10 @@ $(".catSel").change(function(){
   $("select option:selected").each(function(){
     const x = document.getElementById(".catSel").selectedIndex;
     const categoryValue = document.getElementsByTagName("option")[x].value;
-    console.log($(this).parent().parent().data("id"));
+    console.log($(this).parent().data("id"));
     var newPost = {
       category: categoryValue,
-      id: $(this).parent().parent().data("id")
+      id: $(this).parent().data("id")
     };
     $.ajax({
       method: "PUT",

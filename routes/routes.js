@@ -28,7 +28,7 @@ module.exports = app => {
         };
     });
 
-    app.get("/search", isAuthenticated, (req, res) => {
+    app.get("/search/all", isAuthenticated, (req, res) => {
         db.Link.findAll({
           where:{
             shared:true
@@ -94,7 +94,7 @@ module.exports = app => {
         });
     })
 
-    app.get("/user/:userid", (req, res) => {
+    app.get("/user/:userid/all", (req, res) => {
         if (!req.user) {
             res.redirect("/");
         }
