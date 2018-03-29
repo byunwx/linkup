@@ -1,4 +1,13 @@
 $(document).ready(function () {
+
+  if($("#categoryUser")[0]){
+    setTimeout(selectorReset, 200);
+    const lastParam=window.location.pathname.split("/")[window.location.pathname.split("/").length-1];
+    function selectorReset(){
+      document.getElementById("categoryUser").value = lastParam;
+    }
+  }
+
   $.get("/api/user/data",function(data){
     const ID=data.id;
 
@@ -103,6 +112,7 @@ $(".catSel").change(function(){
     })
       .then(function() {
         location.reload();
+
         console.log("ajax done");
       });
 

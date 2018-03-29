@@ -48,7 +48,6 @@ module.exports  = (app)=>{
     })
     // update a link
     app.put("/api/link/update", (req,res)=>{
-      console.log("p u t u pdate!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         db.Link.update(
             req.body,
             {where:{id: req.body.id}}
