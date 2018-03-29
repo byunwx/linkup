@@ -69,7 +69,7 @@ cursor: pointer!important;
 
 /* JUNBOTROM AND LANDING CSS */
 .jumbotron-fluid {
-  background-image: url("../../assets/images/abstract.jpg");
+  background-image: url("../../assets/images/abstractOL.png");
   position: relative;
   text-align: center;
   min-height: 650px;
@@ -516,6 +516,17 @@ input[type='radio']:checked:after {
   visibility: hidden;
 }
 /************************************************/
+
+.catSel {
+  height: 40px;
+  width: 100%;
+  border-radius: 0!important;
+  background-color: transparent;
+  color: #878787;
+}
+.button-col {
+  padding: 0;
+}
 
 /* hidden and will show with JS click functions*/
 .newLink-box, .profile-box, .login-box, .signup-box, .newLink-box, .profile-box{
