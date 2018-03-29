@@ -167,7 +167,7 @@ function updateLink(post){
         data: post
     })
     .then(function(){
-        location.reload()
+        location.assign("/")
         console.log("updated")
     })
 }
