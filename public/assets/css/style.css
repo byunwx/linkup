@@ -104,6 +104,7 @@ cursor: pointer!important;
   border: 2px solid black;
   color:black;
 }
+
 .card-body {background-color: rgba(0, 0, 0, 0.75)!important;}
 .card-title {color: coral; text-align: center;}
 .card-text {color: #fff;}
@@ -142,13 +143,21 @@ cursor: pointer!important;
 .ourInfoRow {
   margin-top: 30px;
 }
+.button-col {
+  position: absolute;
+  margin-bottom: 20px;
+}
 .followBtn{
   background-color: coral;
   border-radius: 20px;
   color: #fff;
-  z-index: 50;
+  /* z-index: 50; */
+  border: none;
   /* float: right; */
   margin-top: 10px;
+  position: absolute;
+  right: 30px;
+  top: -70px;
 }
 .followBtn:hover {background-color:#00b698; }
 /* FOOTER */
