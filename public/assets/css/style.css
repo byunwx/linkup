@@ -15,6 +15,19 @@ body {
   width: auto;
 }
 
+.logoImg {
+  width: 150px;
+  border: 2px solid coral;
+  border-radius: 25%;
+  background-color: coral;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+
+}
 /* LOG OUT BUTTON */
 .logout-btn, .close-btn {
   background-color: transparent;
@@ -118,15 +131,16 @@ cursor: pointer!important;
 
 .card {
   border: 2px solid black;
+  border-radius: 0;
   color:black;
 }
 
-.card-body {background-color: rgba(0, 0, 0, 0.75)!important;}
+.card-body {background-color: rgba(0, 0, 0, 0.8)!important;}
 .card-title {color: coral; text-align: center;}
 .card-text {color: #fff;}
 
 .aboutUs {
-  background-color: rgba(0, 0, 0, 0.75)!important;
+  background-color: rgba(0, 0, 0, 0.8)!important;
   color: white;
   padding-bottom: 100px;
 }
@@ -267,6 +281,7 @@ text-shadow: 0 0 10px gray;
   border-color: rgba(248, 111, 58, 0.4);
 }
 
+
 #linkCards {
   margin-bottom: 100px;
 }
@@ -280,10 +295,10 @@ text-shadow: 0 0 10px gray;
 
 /* LOGIN FORM MODAL */
 .login-box {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   color: coral;
   padding: 0 3em;
-  height: 470px;
+  height: 500px;
   min-width: 700px;
   position: fixed;
   top: 50%;
@@ -314,10 +329,10 @@ text-shadow: 0 0 10px gray;
 
 /* Signup FORM MODAL */
 .signup-box {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   color: coral;
   padding: 0 3em;
-  height: 580px;
+  height: 610px;
   min-width: 750px;
   position: fixed;
   top: 50%;
@@ -368,7 +383,7 @@ text-shadow: 0 0 10px gray;
 }
 
 .profile-box {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   color: coral;
   padding: 0 3em;
   height: 560px;
@@ -394,7 +409,7 @@ text-shadow: 0 0 10px gray;
 }
 
 .newLink-box {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   color: coral;
   padding: 0 3em;
   height: 590px;
