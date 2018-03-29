@@ -207,8 +207,9 @@ font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
 /*********************************/
-.search-container {
+.search-container, .home-container {
   padding-top: 100px;
+  max-width: 960px;
 }
 .searchPageSearch {
   height: 50px;
@@ -218,7 +219,10 @@ text-shadow: 0 0 10px gray;
   font-size: 24px;
 }
 #linkCards {
+  margin-bottom: 100px;
 }
+.pageTitle {color:#00b698;}
+.colorTitle {color:coral;}
 /* LOGIN FORM MODAL */
 .login-box {
   background-color: rgba(0, 0, 0, 0.75);
@@ -292,16 +296,14 @@ text-shadow: 0 0 10px gray;
   background-image: url(../../assets/images/abstract.jpg);
 } */
 .catSearch {
-  width: 92%;
-  margin: 0 10px 30px 20px;
+  width: 35%;
   height: 40px;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: transparent;
   color: coral;
+  border-color: rgba(248, 111, 58, 0.4);
 }
-
 .user-container {
   max-width: 960px;
-  padding-left: 70px;
   padding-top: 120px;
 }
 .user-link-col {
@@ -324,7 +326,7 @@ text-shadow: 0 0 10px gray;
 }
 
 .profile-row {
-  position: fixed;
+  margin-bottom: 30px;
 }
 
 #edit-profile {
@@ -332,7 +334,8 @@ text-shadow: 0 0 10px gray;
   border-radius: 20px;
   color: #fff;
   border: none;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 .newLink-box {
   background-color: rgba(0, 0, 0, 0.75);

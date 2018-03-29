@@ -1,32 +1,25 @@
 <nav class="navbar navbar-fixed-topp navbar-light bg-light">
   <a class="navbar-brand" href="#"><img class="logoHead" src="../../assets/images/logoHead.png" /></a>
+  <select class="category catSearch" id="categoryUser" placeholder="Choose a Category"></select>
+
   <button type="button" class="btn btn-lg logout-btn"><a href="/logout"><span class="material-icons clear"></span></a></button>
 </nav>
+
 <!-- User Info container -->
 <div class="container user-container">
-	<div class="row user-links-row">
-		<div class="col-7 user-link-col">
-      <!-- Search Selection Box -->
-      <select class="category catSearch" id="categoryUser" placeholder="Choose a Category"></select>
-	     <div class="row">
-         <div class="col-12" id="linkCards">
-           <!-- user's links -->
-           {{#each links}}
-           <div class="col">
-               {{> links/link}}
-           </div>
-           {{/each}}
-         </div>
-       </div>
-  	</div>
-		<div class="col-5">
-			<div class="row profile-row">
-				<div class="col-4">
-          {{> UserImage }}
-          <img class="user-image img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
-          <button id="edit-profile" type="button" name="edit-profile">Edit Profile</button>
+
+      <div class="row profile-row">
+        <div class="col-sm-4">
+          <!-- {{> UserImage }} -->
+          <div class="row" align="center">
+            <div class="col">
+              <img class="user-image img img-responsive img-fluid"src="http://placehold.it/200x200&amp;text=UserImage" alt="">
+            </div>
+          </div>
+
         </div>
-        <div class="col-8">
+
+        <div class="col-sm-8">
           <div class="row">
             <div class="col">
               {{> userName }}
@@ -37,12 +30,26 @@
               {{> userProfile }}
             </div>
           </div>
+          <div class="row">
+            <div class="col">
+              <button id="edit-profile" type="button" name="edit-profile">Edit Profile</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
+
+  <div class="row" id="linkCards">
+    <!-- user's links -->
+    {{#each links}}
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        {{> links/link}}
+    </div>
+    {{/each}}
+  </div>
+
+
+<!-- FOOTER  -->
 <footer class="fixed-bottom">
   <div class="row footer-row">
     <button type="button" class="btn btn-success btn-lg btn-block col-sm-3 target_home">
