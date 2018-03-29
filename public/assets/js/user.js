@@ -1,26 +1,15 @@
-// $(document).ready(function() {
-
-//   console.log("I'm updating my profile");
-
-//   // JS for file upload
-//       $(document).on('change', ':file', function() {
-//       var input = $(this),
-//           numFiles = input.get(0).files ? input.get(0).files.length : 1,
-//           label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-//       input.trigger('fileselect', [numFiles, label]);
-//     });
-
-//     $(':file').on('fileselect', function(event, numFiles, label) {
-//         var input = $(this).parents('.input-group').find(':text'),
-//             log = numFiles > 1 ? numFiles + ' files selected' : label;
-
-//         if( input.length ) {
-//             input.val(log);
-//         } else {
-//             if( log ) alert(log);
-//         }
-//     });
 (() => {
+  dataLoader();
+
+  function dataLoader() {
+    $.get("/api/user/data", function (data) {
+      console.log(data);
+      $('#username').text(`Username: ${data.username}`);
+      $('#avatar').attr('src', data.image);
+      $('#bio').text(`Bio: ${data.bio}`);
+    });
+  }
+
   document.getElementById('file-input').onchange = initUpload;
 
   function uploadFile(file, signedRequest, url) {
@@ -29,7 +18,10 @@
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          console.log('File should have uploaded successfully');
+          console.log('File uploaded successfully');
+          document.getElementById('avatar').setAttribute('data-url', url);
+          document.getElementById('avatar').src = url;
+          document.getElementById('preview').src = url;
         } else {
           alert('Could not upload file.');
         }
@@ -37,7 +29,7 @@
     };
     xhr.send(file);
   }
-
+  // response.url has the image url we can link to
   function getSignedRequest(file) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
@@ -64,20 +56,28 @@
   }
 
   $("#profile-submit").on("click", function () {
-
-    let firstName = $("#firstName").val().trim()
-    let lastName = $("#lastName").val().trim()
-    let bio = $("#userBio").val()
-    let pic = $("#userImage").val()
+    let firstName = $("#firstName").val().trim();
+    let lastName = $("#lastName").val().trim();
+    let bio = $("#userBio").val();
+    let pic = $('#avatar').data('url');
     console.log(firstName, lastName, bio, pic);
-
     $.get("/api/user/data", function (data) {
       const ID = data.id;
       console.log(ID);
       console.log(data);
-      // return window.location.href = `/user/${ID}`;
-
-      var profileUpdate = {
+      if (bio == '') {
+        bio = data.bio
+      }
+      if (pic == '') {
+        pic = data.pic
+      }
+      if (firstName == '') {
+        firstName = data.firstName
+      }
+      if (lastName == '') {
+        lastName = data.lastName
+      }
+      let profileUpdate = {
         firstName: firstName,
         lastName: lastName,
         bio: bio,
@@ -90,6 +90,8 @@
           data: profileUpdate
         })
         .then(function (req, res) {
+          console.log(res);
+          dataLoader();
           window.location.href = `/user/${ID}`;
           console.log(req.body);
         });
