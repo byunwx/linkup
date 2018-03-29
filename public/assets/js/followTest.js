@@ -21,16 +21,6 @@ function reRender(){
                 $(`#${linkIDArr[i]}`).attr("class", "delete-btn btn-danger")
                 // render the button as "this is your post" and change class to delete
                 // will be used to call the delete function
-                $.get("/api/user/data", function(data) {
-                  data.id
-                  let myCat = data.linkCategories.split(",");
-                  let catSel=$("<select>").attr("class", "catSel");
-                  for (var i = 0; i < myCat.length; i++) {
-                    let catOp=$("<option>").attr("value", myCat[i]).text(myCat[i]);
-                    catSel.append(catOp);
-                  }
-                  $(.catSelector).append(catSel);
-                });
             } else
             if(followingArr!==null && followingArr.following.includes($(`#${linkIDArr[i]}`).attr("data-userID"))){
                 //if the current user is following a user with the id of the button

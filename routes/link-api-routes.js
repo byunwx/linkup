@@ -66,9 +66,9 @@ module.exports  = (app)=>{
     app.get("/api/user/:id/:category", function (req, res) {
       db.Link.findAll({
         where:{
-          UserId:req.params.id
+          UserId:req.params.id,
           category:req.params.category
-        }
+        },
         order:[
           ["totalClicks", "DESC"]
         ]
@@ -84,7 +84,7 @@ module.exports  = (app)=>{
       db.Link.findAll({
         where:{
           category:req.params.category
-        }
+        },
         order:[
           ["totalClicks", "DESC"]
         ]
