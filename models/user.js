@@ -41,12 +41,22 @@ module.exports = (sequelize, DataTypes) => {
     },
     linkCategories: {
       type: DataTypes.TEXT,
-      defaultValue: 'shopping,food,entertainment,travel',
+      defaultValue: 'all,general,shopping,food,entertainment,travel',
       allowNull: false
     },
     array: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    lastlogin: {
+      type: DataTypes.DATETIME,
+      allowNull: true,
+      defaultValue: null
+    },
+    lastlogout:{
+      type: DataTypes.DATETIME,
+      allowNull: true,
+      defaultValue: null
     }
   });
   User.prototype.validPassword = function (password) {

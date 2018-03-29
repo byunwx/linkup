@@ -53,6 +53,7 @@ module.exports = (app) => {
                     birthday: data.birthday,
                     createdAt: data.createdAt,
                     updatedAt: data.updatedAt,
+                    linkCategories:data.linkCategories,
                     Links: data.Links
                 }
                 res.json(userData);
@@ -110,4 +111,5 @@ module.exports = (app) => {
           res.json(dbPost);
         });
       });
+
 }
