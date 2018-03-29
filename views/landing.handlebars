@@ -94,17 +94,16 @@
 
 
 <!-- container for developer's sites -->
- <div class="landing-links-bg">
-   <div class="container">
+   <div class="container landing-container">
      <div class="row dev-link-row">
        {{#each links}}
-       <div class="col">
+       <div class="col-sm-4 landingCards">
            {{> links/link}}
        </div>
        {{/each}}
      </div>
    </div>
- </div>
+
 <div class="aboutUs">
   <div class="whole-page container">
     <br>
@@ -113,25 +112,34 @@
     <h3>Meet the developers</h3>
     <br>
     <div class="row">
-
-      <div class="col-md-3">
-        <img src="https://avatars0.githubusercontent.com/u/33700639?s=460&v=4" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper"><br>
-        <h4 class="text-mid">Woojoo Byun</h4>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col">
+            <img src="https://avatars0.githubusercontent.com/u/33700639?s=460&v=4" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper"><br>
+            <h4 class="text-mid">Woojoo Byun</h4>
+          </div>
+          <div class="col">
+            <img src="./assets/images/jon.jpeg" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper">
+            <h4 class="text-mid">Jon Telles</h4>
+          </div>
+        </div>
       </div>
-      <div class="col-md-3">
-        <img src="./assets/images/jon.jpeg" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper">
-        <h4 class="text-mid">Jon Telles</h4>
-      </div>
-      <div class="col-md-3">
-        <img src="https://avatars3.githubusercontent.com/u/34902586?s=460&v=4" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper">
-        <h4 class="text-mid">Marcus Hilaire</h4>
-      </div>
-      <div class="col-md-3">
-        <img src="https://avatars1.githubusercontent.com/u/23311495?s=460&v=4" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper">
-        <h4 class="text-mid">Adrian Kyzer</h4>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col">
+            <img src="https://avatars3.githubusercontent.com/u/34902586?s=460&v=4" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper">
+            <h4 class="text-mid">Marcus Hilaire</h4>
+          </div>
+          <div class="col">
+            <img src="https://avatars1.githubusercontent.com/u/23311495?s=460&v=4" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper">
+            <h4 class="text-mid">Adrian Kyzer</h4>
+          </div>
+        </div>
       </div>
     </div>
+
     <br>
+
     <div class="row ourInfoRow">
       <div class="col-md-6">
         <h3>This websites</h3><br>
