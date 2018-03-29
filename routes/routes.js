@@ -12,7 +12,8 @@ module.exports = app => {
         } else {
             // we can edit this query to pull from a specific category (the dev category)
             db.Link.findAll({
-                limit: 3,
+            include:[db.User],
+            limit: 3,
                 where: {
                     shared: true
                 },
@@ -30,6 +31,7 @@ module.exports = app => {
 
     app.get("/search/all", isAuthenticated, (req, res) => {
         db.Link.findAll({
+            include:[db.User],
             where: {
                 shared: true
             },
@@ -45,6 +47,7 @@ module.exports = app => {
     });
     app.get("/search/:category", isAuthenticated, (req, res) => {
         db.Link.findAll({
+            include:[db.User],
           where:{
             category:req.params.category,
             shared:true
