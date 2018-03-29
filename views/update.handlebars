@@ -44,13 +44,9 @@
     }
     });
     $("#update").on("click",function(event){
-        let shortInput = $("#url").val().trim();  
-        shortInput = shortInput.replace(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)/gm, '')      
         let putData={
         id: $("#update").attr("data-linkID"),
         title: $("#title").val().trim(),
-        url: $("#url").val().trim(),
-        shortenedUrl: shortInput,
         description: $("#description").val().trim(),
         shared: $("#shareOption input:radio:checked").val()
         }

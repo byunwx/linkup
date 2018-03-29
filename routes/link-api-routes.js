@@ -57,7 +57,10 @@ module.exports  = (app)=>{
     })
 
     app.get("/api/user/:id/:category", function (req, res) {
-      db.Link.findAll({
+        if (!req.user) {
+            res.redirect("/");
+        }
+        db.Link.findAll({
         where:{
           UserId:req.params.id,
           category:req.params.category
@@ -74,7 +77,10 @@ module.exports  = (app)=>{
     })
 
     app.get("/search/:category", function (req, res) {
-      db.Link.findAll({
+        if (!req.user) {
+            res.redirect("/");
+        }
+        db.Link.findAll({
         where:{
           category:req.params.category
         },
