@@ -84,7 +84,7 @@ $(document).ready(function() {
           console.log(data);
           window.location.replace(data);
         }else{
-          $("#alert").text(data.errors[0].message);
+          $("#alert").text(data.errors.message);
           $("#alert").fadeIn(500);
           console.log("im here")
         }
