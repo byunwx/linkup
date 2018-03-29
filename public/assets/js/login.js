@@ -15,11 +15,7 @@ $(document).ready(function () {
   $(".close-btn").click(function(){
     $(".login-box").hide();
     $(".signup-box").hide();
-    //
-    // $(".signup-box").hide();
-    // $(".login-box").hide();
-    // $(".newLink-box").hide();
-    // $(".profile-box").hide();
+
   })
     console.log("linked to login")
     const emailInput = $('input#email-signup');
