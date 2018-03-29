@@ -12,9 +12,18 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       len: [1]
     },
+    shortenedUrl: {
+      type:DataTypes.STRING,
+      allowNull: false
+    },
     description: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'general'
     },
     totalClicks: {
       type: DataTypes.INTEGER,
@@ -37,7 +46,10 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: true
     }
   });
+  // Link.hook("afterCreate", link => {
 
+  //   link.top500 = ;
+  // });
   Link.associate = function (models) {
     Link.belongsTo(models.User, {
       foreignKey: {

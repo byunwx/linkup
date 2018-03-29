@@ -8,6 +8,7 @@ module.exports  = (app)=>{
         db.Link.create({
             title: req.body.title,
             url: req.body.url,
+            shortenedUrl: req.body.shortenedUrl,
             description: req.body.description,
             shared: req.body.shared,
             top500: req.body.top500,
@@ -19,7 +20,7 @@ module.exports  = (app)=>{
     // find all links in database
     app.get("/api/link/data", (req,res)=>{
         db.Link.findAll({
-            where:{include:[db.User]}
+            include:[db.User]
         })
         .then((data)=>{
             res.json(data) // will be edited to not display user password
@@ -29,9 +30,10 @@ module.exports  = (app)=>{
     // find all the information for a specific link
     app.get("/api/link/:id",(req,res)=>{
         db.Link.findOne({
-            where:{
-                include:[db.User]},
-                id:req.params.id
+            include:[db.User],
+            where:{id:req.params.id,
+                }
+
         }).then((data)=>{
             res.json(data)// will be edited to not display user password
         })
@@ -53,9 +55,38 @@ module.exports  = (app)=>{
             res.json(data)
         })
     })
-    // increase a link's clickcount
-    // app.put("/api/link/click", function(req,res){
-    //     db.Link.update(req.body,
-    //         {where: {id: req.body.id}})
-    // })
+
+    app.get("/api/user/:id/:category", function (req, res) {
+      db.Link.findAll({
+        where:{
+          UserId:req.params.id,
+          category:req.params.category
+        },
+        order:[
+          ["totalClicks", "DESC"]
+        ]
+      }).then((data)=>{
+        let links = {
+            links: data
+        }
+        res.render("user", links);
+      })
+    })
+
+    app.get("/search/:category", function (req, res) {
+      db.Link.findAll({
+        where:{
+          category:req.params.category
+        },
+        order:[
+          ["totalClicks", "DESC"]
+        ]
+      }).then((data)=>{
+        let links = {
+            links: data
+        }
+        res.render("user", links);
+      })
+    })
+
 }
