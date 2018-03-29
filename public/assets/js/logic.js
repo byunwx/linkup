@@ -64,7 +64,7 @@ $(".card").on("click", function(){
     data: newPost
   })
     .then(function() {
-      window.location.href = "/";
+      location.reload();
       console.log("ajax done");
     });
 })
@@ -91,6 +91,27 @@ $("#categoryUser").change(function(){
     $.post("/api/link/search", search).then(data=>{
       console.log("helloloolollo",data)
     });
+  })
+})
+
+$(".catSel").change(function(){
+  $("select option:selected").each(function(){
+    const x = document.getElementById(".catSel").selectedIndex;
+    const categoryValue = document.getElementsByTagName("option")[x].value;
+    console.log($(this).parent().parent().data("id"));
+    var newPost = {
+      category: categoryValue,
+      id: $(this).parent().parent().data("id")
+    };
+    $.ajax({
+      method: "PUT",
+      url: "/api/link/update",
+      data: newPost
+    })
+      .then(function() {
+        location.reload();
+        console.log("ajax done");
+      });
   })
 })
 });

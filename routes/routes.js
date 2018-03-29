@@ -47,7 +47,7 @@ module.exports = app => {
 
     app.get("/home", isAuthenticated, (req, res) => {
         db.Link.findAll({
-            include:[db.User],            
+            include:[db.User],
           where:{
             shared:true
           },
@@ -67,13 +67,6 @@ module.exports = app => {
         if (!req.user) {
             res.redirect("/");
         }
-
-        db.User.findOne({
-            include: [db.Link],
-            where: {
-                id: req.params.userid
-            }
-        }).then((data) => {
           db.Link.findAll({
             where:{
               UserId: req.params.userid
@@ -87,9 +80,8 @@ module.exports = app => {
               }
               res.render("user", links);
           });
-        })
 
     });
-    
+
 
 }
