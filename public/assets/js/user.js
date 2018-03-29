@@ -92,7 +92,7 @@
         .then(function (req, res) {
           console.log(res);
           dataLoader();
-          window.location.href = `/user/${ID}`;
+          window.location.href = `/user/${ID}/all`;
           console.log(req.body);
         });
     }); // end of get request for user data

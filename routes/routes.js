@@ -28,7 +28,7 @@ module.exports = app => {
         };
     });
 
-    app.get("/search", isAuthenticated, (req, res) => {
+    app.get("/search/all", isAuthenticated, (req, res) => {
         db.Link.findAll({
             where: {
                 shared: true
@@ -43,17 +43,34 @@ module.exports = app => {
             res.render("search", links);
         });
     });
+    app.get("/search/:category", isAuthenticated, (req, res) => {
+        db.Link.findAll({
+          where:{
+            category:req.params.category,
+            shared:true
+          },
+          order:[
+            ["totalClicks", "DESC"]
+          ]
+        }).then(data => {
+            let links = {
+                links: data
+            }
+            res.render("search", links);
+        });
+    });
 
 
     app.get("/home", isAuthenticated, (req, res) => {
+
         db.Link.findAll({
-            include: [db.User],
-            where: {
-                shared: true
-            },
-            order: [
-                ["createdAt", "DESC"]
-            ]
+            include:[db.User],
+          where:{
+            shared:true
+          },
+          order:[
+            ["createdAt", "DESC"]
+          ]
         }).then(data => {
             let links = {
                 links: data
@@ -78,31 +95,45 @@ module.exports = app => {
         });
     })
 
-    app.get("/user/:userid", (req, res) => {
+    app.get("/user/:userid/all", (req, res) => {
         if (!req.user) {
             res.redirect("/");
         }
+          db.Link.findAll({
+            where:{
+              UserId: req.params.userid
+            },
+            order:[
+              ["totalClicks", "DESC"]
+            ]
+          }).then(data => {
+              let links = {
+                  links: data
+              }
+              res.render("user", links);
+          });
 
-        db.User.findOne({
-            include: [db.Link],
-            where: {
-                id: req.params.userid
-            }
-        }).then((data) => {
-            db.Link.findAll({
-                where: {
-                    UserId: req.params.userid
-                },
-                order: [
-                    ["totalClicks", "DESC"]
-                ]
-            }).then(data => {
-                let links = {
-                    links: data
-                }
-                res.render("user", links);
-            });
-        })
     });
+    app.get("/user/:userid/:category", (req, res) => {
+        if (!req.user) {
+            res.redirect("/");
+        }
+          db.Link.findAll({
+            where:{
+              category: req.params.category,
+              UserId: req.params.userid
+            },
+            order:[
+              ["totalClicks", "DESC"]
+            ]
+          }).then(data => {
+              let links = {
+                  links: data
+              }
+              res.render("user", links);
+          });
+
+    });
+
 
 }
