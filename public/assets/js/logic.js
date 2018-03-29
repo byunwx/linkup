@@ -30,8 +30,6 @@ $(document).ready(function () {
     $(".newLink-box").show();
   })
 
-
-
   $("#edit-profile").click(function(){
     $(".profile-box").show();
   })
