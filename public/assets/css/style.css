@@ -517,6 +517,17 @@ input[type='radio']:checked:after {
 }
 /************************************************/
 
+.catSel {
+  height: 40px;
+  width: 100%;
+  border-radius: 0!important;
+  background-color: transparent;
+  color: #878787;
+}
+.button-col {
+  padding: 0;
+}
+
 /* hidden and will show with JS click functions*/
 .newLink-box, .profile-box, .login-box, .signup-box, .newLink-box, .profile-box{
   display: none;
