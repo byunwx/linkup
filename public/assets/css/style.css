@@ -148,7 +148,7 @@ cursor: pointer!important;
   border-radius: 20px;
   color: #fff;
   z-index: 50;
-  float: right;
+  /* float: right; */
   margin-top: 10px;
 }
 .followBtn:hover {background-color:#00b698; }
@@ -207,7 +207,18 @@ font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
 /*********************************/
-
+.search-container {
+  padding-top: 100px;
+}
+.searchPageSearch {
+  height: 50px;
+  width:100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: coral;
+  font-size: 24px;
+}
+#linkCards {
+}
 /* LOGIN FORM MODAL */
 .login-box {
   background-color: rgba(0, 0, 0, 0.75);
