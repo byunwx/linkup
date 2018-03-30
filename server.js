@@ -56,7 +56,7 @@ app.get('/sign-s3', (req, res) => {
   };
 
   s3.getSignedUrl('putObject', s3Params, (err, data) => {
-    if(err){
+    if (err) {
       console.log(err);
       return res.end();
     }
@@ -107,6 +107,25 @@ const scraper = () => {
     }
   });
 }
+
+// const top500Validation = (linkToCheck, cb) => {
+//   $.get('/scrape/', function (data) {
+//     if (data != '') {
+//       let top500 = data;
+//       top500 = JSON.parse(top500);
+//       let size = Object.keys(top500).length;
+//       let result = false;
+//       for (let i = 0; i < size; i++) {
+//         let url = top500[`${i}`][0];
+//         if (linkToCheck == url) {
+//           result = true;
+//           return result
+//         }
+//       }
+//       top500 = result;
+//     }
+//   })
+// }
 
 //cron! scheduling for our scraper to run every wednesday at 4:00am
 schedule.scheduleJob('* 4 * * 2', function () {

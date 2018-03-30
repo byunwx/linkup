@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     linkCategories: {
       type: DataTypes.TEXT,
-      defaultValue: 'all,general,shopping,food,entertainment,travel,doc,project,money',
+      defaultValue: 'all,general,shopping,food,entertainment,travel,doc,project,money,personal1,personal2,personal3,personal4,personal5',
       allowNull: false
     },
     array: {

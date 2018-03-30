@@ -1,6 +1,8 @@
 <!-- Navigation bar with logo -->
 <nav class="navbar navbar-fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="#"><img class="logoHead" src="../../assets/images/logoHead.png" /></a>
+  <a class="navbar-brand" href="#">
+    <img class="logoHead" src="../../assets/images/logoHead.png" />
+  </a>
 
 </nav>
 <!-- Jumbotron containing Title, short description and login/signup buttons -->
@@ -20,8 +22,10 @@
 
 <!-- login Form -->
 <div class="login-box">
-  <img class="logoImg"src="../assets/images/link-logo.png" alt="">
-  <button class="close-btn"><span class="material-icons clear"></span></button>
+  <img class="logoImg" src="../assets/images/link-logo.png" alt="">
+  <button class="close-btn">
+    <span class="material-icons clear"></span>
+  </button>
   <div class="row">
     <div class="col">
       <form class="login">
@@ -49,8 +53,10 @@
 
 <!-- Signup Form -->
 <div class="signup-box">
-  <img class="logoImg"src="../assets/images/link-logo.png" alt="">
-  <button class="close-btn"><span class="material-icons clear"></span></button>
+  <img class="logoImg" src="../assets/images/link-logo.png" alt="">
+  <button class="close-btn">
+    <span class="material-icons clear"></span>
+  </button>
   <form class="signup">
     <div class="form-group">
       <label for="exampleInputUsername">Select a Username</label>
@@ -94,15 +100,15 @@
 
 
 <!-- container for developer's sites -->
-   <div class="container landing-container">
-     <div class="row dev-link-row">
-       {{#each links}}
-       <div class="col-sm-4 landingCards">
-           {{> links/link}}
-       </div>
-       {{/each}}
-     </div>
-   </div>
+<div class="container landing-container">
+  <div class="row dev-link-row">
+    {{#each links}}
+    <div class="col-sm-4 landingCards">
+      {{> links/link}}
+    </div>
+    {{/each}}
+  </div>
+</div>
 
 <div class="aboutUs">
   <div class="whole-page container">
@@ -115,7 +121,8 @@
       <div class="col-sm-6">
         <div class="row">
           <div class="col">
-            <img src="https://avatars0.githubusercontent.com/u/33700639?s=460&v=4" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper"><br>
+            <img src="https://avatars0.githubusercontent.com/u/33700639?s=460&v=4" alt="profile picture" class="img-fluid img-responsive rounded-circle thedeveloper">
+            <br>
             <h4 class="text-mid">Woojoo Byun</h4>
           </div>
           <div class="col">
@@ -142,24 +149,28 @@
 
     <div class="row ourInfoRow">
       <div class="col-md-6">
-        <h3>This website</h3><br>
+        <h3>This website</h3>
+        <br>
         <div class="row">
           <div class="col-md-12">
-            <p>Welcome to Linkstagram. Keep track of the favorite site you've visited and see where your friends have navigated. See
-              the top websites and get recommendations from your friends on where to go for various categories. DISCOVER sites you
-              never knew existed.</p>
+            <p>Welcome to Linkup. Keep track of your favorite sites and see where your friends have navigated. See the top websites
+              and get recommendations from your friends on where to go for various categories. DISCOVER sites you never knew
+              existed.</p>
           </div>
           <div class="col-md-6">
 
           </div>
-        </div><br><br>
-        <h3>Other functions</h3><br>
+        </div>
+        <br>
+        <br>
+        <h3>Other functions</h3>
+        <br>
         <div class="row">
           <div class="landingCards col-md-12">
             <ul>
-              <li>Link your google docs! (make sure make it private)</li>
-              <li>Link online picture using https://</li>
-              <li>Save all the links in different folders to organize your links</li>
+              <li>Link your Google docs! (make sure to keep them private if they have sensitive information)</li>
+              <li>Link online pictures</li>
+              <li>Organize your links with categories</li>
             </ul>
           </div>
         </div>
@@ -167,16 +178,19 @@
       <div class="col-md-6 contactUs">
         <h3>Contact Us</h3>
         <hr>
-        <form class="email-form"method="POST" action="https://formspree.io/byunwx@gmail.com, https://formspree.io/marcushilaire@gmail.com, https://formspree.io/adriankyzer@gmail.com, https://formspree.io/jongtelles@gmail.com">
+        <form class="email-form" method="POST" action="https://formspree.io/byunwx@gmail.com, https://formspree.io/marcushilaire@gmail.com, https://formspree.io/adriankyzer@gmail.com, https://formspree.io/jongtelles@gmail.com">
           <p>Name</p>
           <input id="name" type="name" name="name" placeholder="John Smith">
-          <br /><br>
+          <br />
+          <br>
           <p>Email</p>
           <input id="email" type="email" name="email" placeholder="example@gmail.com">
-          <br /><br>
+          <br />
+          <br>
           <p>Message</p>
           <textarea id="textarea" name="message" placeholder="Your message"></textarea>
-          <br /><br>
+          <br />
+          <br>
           <button class="email-submit btn btn-primary" type="submit">Send</button>
         </form>
       </div>
@@ -184,6 +198,6 @@
 
   </div>
 </div>
-  <script src="./assets/js/signup.js"></script>
-  <script src="./assets/js/login.js"></script>
-  <script>$(".follow-btn").hide() </script>
+<script src="./assets/js/signup.js"></script>
+<script src="./assets/js/login.js"></script>
+<script>$(".follow-btn").hide() </script>

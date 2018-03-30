@@ -532,3 +532,8 @@ input[type='radio']:checked:after {
 .newLink-box, .profile-box, .login-box, .signup-box, .newLink-box, .profile-box{
   display: none;
 }
+
+#preview{
+  height: 100px !important;
+  width: 100px !important
+}
