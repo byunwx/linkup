@@ -44,6 +44,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
+    },
+    icon:{
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null
+    },
+    flag:{
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      defaultValue: 0
     }
   });
   Link.associate = function (models) {
