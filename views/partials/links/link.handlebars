@@ -7,6 +7,7 @@
       <hr>
       <span>
         <p class="card-text">
+          {{#if this.shared}}{{else}}<i class="material-icons">lock</i>{{/if}}
           {{this.description}}
           <br> Posted by: {{this.User.username}}
           <br> Total Clicks: {{this.totalClicks}}
