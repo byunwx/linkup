@@ -6,7 +6,10 @@
       console.log(data);
       $('#username').text(`Username: ${data.username}`);
       $('#avatar').attr('src', data.image);
-      $('#bio').text(`Bio: ${data.bio}`);
+      if (data.bio == '') {
+        $('#bio').text('Bio:');
+      } else
+        $('#bio').text(`Bio: ${data.bio}`);
     });
   }
 
