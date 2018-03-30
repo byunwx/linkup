@@ -3,72 +3,532 @@ body {
   padding: 0;
 }
 
-.card {
-color:black;}
+.navbar {
+  background-color: rgba(0, 0, 0, 0.8)!important;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
 
+.logoHead {
+  height: 60px;
+  width: auto;
+}
+
+.logoImg {
+  width: 150px;
+  border: 2px solid coral;
+  border-radius: 25%;
+  background-color: coral;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+
+}
+/* LOG OUT BUTTON */
+.logout-btn, .close-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.clear {
+/* position:relative; */
+display:inline-block;
+}
+
+.clear:after {
+content: "clear";
+color: coral;
+font-size: 44px;
+text-shadow: 0 0 10px lightgray;
+cursor: pointer!important;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.whole-page{
+  min-height: 100vh;
+}
+
+.text-mid{
+  text-align: center;
+}
+
+.aboutUs{
+  background-color: #ff7e4f;
+}
+
+/************************************/
+
+/* JUNBOTROM AND LANDING CSS */
+.jumbotron-fluid {
+  background-image: url("../../assets/images/abstractOL.png");
+  position: relative;
+  text-align: center;
+  min-height: 650px;
+  border-bottom: 2px solid #010;
+}
+
+.main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-container p {
+  color: white;
+  font-size: 34px;
+  padding: 10px 40px;
+  text-shadow: 0 0 5px black;
+}
+
+.loginBtn, .signupBtn {
+  background-color: coral;
+  color: black;
+}
+
+.loginBtn, .signupBtn, .email-submit {
+  background-color: coral;
+  border: none;
+  color: white;
+  font-size: 22px;
+  text-shadow: 0 0 5px black;
+  width: 130px;
+  height: 50px;
+  margin: 0 10px;
+  border-radius: 20px;
+}
+
+.loginBtn:hover, .signupBtn:hover, .email-submit:hover {
+  background-color: #00b698!important;
+  color: white!important;
+}
+
+.email-submit {
+  margin-top: 25;
+}
+
+.logo {
+  width: 400px;
+  height: auto;
+  text-align: center;
+}
+
+.landing-links-bg {
+  padding: 40px 0;
+}
+
+.landingCards {
+}
+
+.card {
+  border: 2px solid black;
+  border-radius: 0;
+  color:black;
+}
+
+.card-body {background-color: rgba(0, 0, 0, 0.8)!important;}
+.card-title {color: coral; text-align: center;}
+.card-text {color: #fff;}
+
+.aboutUs {
+  background-color: rgba(0, 0, 0, 0.8)!important;
+  color: white;
+  padding-bottom: 100px;
+}
+
+.whole-page h3 {
+  color: coral;
+}
+
+.whole-page h2 {
+  font-size: 54px;
+}
+
+.thedeveloper {
+  border: 1px solid coral;
+  margin-bottom: 15px;
+}
+
+.contactUs {
+  text-align: center;
+  padding-left: 40px;
+}
+
+.contactUs input, .contactUs textarea {
+  color : #fff;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid coral;
+}
+
+.contactUs input::placeholder,
+.contactUs textarea::placeholder {
+  color:gray;
+}
+
+.ourInfoRow {
+  margin-top: 30px;
+}
+
+.button-col {
+  position: absolute;
+  margin-bottom: 20px;
+}
+
+.followBtn {
+  background-color: coral;
+  border-radius: 20px;
+  color: #fff;
+  /* z-index: 50; */
+  border: none;
+  /* float: right; */
+  margin-top: 10px;
+  position: absolute;
+  right: 30px;
+  top: -60px;
+}
+
+.followBtn:hover {background-color:#00b698; }
 /* FOOTER */
 footer {
-  background-color: #f8f9fa!important;
+  /* background-color: rgba(0, 0, 0, 0.6)!important; */
   border-top: 1px solid lightgray;
+  background-color: rgba(0, 0, 0, 0.8)!important;
 }
+
 footer button {
-  background-color: #f8f9fa!important;
+  background-color: transparent!important;
   height: 75px!important;
   border: none!important;
+  border-radius: 0!important;
   margin: 0!important;
   padding: 0!important;
   padding-top: 15px!important;
 }
-.logout-btn {
-  background-color: transparent;
-}
-.clear {
-position:relative;
-display:inline-block;
-}
-.clear:after {
-content: "clear";
-color: black;
-font-size: 44px;
-text-shadow: 0 0 10px gray;
-}
+
 .home {
 position:relative;
 display:inline-block;
 }
 .home:after {
+background-color: transparent!important;
 content: "home";
-color: blue;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
+
 .search {
 position:relative;
 display:inline-block;
 }
 .search:after {
 content: "search";
-color: yellow;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
+
 .add {
 position:relative;
 display:inline-block;
 }
 .add:after {
 content: "add";
-color: green;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
 }
+
 .person {
 position:relative;
 display:inline-block;
 }
 .person:after {
 content: "person";
-color: red;
+color: coral;
 font-size: 44px;
 text-shadow: 0 0 10px gray;
+}
+
+/*********************************/
+.search-container, .home-container {
+  padding-top: 100px;
+  max-width: 960px;
+}
+
+.landing-container {
+  padding: 30px 0;
+}
+
+.searchPageSearch {
+  height: 50px;
+  width:35%;
+  background-color: transparent;
+  color: coral;
+  font-size: 18px;
+  border-color: rgba(248, 111, 58, 0.4);
+}
+
+
+#linkCards {
+  margin-bottom: 100px;
+}
+
+.landingCards {
+  margin-bottom: 15px;
+}
+
+.pageTitle {color:#00b698;}
+.colorTitle {color:coral;}
+
+/* LOGIN FORM MODAL */
+.login-box {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: coral;
+  padding: 0 3em;
+  height: 500px;
+  min-width: 700px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.linkUpText {
+  color: #00b698!important;
+}
+
+.linkUpText:hover {
+  color: #fff!important;
+}
+
+#login-submit {
+  background-color: coral;
+  border: none;
+  color: white;
+  font-size: 22px;
+  text-shadow: 0 0 5px black;
+  width: 130px;
+  height: 50px;
+  margin: 0 10px;
+  border-radius: 20px;
+}
+
+/* Signup FORM MODAL */
+.signup-box {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: coral;
+  padding: 0 3em;
+  height: 610px;
+  min-width: 750px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+#birthday {
+  width: 100%;
+  height: 45px;
+}
+
+#signup-submit {
+  background-color: coral;
+  border: none;
+  color: white;
+  font-size: 22px;
+  text-shadow: 0 0 5px black;
+  width: 130px;
+  height: 50px;
+  margin: 0 10px;
+  border-radius: 20px;
+}
+
+.modal-footer {
+  border: none;
+}
+
+/* USER PROFILE EDIT DIVZ */
+.catSearch {
+  width: 35%;
+  height: 40px;
+  background-color: transparent;
+  color: coral;
+  border-color: rgba(248, 111, 58, 0.4);
+}
+
+.user-container, .home-container, .search-container {
+  max-width: 960px;
+  padding-top: 120px;
+}
+
+.user-link-col {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+}
+
+.profile-box {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: coral;
+  padding: 0 3em;
+  height: 560px;
+  min-width: 700px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.profile-row {
+  margin-bottom: 30px;
+}
+
+#edit-profile {
+  background-color: coral;
+  border-radius: 20px;
+  color: #fff;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.newLink-box {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: coral;
+  padding: 0 3em;
+  height: 590px;
+  min-width: 700px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+#shareOption {
+  margin-top: 20px;
+}
+
+::placeholder {
+  color: lightgray;
+}
+
+#userBio {
+  max-height: 90px;
+}
+
+.profileImg {
+  border: 2px solid coral;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+}
+
+.profile-pic-col {
+  padding: 0;
+}
+
+.user-image {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-submit, #new-link-submit {
+  background-color: coral;
+  border: none;
+  color: white;
+  font-size: 22px;
+  text-shadow: 0 0 5px black;
+  width: 140px;
+  height: 50px;
+  margin: 0 10px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+#new-link-submit {
+  margin-top: 5px;
+}
+
+.profile-submit:hover, #new-link-submit:hover,
+#signup-submit:hover, #login-submit:hover {
+  background-color: #00b698;
+  color: #fff;
+  text-shadow: none;
+}
+
+input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #00b698;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+#firstName, #lastName, #userBio,
+#userImage, #birthday, .userImgLabel,
+.form-control, #password-check, #password-input,
+#email-check, #email-input, #username-input,
+#email-signup, #password-signup, #site-title,
+#site-url, #site-description {
+  background-color: transparent!important;
+  border: none;
+  border-bottom: 1px solid coral;
+  border-radius: 0;
+  color: #fff;
+}
+
+#birthday {
+  color: gray;
+}
+
+.userImgLabel {
+  color: #878787;
+}
+
+.custom-file-label::after {
+  visibility: hidden;
+}
+/************************************************/
+
+.catSel {
+  height: 40px;
+  width: 100%;
+  border-radius: 0!important;
+  background-color: transparent;
+  color: #878787;
+}
+.button-col {
+  padding: 0;
+}
+
+/* hidden and will show with JS click functions*/
+.newLink-box, .profile-box, .login-box, .signup-box, .newLink-box, .profile-box{
+  display: none;
 }

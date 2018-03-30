@@ -10,41 +10,149 @@ module.exports = app => {
         if (req.user) {
             res.redirect("/home")
         } else {
-            let placeholder; //will be redifined through development
-            res.render("landing", placeholder)
-        }
+            // we can edit this query to pull from a specific category (the dev category)
+            db.Link.findAll({
+            include:[db.User],
+            limit: 3,
+                where: {
+                    shared: true
+                },
+                order: [
+                    ["totalClicks", "DESC"]
+                ]
+            }).then(data => {
+                let links = {
+                    links: data
+                }
+                res.render("landing", links);
+            });
+        };
     });
 
-
-    app.get("/search", isAuthenticated, (req, res) => {
-        let placeholder; //will be redifined through development
-        res.render("search", placeholder)
+    app.get("/search/all", isAuthenticated, (req, res) => {
+        if (!req.user) {
+            res.redirect("/");
+        }
+        db.Link.findAll({
+            include:[db.User],
+            where: {
+                shared: true
+            },
+            order: [
+                ["totalClicks", "DESC"]
+            ]
+        }).then(data => {
+            let links = {
+                links: data
+            }
+            res.render("search", links);
+        });
+    });
+    app.get("/search/:category", isAuthenticated, (req, res) => {
+        if (!req.user) {
+            res.redirect("/");
+        }
+        db.Link.findAll({
+            include:[db.User],
+          where:{
+            category:req.params.category,
+            shared:true
+          },
+          order:[
+            ["totalClicks", "DESC"]
+          ]
+        }).then(data => {
+            let links = {
+                links: data
+            }
+            res.render("search", links);
+        });
     });
 
 
     app.get("/home", isAuthenticated, (req, res) => {
-        db.Link.findAll({}).then(data => {
+
+        db.Link.findAll({
+            include:[db.User],
+          where:{
+            shared:true
+          },
+          order:[
+            ["createdAt", "DESC"]
+          ]
+        }).then(data => {
             let links = {
                 links: data
             }
             res.render("home", links);
         });
     })
+    app.get("/link/:linkid", (req,res)=>{
+        if(!req.user){
+            res.redirect("/")
+        }
+        db.Link.findOne({
+            include:[db.User],
+            where:{
+                id:req.params.linkid
+            }
+        }).then(data=>{
+            let links = {
+                links:data
+            }
+            res.render("update", links)
+        });
+    })
 
-
-    app.get("/user/:userid", (req, res) => {
+    app.get("/user/:userid/all", (req, res) => {
         if (!req.user) {
             res.redirect("/");
+        }else if (req.params.userid!=req.user.id) {
+          console.log("redirect 1")
+          res.redirect("/");
+        }else{
+          db.Link.findAll({
+            where:{
+              UserId: req.params.userid
+            },
+            order:[
+              ["totalClicks", "DESC"]
+            ]
+          }).then(data => {
+              let links = {
+                  links: data
+              }
+              res.render("user", links);
+          });
         }
-
-        db.User.findOne({
-            include: [db.Link],
-            where: {
-                id: req.params.userid
-            }
-        }).then((data) => {
-            console.log("this is data: ", data);
-            res.render("user");
-        })
     });
+    app.get("/user/:userid/:category", (req, res) => {
+        if (!req.user) {
+            res.redirect("/");
+        }else if (req.params.userid!=req.user.id) {
+          console.log("redirect 2")
+          res.redirect("/");
+        }else{
+
+          db.Link.findAll({
+            where:{
+              category: req.params.category,
+              UserId: req.params.userid
+            },
+            order:[
+              ["totalClicks", "DESC"]
+            ]
+          }).then(data => {
+            console.log("------");
+            console.log(req.user);
+            console.log("------");
+              let links = {
+                  links: data
+              }
+              res.render("user", links);
+          });
+        }
+    });
+
+
 }

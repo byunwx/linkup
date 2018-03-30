@@ -1,16 +1,27 @@
+
 <a href="{{this.url}}" target="_blank">
-    <div class="card" data-id="{{this.id}}">
-        <img class="card-img-top" src="http://placehold.it/300x300&amp;text=CardPlaceholder" alt="">
-        <div class="card-body">
-            <h4 class="card-title">{{this.title}}</h4>
-            <hr>
-            <p class="card-text">
-                {{this.description}}
-                <br>
-                Total Clicks: {{this.totalClicks}} |
-                Daily Clicks: {{this.dailyClicks}} |
-                Top500?: {{this.top500}}
-                </p>
-        </div>
+  <div class="card" data-id="{{this.id}}" data-totalclicks="{{this.totalClicks}}" data-dailyclicks="{{this.dailyClicks}}" data-top500="{{this.top500}}">
+
+    <img class="card-img-top" src="/assets/images/icon/{{this.category}}.png" alt="">
+    <div class="card-body">
+      <h4 class="card-title">{{this.title}}</h4>
+      <hr>
+      <span>
+        <p class="card-text">
+          {{this.description}}
+          <br>
+          Posted by: {{this.User.username}}
+          <br> Total Clicks: {{this.totalClicks}} <br> Daily Clicks: {{this.dailyClicks}}
+        </p>
+      </span>
     </div>
+  </div>
 </a>
+<div class="row" align=center>
+  <div class="col button-col">
+    <button id="{{this.id}}"  data-userID={{this.UserId}} data-linkID={{this.id}} class="follow-btn followBtn btn btn-primary follow">Follow</button>
+  </div>
+</div>
+<br>
+
+<span class="catSel cat{{this.UserId}}" data-id={{this.id}}></span>

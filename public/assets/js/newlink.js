@@ -4,7 +4,8 @@ $(document).ready(function () {
   const titleInput = $("#site-title");
   const urlInput = $("#site-url");
   const siteDescription = $("#site-description");
-  let userIdData;
+
+  document.getElementById('site-url').value="https://";
 
   // check url validation on blur
   $("#site-url").on("blur", function (urlEntered) {
@@ -32,33 +33,15 @@ $(document).ready(function () {
     // console.log(`this should be undefined: ${getUser()}`);
     console.log("submited first");
     event.preventDefault();
-
     let shareOption = $("#shareOption input:radio:checked").val()
     console.log(shareOption);
-
     if ($("privateLink"))
-
       console.log("called second");
-    // const linkData = {
-    //   title: titleInput.val().trim(),
-    //   url: urlInput.val().trim(),
-    //   description: siteDescription.val(),
-    //   shared: shareOption,
-    //   UserId: 3
-    // };
-    console.log(`this should be defined: ${userIdData}`);
     if (formValidation()) {
       $.get("/api/user/data",function(data){
         console.log(data)
         return(enterLink(data.id))
       })
-
-      // enterLink(linkData);
-      // clear value only after we enter the link.
-      // titleInput.val("");
-      // urlInput.val("");
-      // siteDescription.val("");
-
     } else {
       alert("Please enter all fields and make sure the url is in the correct format before submitting")
     }
@@ -66,11 +49,14 @@ $(document).ready(function () {
   }); // end of newLinkSubmit
 
   function enterLink(ID) {
-    let shareOption = $("#shareOption input:radio:checked").val()
+    let shareOption = $("#shareOption input:radio:checked").val();
+    let shortInput = urlInput.val().trim();
+    shortInput = shortInput.replace(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)/gm, '');
     console.log("called third");
-    $.post('api/link/new/', {
+    $.post('/api/link/new/', {
       title: titleInput.val().trim(),
       url: urlInput.val().trim(),
+      shortenedUrl: shortInput,
       description: siteDescription.val().trim(),
       shared: shareOption,
       UserId: ID
@@ -78,6 +64,7 @@ $(document).ready(function () {
       console.log(data)
       console.log("data Log");
       window.location.href = `/home`;
+
     }).catch(handleSubmitError);
 
   } // end of enterlink function
