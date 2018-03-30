@@ -12,6 +12,7 @@ Description
 * Follow other users and discover their favorite links
 * Popularity tracking - see which links have the most clicks
 * Category tracking - filter and store your links by category
+
 Motivation
 * To create a place to store everything on the internet that’s important to you in a simple and easy format
 * To help share and surface lesser-known sites that provide excellent services but don’t get the attention they deserve
