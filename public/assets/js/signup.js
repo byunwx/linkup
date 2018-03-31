@@ -17,7 +17,7 @@ $(document).ready(function() {
 
   $("#email-check").on("blur", function(){
     if (emailInput.val().trim() != emailCheck.val().trim() || emailInput.val().trim()==" " ) {
-      $("#alert").html("NOT MATCHING PASSWORD");
+      $("#alert").html("NOT MATCHING EMAIL");
       document.getElementById("email-check").style.background="lightpink";
     }else{
       document.getElementById("email-check").style.background="lightgreen";
@@ -84,7 +84,7 @@ $(document).ready(function() {
           console.log(data);
           window.location.replace(data);
         }else{
-          $("#alert").text(data.errors.message);
+          $("#alert").text(data.errors[0].message);
           $("#alert").fadeIn(500);
           console.log("im here")
         }
