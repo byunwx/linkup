@@ -88,22 +88,25 @@ module.exports = app => {
         });
     })
     app.get("/link/:linkid", (req,res)=>{
+
         if(!req.user){
             res.redirect("/")
-        }else if(req.user.id==req.params.linkid){
+        }else{
           db.Link.findOne({
               include:[db.User],
               where:{
                   id:req.params.linkid
               }
           }).then(data=>{
+            if (req.user.id==data.UserId) {
               let links = {
                   links:data
               }
               res.render("update", links)
+            }else {
+              res.redirect("/")
+            }
           });
-        }else{
-          res.redirect("/");
         }
     })
 

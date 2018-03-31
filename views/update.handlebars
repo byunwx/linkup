@@ -7,7 +7,7 @@
 						<label for="title">Site Title:</label>
 						<input  type="text"  id="title" value={{links.title}} >
 						<br />
-                        <p for="url" >Site URL: {{links.url}} </p>                      
+                        <p for="url" >Site URL: {{links.url}} </p>
 						<label for="body">Description:</label>
 						<input rows="10" id="description" value={{links.description}}></input>
                         <div class="form-check" id="shareOption">
@@ -25,20 +25,18 @@
 						<br />
 						<button id ="update" class="btn btn-success"  data-linkID={{links.id}} >Submit</button>
                         <button id="{{links.id}}"  data-userID={{links.UserId}} data-linkID={{links.id}} class="delete-btn btn btn-danger">Delete Post</button>
-                        
+												<button id="cancelLinkUpdate" class="btn btn-danger">Cancel</button>
+
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-<script src="../assets/js/followTest.js"></script>    
+<script src="../assets/js/followTest.js"></script>
 <script>
     let poster =$("#poster").attr("data-poster")
-    console.log(poster)
     $.get("/api/user/data",function(data){
         let currentUser=data.id
-        console.log(poster)
-        console.log(currentUser)
         if(currentUser != poster){
             location.assign("/")
     }
@@ -51,7 +49,11 @@
         shared: $("#shareOption input:radio:checked").val()
         }
             event.preventDefault()
-            updateLink(putData)            
-            console.log(putData)
+            updateLink(putData)
     })
+		$("#cancelLinkUpdate").on("click", function(event){
+			console.log("go home");
+			event.preventDefault();
+			location.assign("/")
+		})
 </script>
