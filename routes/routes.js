@@ -90,18 +90,21 @@ module.exports = app => {
     app.get("/link/:linkid", (req,res)=>{
         if(!req.user){
             res.redirect("/")
+        }else if(req.user.id==req.params.linkid){
+          db.Link.findOne({
+              include:[db.User],
+              where:{
+                  id:req.params.linkid
+              }
+          }).then(data=>{
+              let links = {
+                  links:data
+              }
+              res.render("update", links)
+          });
+        }else{
+          res.redirect("/");
         }
-        db.Link.findOne({
-            include:[db.User],
-            where:{
-                id:req.params.linkid
-            }
-        }).then(data=>{
-            let links = {
-                links:data
-            }
-            res.render("update", links)
-        });
     })
 
     app.get("/user/:userid/all", (req, res) => {
