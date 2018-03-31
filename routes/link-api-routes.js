@@ -59,40 +59,42 @@ module.exports  = (app)=>{
     app.get("/api/user/:id/:category", function (req, res) {
         if (!req.user) {
             res.redirect("/");
-        }
-        db.Link.findAll({
-        where:{
-          UserId:req.params.id,
-          category:req.params.category
-        },
-        order:[
-          ["totalClicks", "DESC"]
-        ]
-      }).then((data)=>{
-        let links = {
-            links: data
-        }
-        res.render("user", links);
-      })
+        }else{
+          db.Link.findAll({
+          where:{
+            UserId:req.params.id,
+            category:req.params.category
+          },
+          order:[
+            ["totalClicks", "DESC"]
+          ]
+        }).then((data)=>{
+          let links = {
+              links: data
+          }
+          res.render("user", links);
+        })
+      }
     })
 
     app.get("/search/:category", function (req, res) {
         if (!req.user) {
             res.redirect("/");
-        }
-        db.Link.findAll({
-        where:{
-          category:req.params.category
-        },
-        order:[
-          ["totalClicks", "DESC"]
-        ]
-      }).then((data)=>{
-        let links = {
-            links: data
-        }
-        res.render("user", links);
-      })
+        }else{
+          db.Link.findAll({
+          where:{
+            category:req.params.category
+          },
+          order:[
+            ["totalClicks", "DESC"]
+          ]
+        }).then((data)=>{
+          let links = {
+              links: data
+          }
+          res.render("user", links);
+        })
+      }
     })
 
 }
